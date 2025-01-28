@@ -4,7 +4,10 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 import { Navbar } from "@/components/navbar";
 import { Toaster } from "@/components/ui/toaster";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
+// ... rest of your layout component
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -19,6 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <title>Depogro</title>
+  
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",

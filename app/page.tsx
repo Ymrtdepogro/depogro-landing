@@ -17,6 +17,7 @@ import web2 from "@/assets/web 1.png";
 import phonefr from "@/assets/phonefr.png";
 import phonear from "@/assets/phonear.png";
 import { isRTL } from "@/lib/utils";
+import { BrandsCarousel } from "../components/BrandsCarousel";
 
 export default function Home() {
   const brands = [
@@ -55,6 +56,24 @@ export default function Home() {
       name: "precident",
       image:
         "https://depogro.com/assets/WhatsApp%20Image%202024-03-14%20at%2014.45.59%20(2)%20Background%20Removed.png",
+    },
+    {
+      id: 6,
+      name: "tropico",
+      image:
+        "https://s3-eu-north-1.amazonaws.com/depogro/brands/HaFEIePnejAoZNaXnr6j2",
+    },
+    {
+      id: 7,
+      name: "shark",
+      image:
+        "https://s3-eu-north-1.amazonaws.com/depogro/brands/KEZYA-Mv6bIg98xl6PW25",
+    },
+    {
+      id: 8,
+      name: "moulin",
+      image:
+        "https://s3-eu-north-1.amazonaws.com/depogro/brands/THJlVmECSq6ONlcWhgxjw",
     },
   ];
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -427,46 +446,7 @@ export default function Home() {
         </div>
       </section>
       {/* Brands Section */}
-      <section id="partners" className="py-24 section-bg-1">
-        <div className="container px-4 mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-3xl mx-auto text-center mb-16"
-          >
-            <h2 className="text-4xl font-bold mb-6 font-jakarta text-[#46276B]">
-              {t.partners.title}
-            </h2>
-            <p className="text-lg text-gray-600">{t.partners.dec}</p>
-          </motion.div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 items-center">
-            {brands.map((brand) => (
-              <motion.div
-                key={brand.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: brand.id * 0.1 }}
-                whileHover={{
-                  scale: 1.2, // Zoom in when hovered
-                  transition: { type: "spring" }, // Smooth transition
-                }}
-                className="bg-white/80 backdrop-blur-sm rounded-xl p-8  transition-all"
-              >
-                <div className="relative h-20">
-                  <Image
-                    src={brand.image}
-                    alt={`Partner ${brand.name}`}
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <BrandsCarousel brands={brands} t={t} />
       {/* Contact Section */}
       <section id="contact" className="py-24 bg-white">
         <div className="container px-6 mx-auto">
