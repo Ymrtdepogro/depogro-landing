@@ -5,7 +5,7 @@
  */
 
 import {visionTool} from '@sanity/vision'
-import {defineConfig} from 'sanity'
+import {defineConfig} from 'sanity/lib/exports'
 import {structureTool} from 'sanity/structure'
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
