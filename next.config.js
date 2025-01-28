@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    images: { unoptimized: true },
+    domains: ["depogro.com", "s3-eu-north-1.amazonaws.com"],
   },
   typescript: {
     // Set this to false if you want production builds to abort if there's type errors
@@ -16,6 +16,6 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-}
+};
 
 module.exports = nextConfig;

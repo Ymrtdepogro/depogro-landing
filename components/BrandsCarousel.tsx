@@ -82,6 +82,7 @@ export const BrandsCarousel: React.FC<BrandsCarouselProps> = ({
                   alt={`Partner ${brand.name}`}
                   fill
                   className="object-contain"
+                  unoptimized
                 />
               </div>
             </div>
