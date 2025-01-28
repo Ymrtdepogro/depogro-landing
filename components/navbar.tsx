@@ -1,19 +1,25 @@
 "use client";
 import { Store, Menu, X } from "lucide-react";
 import Link from "next/link";
-import { Button } from "./ui/button";
-import { cn } from "@/lib/utils";
+
+import { cn, isRTL } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguageStore } from "@/lib/store";
-import { translations } from "@/lib/translations";
-
+import { Language, translations } from "@/lib/translations";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
 const navigation = [
   { name: "home", href: "#home" },
   { name: "about", href: "#about" },
   { name: "produit", href: "#produit" },
-  { name: "services", href: "#services" },
   { name: "news", href: "#news" },
+  { name: "partners", href: "#partners" },
   { name: "contact", href: "#contact" },
 ];
 
@@ -27,7 +33,6 @@ export function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       const sections = navigation.map((nav) => nav.href.replace("#", ""));
-
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -46,9 +51,9 @@ export function Navbar() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
+  const rtl = isRTL(language);
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#46276B] via-[#5D3C8C] to-[#EF7953] backdrop-blur-lg shadow-lg">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#46276B] via-[#5D3C8C] to-[#BEBEBE] backdrop-blur-lg shadow-lg">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Branding */}
@@ -87,26 +92,26 @@ export function Navbar() {
           </div>
 
           {/* Language Selection and Hamburger */}
-          <div className="flex items-center space-x-6">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setLanguage("fr")}
-              className={cn(language === "fr" && "text-[#46276B]")}
-            >
-              Français
-            </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setLanguage("ar")}
-              className={cn(language === "ar" && "text-[#46276B]")}
-            >
-              العربية
-            </Button>
-
+          <div className="flex items-center space-x-4">
+            {/* Language Switcher */}
+            <div className="hidden md:flex items-center space-x-4">
+              <Select
+                value={language}
+                onValueChange={(value) => setLanguage(value as Language)}
+              >
+                <SelectTrigger className="w-[180px] bg-transparent text-white border-white">
+                  <SelectValue placeholder="Select Language" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="en">English</SelectItem>
+                  <SelectItem value="fr">Français</SelectItem>
+                  <SelectItem value="ar">العربية</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            {/* Hamburger Menu for Mobile */}
             <button
-              className="md:hidden p-3 bg-transparent border-2 border-white rounded-full hover:bg-white hover:text-[#46276B] transition-all duration-300"
+              className="md:hidden p-3 bg-transparent border-2 border-white rounded-full hover:bg-[#46276B] hover:text-white transition-all duration-300"
               onClick={() => setIsOpen(!isOpen)}
             >
               {isOpen ? (
@@ -129,6 +134,23 @@ export function Navbar() {
             className="md:hidden bg-gradient-to-r from-[#46276B] via-[#5D3C8C] to-[#EF7953] border-t"
           >
             <div className="container mx-auto px-6 py-4">
+              {/* Language Switcher Inside Mobile Menu */}
+              <div className="flex items-center justify-center mb-4">
+                <Select
+                  value={language}
+                  onValueChange={(value) => setLanguage(value as Language)}
+                >
+                  <SelectTrigger className="w-[180px] bg-transparent text-white border-white">
+                    <SelectValue placeholder="Select Language" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="en">English</SelectItem>
+                    <SelectItem value="fr">Français</SelectItem>
+                    <SelectItem value="ar">العربية</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              {/* Navigation Links in Mobile Menu */}
               {navigation.map((item) => (
                 <Link
                   key={item.name}
@@ -142,9 +164,9 @@ export function Navbar() {
                     setActiveSection(item.href.replace("#", ""));
                   }}
                   className={cn(
-                    "block py-3 text-lg font-medium text-white transition-all duration-300 hover:text-[#46276B]",
+                    "block py-3 text-lg font-medium text-white transition-all duration-300 hover:text-[#EF7953]",
                     activeSection === item.href.replace("#", "")
-                      ? "text-[#46276B]"
+                      ? "text-[#EF7953]"
                       : "text-opacity-75"
                   )}
                 >

@@ -14,9 +14,52 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import web1 from "@/assets/web 2.png";
 import web2 from "@/assets/web 1.png";
+import phonefr from "@/assets/phonefr.png";
+import phonear from "@/assets/phonear.png";
+import { isRTL } from "@/lib/utils";
+
 export default function Home() {
+  const brands = [
+    {
+      id: 0,
+      name: "said",
+      image:
+        "https://depogro.com/assets/WhatsApp%20Image%202024-03-14%20at%2014.46.00%20(1)%20Background%20Removed.png",
+    },
+    {
+      id: 1,
+      name: "safia",
+      image:
+        "https://depogro.com/assets/WhatsApp%20Image%202024-03-14%20at%2014.46.00%20(3)%20Background%20Removed.png",
+    },
+    {
+      id: 2,
+      name: "saida",
+      image:
+        "https://depogro.com/assets/WhatsApp%20Image%202024-03-14%20at%2014.46.00%20(7)%20Background%20Removed.png",
+    },
+    {
+      id: 3,
+      name: "cerealis",
+      image:
+        "https://depogro.com/assets/WhatsApp%20Image%202024-03-14%20at%2014.45.59%20(3)%20Background%20Removed.png",
+    },
+    {
+      id: 4,
+      name: "pringles",
+      image:
+        "https://depogro.com/assets/WhatsApp%20Image%202024-03-14%20at%2014.45.59%20(4)%20Background%20Removed.png",
+    },
+    {
+      id: 5,
+      name: "precident",
+      image:
+        "https://depogro.com/assets/WhatsApp%20Image%202024-03-14%20at%2014.45.59%20(2)%20Background%20Removed.png",
+    },
+  ];
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { language } = useLanguageStore();
+  const rtl = isRTL(language);
   const t = translations[language];
   const { toast } = useToast();
 
@@ -44,7 +87,6 @@ export default function Home() {
               : "سنتواصل معك قريباً.",
           variant: "default",
         });
-        e.currentTarget.reset();
       } else {
         throw new Error("Submission failed");
       }
@@ -63,33 +105,42 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className={`min-h-screen ${rtl ? "rtl" : "ltr"}`}>
       {/* Hero Section */}
       <section
         id="home"
-        className="relative min-h-screen flex items-center justify-center bg-gradient-to-r from-[#46276B] via-[#5D3C8C] to-[#EF7953] pt-32"
+        className="relative min-h-screen flex items-center justify-center bg-gradient-to-r from-[#46276B] via-[#5D3C8C] to-[#D8C4B6] pt-32"
       >
         <div className="container px-6 mx-auto relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left side: Text Content */}
+          <div
+            className={`grid lg:grid-cols-2 ${rtl ? "lg:grid-flow-col-dense" : ""} gap-12 items-center`}
+          >
+            {/* Text Content */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
+              className={rtl ? "lg:order-1" : ""}
             >
-              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-wide">
+              <h1
+                className={`text-4xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-wide ${rtl ? "text-right" : ""} `}
+              >
                 {t.hero.title}
               </h1>
-              <p className="text-lg md:text-xl text-purple-100 mb-8 leading-relaxed">
+              <p
+                className={`text-lg md:text-xl text-purple-100 mb-8 leading-relaxed ${rtl ? "text-right" : ""}`}
+              >
                 {t.hero.download}
               </p>
-              <div className="flex flex-col sm:flex-row gap-6">
+              <div
+                className={`flex flex-col sm:flex-row ${rtl ? "sm:flex-row-reverse" : ""} gap-6`}
+              >
                 <a
                   href="https://play.google.com/store/apps/details?id=com.amine_amdouni.DepoGroApp&hl=en"
                   className="market-btn google-btn"
                   role="button"
                 >
-                  <span className="market-button-subtitle">GET IT ON</span>
+                  <span className="market-button-subtitle ">GET IT ON</span>
                   <span className="market-button-title">Google Play</span>
                 </a>
                 <a
@@ -105,19 +156,19 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Right side: Image */}
+            {/* Image */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="relative w-full h-[500px] lg:h-[700px] lg:col-span-1 flex justify-center items-center"
+              className={`relative w-full h-[500px] lg:h-[700px] lg:col-span-1 flex justify-center items-center ${rtl ? "lg:order-0" : ""}`}
             >
-              <div className="absolute inset-0 overflow-hidden rounded-lg">
+              <div className={`absolute inset-0 overflow-hidden rounded-lg`}>
                 <Image
-                  src={web1}
+                  src={rtl ? phonear : phonefr}
                   alt="Depogro App"
                   layout="fill"
-                  className="object-cover rounded-lg "
+                  className="object-cover rounded-lg"
                 />
               </div>
             </motion.div>
@@ -142,7 +193,9 @@ export default function Home() {
           </motion.div>
 
           {/* Content Layout */}
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div
+            className={`grid lg:grid-cols-2 ${rtl ? "lg:grid-flow-col-dense" : ""} gap-12 items-center`}
+          >
             {/* Left: Image */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -151,7 +204,7 @@ export default function Home() {
               className="relative h-[400px] sm:h-[500px] lg:h-[600px] rounded-lg overflow-hidden"
             >
               <Image
-                src="https://depogro.com/assets/stafet.svg" 
+                src="https://depogro.com/assets/stafet.svg"
                 alt="DEPOGRO Mission"
                 layout="fill"
                 className="object-cover"
@@ -163,7 +216,7 @@ export default function Home() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-center lg:text-left"
+              className={`text-center lg:text-left ${rtl ? "lg:text-right" : ""}`}
             >
               <h3 className="text-3xl md:text-4xl font-bold mb-6 font-jakarta text-[#46276B]">
                 {t.about.mission}
@@ -183,29 +236,31 @@ export default function Home() {
       <section id="services" className="py-24 section-bg-2">
         <div className="container px-4 mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 font-jakarta text-[#6B2FB3]">
-            Nos Services
+            {t.services.title}
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div
+            className={`grid md:grid-cols-2 lg:grid-cols-4 ${rtl ? "md:grid-flow-row-dense lg:grid-flow-col-dense" : ""} gap-8`}
+          >
             {[
               {
                 icon: <Store className="h-8 w-8" />,
-                title: "Large Catalogue",
-                description: "Plus de 1600 produits de qualité",
+                title: t.services.service1.title,
+                description: t.services.service1.dec,
               },
               {
                 icon: <Truck className="h-8 w-8" />,
-                title: "Livraison Rapide",
-                description: "Livraison en 24h garantie",
+                title: t.services.service2.title,
+                description: t.services.service2.dec,
               },
               {
                 icon: <ShoppingBag className="h-8 w-8" />,
-                title: "Meilleurs Prix",
-                description: "Prix compétitifs garantis",
+                title: t.services.service3.title,
+                description: t.services.service3.dec,
               },
               {
                 icon: <Phone className="h-8 w-8" />,
-                title: "Support 24/7",
-                description: "Une équipe à votre écoute",
+                title: t.services.service4.title,
+                description: t.services.service4.dec,
               },
             ].map((feature, index) => (
               <Card
@@ -234,33 +289,39 @@ export default function Home() {
       {/* Produit Section */}
       <section
         id="produit"
-        className="py-24 bg-gradient-to-r from-[#46276B] to-[#EF7953] text-white"
+        className="py-24 bg-gradient-to-r from-[#46276B] to-[#D8C4B6] text-white"
       >
         <div className="container px-6 mx-auto">
-          <div className="grid lg:grid-cols-3 gap-12 items-center">
-            {/* Left: Description Text */}
+          <div
+            className={`grid lg:grid-cols-3 ${rtl ? "lg:grid-flow-col-dense" : ""} gap-12 items-center`}
+          >
+            {/* Description Text */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: rtl ? 20 : -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="space-y-6 lg:col-span-1"
+              className={`space-y-6 lg:col-span-1 ${rtl ? "lg:order-2" : ""}`}
             >
-              <h2 className="text-3xl md:text-4xl font-bold">
+              <h2
+                className={`text-3xl md:text-4xl font-bold ${rtl ? "text-right" : ""}`}
+              >
                 {t.produit.title}
               </h2>
-              <p className="text-lg md:text-xl">{t.produit.description}</p>
+              <p className={`text-lg md:text-xl ${rtl ? "text-right" : ""}`}>
+                {t.produit.description}
+              </p>
             </motion.div>
 
-            {/* Center: Product Image */}
+            {/* Product Image */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="relative w-full h-[500px] lg:h-[700px] lg:col-span-1 flex justify-center items-center"
+              className={`relative w-full h-[500px] lg:h-[700px] lg:col-span-1 flex justify-center items-center ${rtl ? "lg:order-1" : ""}`}
             >
-              <div className="absolute inset-0 overflow-hidden rounded-lg">
+              <div className={`absolute inset-0 overflow-hidden rounded-lg`}>
                 <Image
-                  src={web2} // Path to the phone image
+                  src={web2 || "/placeholder.svg"}
                   alt="Produit image"
                   layout="fill"
                   objectFit="cover"
@@ -269,39 +330,51 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Right: Stats/Phrases (Discussion Bubbles) */}
+            {/* Stats/Phrases (Discussion Bubbles) */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: rtl ? -20 : 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="space-y-6 lg:col-span-1"
+              className={`space-y-6 lg:col-span-1 ${rtl ? "lg:order-0" : ""}`}
             >
               {/* Phrase 1 */}
               <div className="p-6 bg-white bg-opacity-90 rounded-2xl shadow-lg relative">
-                <h3 className="text-xl font-semibold text-[#6B2FB3]">
+                <h3
+                  className={`text-xl font-semibold text-[#6B2FB3] ${rtl ? "text-right" : ""}`}
+                >
                   {t.produit.stat1.title}
                 </h3>
-                <p className="text-lg text-gray-700">
+                <p
+                  className={`text-lg text-gray-700 ${rtl ? "text-right" : ""}`}
+                >
                   {t.produit.stat1.content}
                 </p>
               </div>
 
               {/* Phrase 2 */}
               <div className="p-6 bg-white bg-opacity-90 rounded-2xl shadow-lg relative">
-                <h3 className="text-xl font-semibold text-[#6B2FB3]">
+                <h3
+                  className={`text-xl font-semibold text-[#6B2FB3] ${rtl ? "text-right" : ""}`}
+                >
                   {t.produit.stat2.title}
                 </h3>
-                <p className="text-lg text-gray-700">
+                <p
+                  className={`text-lg text-gray-700 ${rtl ? "text-right" : ""}`}
+                >
                   {t.produit.stat2.content}
                 </p>
               </div>
 
               {/* Phrase 3 */}
               <div className="p-6 bg-white bg-opacity-90 rounded-2xl shadow-lg relative">
-                <h3 className="text-xl font-semibold text-[#6B2FB3]">
+                <h3
+                  className={`text-xl font-semibold text-[#6B2FB3] ${rtl ? "text-right" : ""}`}
+                >
                   {t.produit.stat3.title}
                 </h3>
-                <p className="text-lg text-gray-700">
+                <p
+                  className={`text-lg text-gray-700 ${rtl ? "text-right" : ""}`}
+                >
                   {t.produit.stat3.content}
                 </p>
               </div>
@@ -312,7 +385,7 @@ export default function Home() {
       {/* News & Media Section */}
       <section
         id="news"
-        className="py-24 bg-gradient-to-r from-[#46276B] to-[#EF7953]"
+        className="py-24 bg-gradient-to-r from-[#46276B] to-[#D8C4B6]"
       >
         <div className="container px-4 mx-auto">
           {/* Section Title */}
@@ -323,11 +396,9 @@ export default function Home() {
             className="max-w-3xl mx-auto text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6 font-jakarta text-white">
-              News & Media
+              {t.news.title}
             </h2>
-            <p className="text-lg md:text-xl text-purple-100">
-              Découvrez notre présentation complète
-            </p>
+            <p className="text-lg md:text-xl text-purple-100">{t.news.dec}</p>
           </motion.div>
 
           {/* Video Container */}
@@ -343,7 +414,7 @@ export default function Home() {
                 autoPlay
                 muted
                 loop
-                playsInline 
+                playsInline
               >
                 <source
                   src="https://depogro.com/motion%20depogro%20eng%20&%20fr.mp4"
@@ -355,63 +426,117 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+      {/* Brands Section */}
+      <section id="partners" className="py-24 section-bg-1">
+        <div className="container px-4 mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-3xl mx-auto text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold mb-6 font-jakarta text-[#46276B]">
+              {t.partners.title}
+            </h2>
+            <p className="text-lg text-gray-600">{t.partners.dec}</p>
+          </motion.div>
 
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 items-center">
+            {brands.map((brand) => (
+              <motion.div
+                key={brand.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: brand.id * 0.1 }}
+                whileHover={{
+                  scale: 1.2, // Zoom in when hovered
+                  transition: { type: "spring" }, // Smooth transition
+                }}
+                className="bg-white/80 backdrop-blur-sm rounded-xl p-8  transition-all"
+              >
+                <div className="relative h-20">
+                  <Image
+                    src={brand.image}
+                    alt={`Partner ${brand.name}`}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
       {/* Contact Section */}
       <section id="contact" className="py-24 bg-white">
         <div className="container px-6 mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Left: Contact Information */}
+          <div
+            className={`grid lg:grid-cols-2 ${rtl ? "lg:grid-flow-col-dense" : ""} gap-12`}
+          >
+            {/* Contact Information */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: rtl ? 20 : -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="space-y-8"
+              className={`space-y-8 ${rtl ? "lg:order-1" : ""}`}
             >
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#46276B] font-jakarta">
-                  {language === "fr" ? "Nos Coordonnées" : "معلومات الاتصال"}
+                <h2
+                  className={`text-3xl md:text-4xl font-bold mb-4 text-[#46276B] font-jakarta ${rtl ? "text-right" : ""}`}
+                >
+                  {t.contact.title}
                 </h2>
-                <p className="text-lg md:text-xl text-gray-600">
-                  {language === "fr"
-                    ? "Vous pouvez nous contacter directement ou utiliser le formulaire ci-dessous."
-                    : "يمكنك الاتصال بنا مباشرة أو استخدام النموذج أدناه."}
+                <p
+                  className={`text-lg md:text-xl text-gray-600 ${rtl ? "text-right" : ""}`}
+                >
+                  {t.contact.subtitle}
                 </p>
               </div>
               <div>
-                <h3 className="text-lg md:text-xl font-semibold mb-2 text-[#46276B]">
-                  {language === "fr" ? "Adresse" : "العنوان"}
+                <h3
+                  className={`text-lg md:text-xl font-semibold mb-2 text-[#46276B] ${rtl ? "text-right" : ""}`}
+                >
+                  {t.contact.address}
                 </h3>
-                <p className="text-gray-600">
+                <p className={`text-gray-600 ${rtl ? "text-right" : ""}`}>
                   Rue du Parc, Ariana 2036, Tunisie
                 </p>
               </div>
               <div>
-                <h3 className="text-lg md:text-xl font-semibold mb-2 text-[#46276B]">
-                  {language === "fr" ? "Téléphone" : "الهاتف"}
+                <h3
+                  className={`text-lg md:text-xl font-semibold mb-2 text-[#46276B] ${rtl ? "text-right" : ""}`}
+                >
+                  {t.contact.telephone}{" "}
                 </h3>
-                <p className="text-gray-600">+216 71 123 456</p>
+                <p className={`text-gray-600  ${rtl ? "text-right" : ""}`}>
+                  +216 71 123 456
+                </p>
               </div>
               <div>
-                <h3 className="text-lg md:text-xl font-semibold mb-2 text-[#46276B]">
-                  Email
+                <h3
+                  className={`text-lg md:text-xl font-semibold mb-2 text-[#46276B] ${rtl ? "text-right" : ""}`}
+                >
+                  {t.contact.email}
                 </h3>
-                <p className="text-gray-600">contact@depogro.com</p>
+                <p className={`text-gray-600 ${rtl ? "text-right" : ""}`}>
+                  contact@depogro.com
+                </p>
               </div>
             </motion.div>
 
-            {/* Right: Contact Form */}
+            {/* Contact Form */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: rtl ? -20 : 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 backdrop-blur-sm"
+              className={`bg-white rounded-2xl p-8 shadow-lg border border-gray-100 backdrop-blur-sm ${rtl ? "lg:order-0" : ""}`}
             >
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
+                  <div className={`space-y-2 ${rtl ? "text-right" : ""}`}>
                     <label
                       htmlFor="firstName"
-                      className="text-sm font-medium text-gray-700"
+                      className={`text-sm font-medium text-gray-700${rtl ? "text-right" : ""}`}
                     >
                       {t.contact.form.firstName}
                     </label>
@@ -421,12 +546,13 @@ export default function Home() {
                       placeholder={t.contact.form.firstName}
                       required
                       disabled={isSubmitting}
+                      className={`space-y-2 ${rtl ? "text-right" : ""}`}
                     />
                   </div>
-                  <div className="space-y-2">
+                  <div className={`space-y-2 ${rtl ? "text-right" : ""}`}>
                     <label
                       htmlFor="lastName"
-                      className="text-sm font-medium text-gray-700"
+                      className={`text-sm font-medium text-gray-700${rtl ? "text-right" : ""}`}
                     >
                       {t.contact.form.lastName}
                     </label>
@@ -436,13 +562,14 @@ export default function Home() {
                       placeholder={t.contact.form.lastName}
                       required
                       disabled={isSubmitting}
+                      className={`space-y-2 ${rtl ? "text-right" : ""}`}
                     />
                   </div>
                 </div>
-                <div className="space-y-2">
+                <div className={`space-y-2 ${rtl ? "text-right" : ""}`}>
                   <label
                     htmlFor="email"
-                    className="text-sm font-medium text-gray-700"
+                    className={`text-sm font-medium text-gray-700${rtl ? "text-right" : ""}`}
                   >
                     {t.contact.form.email}
                   </label>
@@ -453,12 +580,13 @@ export default function Home() {
                     placeholder={t.contact.form.email}
                     required
                     disabled={isSubmitting}
+                    className={`space-y-2 ${rtl ? "text-right" : ""}`}
                   />
                 </div>
-                <div className="space-y-2">
+                <div className={`space-y-2 ${rtl ? "text-right" : ""}`}>
                   <label
                     htmlFor="message"
-                    className="text-sm font-medium text-gray-700"
+                    className={`text-sm font-medium text-gray-700${rtl ? "text-right" : ""}`}
                   >
                     {t.contact.form.message}
                   </label>
@@ -466,9 +594,9 @@ export default function Home() {
                     id="message"
                     name="message"
                     placeholder={t.contact.form.message}
-                    className="min-h-[150px]"
                     required
                     disabled={isSubmitting}
+                    className={` min-h-[150px] space-y-2 ${rtl ? "text-right" : ""}`}
                   />
                 </div>
                 <Button

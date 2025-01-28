@@ -1,16 +1,104 @@
 export const translations = {
+  en: {
+    nav: {
+      home: "HOME",
+      about: "ABOUT US",
+      produit: "OUR PRODUCT",
+      testimonials: "CUSTOMER REVIEWERS",
+      news: "NEWS & MEDIA",
+      partners: "OUR PARTNERS",
+      contact: "CONTACT US",
+    },
+    hero: {
+      title: "Welcome to DEPOGRO",
+      download:
+        "Download our app now to access the best products at unbeatable prices.",
+    },
+    about: {
+      title: "About DEPOGRO",
+      desc: "A revolutionary e-commerce platform changing the distribution landscape in Tunisia.",
+      mission: "Our Mission",
+      missionDesc:
+        "DEPOGRO is committed to revolutionizing retail in Tunisia by offering an all-in-one solution that simplifies inventory management, optimizes deliveries, and enhances the customer experience. Our platform is designed for retailers, restaurants, and cafes, offering a smooth and intuitive mobile experience.",
+      missionDesc2:
+        "Our platform is designed for retailers, restaurants, and cafes, offering a smooth and intuitive mobile experience.",
+    },
+    contact: {
+      title: "Contact Us",
+      subtitle: "Our team is ready to answer any of your questions",
+      address:"Address",
+      telephone:"Phone",
+      email:"Email",
+      form: {
+        firstName: "First Name",
+        lastName: "Last Name",
+        email: "Email Address",
+        message: "Message",
+        submit: "Send",
+      },
+    },
+    produit: {
+      title: "Explore Our Catalog",
+      description:
+        "Explore our wide catalog of over 120 brands and 1600 products. From food to cleaning products and cosmetics, we have everything you need to meet your business needs.",
+      stat1: {
+        title: "Ease of Use",
+        content: "Intuitive interface for simplified management",
+      },
+      stat2: {
+        title: "Competitive Prices",
+        content: "Competitive prices, unbeatable offers.",
+      },
+      stat3: {
+        title: "Dedicated Customer Service",
+        content: "Dedicated support to ensure your success",
+      },
+    },
+    services: {
+      title: "Our Services",
+      service1: {
+        title: "Large Catalog",
+        dec: "Over 1600 quality products",
+      },
+      service2: {
+        title: "Fast Delivery",
+        dec: "Guaranteed 24-hour delivery",
+      },
+      service3: {
+        title: "Best Prices",
+        dec: "Guaranteed competitive prices",
+      },
+      service4: {
+        title: "24/7 Support",
+        dec: "A team ready to listen to you",
+      },
+    },
+    news: {
+      title: "News & Media",
+      dec: "Discover our full presentation",
+    },
+    partners: {
+      title: "Our Partners",
+      dec: "They trust us with their digital transformation",
+    },
+    // Add more translations as needed
+  },
   fr: {
     nav: {
       home: "ACCUEIL",
       about: "A PROPOS",
       produit: "PRODUIT",
       news: "NEWS & MEDIA",
+      partners: "PARTNERS",
       contact: "CONTACT",
     },
     contact: {
       title: "Contactez-nous",
       subtitle:
         "Notre équipe est à votre disposition pour répondre à toutes vos questions",
+      address:"Adresse",
+      telephone:"Télephone",
+      email:"Email",
       form: {
         firstName: "Prénom",
         lastName: "Nom",
@@ -50,6 +138,33 @@ export const translations = {
         content: "Support client dévoué pour votre réussite",
       },
     },
+    services: {
+      title: "Nos services",
+      service1: {
+        title: "Large Catalogue",
+        dec: "Plus de 1600 produits de qualité",
+      },
+      service2: {
+        title: "Livraison Rapide",
+        dec: "Livraison en 24h garantie",
+      },
+      service3: {
+        title: "Meilleurs Prix",
+        dec: "Prix compétitifs garantis",
+      },
+      service4: {
+        title: "Support 24/7",
+        dec: "Une équipe à votre écoute",
+      },
+    },
+    news: {
+      title: "News & Media",
+      dec: "Découvrez notre présentation complète",
+    },
+    partners: {
+      title: "Nos Partenaires",
+      dec: "Ils nous font confiance pour leur transformation digitale",
+    },
     // Add more translations as needed
   },
   ar: {
@@ -59,6 +174,7 @@ export const translations = {
       produit: "منتجنا",
       testimonials: "آراء العملاء",
       news: "الأخبار والإعلام",
+      partners: "شركاؤنا",
       contact: "اتصل بنا",
     },
     hero: {
@@ -78,6 +194,9 @@ export const translations = {
     contact: {
       title: "اتصل بنا",
       subtitle: "فريقنا جاهز للإجابة على جميع أسئلتكم",
+      address:"العنوان",
+      telephone:"الهاتف",
+      email:"بريد إلكتروني",
       form: {
         firstName: "الاسم الأول",
         lastName: "اللقب",
@@ -102,6 +221,33 @@ export const translations = {
         title: "خدمة العملاء المخصصة",
         content: "دعم العملاء المخصص لنجاحك",
       },
+    },
+    services: {
+      title: "خدماتنا",
+      service1: {
+        title: "كتالوج ضخم",
+        dec: "أكثر من 1600 منتج ذو جودة عالية",
+      },
+      service2: {
+        title: "توصيل سريع",
+        dec: "توصيل خلال 24 ساعة مضمونة",
+      },
+      service3: {
+        title: "أفضل الأسعار",
+        dec: "أسعار تنافسية مضمونة",
+      },
+      service4: {
+        title: "دعم على مدار الساعة",
+        dec: "فريق متاح للاستماع إليك",
+      },
+    },
+    news: {
+      title: "الأخبار ووسائل الإعلام",
+      dec: "اكتشف عرضنا الكامل",
+    },
+    partners: {
+      title: "شركاؤنا",
+      dec: "هم يثقون بنا لتحويلهم الرقمي",
     },
     // Add more translations as needed
   },
