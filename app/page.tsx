@@ -459,9 +459,8 @@ export default function Home() {
               <iframe
                 className="w-full h-full"
                 src="https://www.youtube.com/embed/9KpHxHqtiPE"
-                frameborder="0"
+                title="depogo"
                 allow="autoplay; encrypted-media"
-                allowfullscreen
               ></iframe>
             </div>
           </motion.div>
