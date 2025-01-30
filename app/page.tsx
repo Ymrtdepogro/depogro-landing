@@ -657,6 +657,19 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* Footer Section */}
+      <section className="py-4" style={{ backgroundColor: "#46276B" }}>
+        <div className="container px-4 mx-auto text-center">
+          <p className="text-sm text-white">
+            &copy; {new Date().getFullYear()} {t.footer.desc}
+          </p>
+          <p className="text-sm text-white">
+            <a href={t.footer.terms} className="hover:underline">
+              {t.footer.title}
+            </a>
+          </p>
+        </div>
+      </section>
     </div>
   );
 }

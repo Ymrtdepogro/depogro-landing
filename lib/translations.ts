@@ -1,3 +1,5 @@
+import { title } from "node:process";
+
 export const translations = {
   en: {
     nav: {
@@ -81,6 +83,11 @@ export const translations = {
       title: "Our Partners",
       dec: "They trust us with their digital transformation",
     },
+    footer: {
+      title: "Terms of Service",
+      desc: "DEPOGRO. All rights reserved.",
+      terms: "/terms-en"
+    }
     // Add more translations as needed
   },
   fr: {
@@ -165,6 +172,11 @@ export const translations = {
       title: "Nos Partenaires",
       dec: "Ils nous font confiance pour leur transformation digitale",
     },
+    footer: {
+      title:"Conditions d'utilisation",
+      desc: "DEPOGRO. Tous droits réservés.",
+      terms: "/terms-fr"
+    }
     // Add more translations as needed
   },
   ar: {
@@ -249,6 +261,11 @@ export const translations = {
       title: "شركاؤنا",
       dec: "هم يثقون بنا لتحويلهم الرقمي",
     },
+    footer: {
+      title: "الشروط والأحكام",
+      desc: "ديبوجرو. جميع الحقوق محفوظة.",
+      terms: "/terms-ar"
+    }
     // Add more translations as needed
   },
 };
