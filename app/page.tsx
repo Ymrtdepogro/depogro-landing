@@ -12,7 +12,7 @@ import { useState } from "react";
 import { submitContact, type ContactFormData } from "@/lib/sanity";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import web1 from "@/assets/web 2.png";
+import vanDepo from "@/assets/vandepo.png";
 import web2 from "@/assets/web 1.png";
 import phonefr from "@/assets/phonefr.png";
 import phonear from "@/assets/phonear.png";
@@ -25,37 +25,37 @@ export default function Home() {
       id: 0,
       name: "said",
       image:
-        "https://depogro.com/assets/WhatsApp%20Image%202024-03-14%20at%2014.46.00%20(1)%20Background%20Removed.png",
+        "https://s3-eu-north-1.amazonaws.com/depogro/brands/2dqmfpie-tARrX6Fhk2Pt",
     },
     {
       id: 1,
       name: "safia",
       image:
-        "https://depogro.com/assets/WhatsApp%20Image%202024-03-14%20at%2014.46.00%20(3)%20Background%20Removed.png",
+        "https://s3-eu-north-1.amazonaws.com/depogro/brands/wb52UEeZ2YULGuVtWgpIa",
     },
     {
       id: 2,
       name: "saida",
       image:
-        "https://depogro.com/assets/WhatsApp%20Image%202024-03-14%20at%2014.46.00%20(7)%20Background%20Removed.png",
+        "https://s3-eu-north-1.amazonaws.com/depogro/brands/iEFSDOhO4OhatrToggHwi",
     },
     {
       id: 3,
       name: "cerealis",
       image:
-        "https://depogro.com/assets/WhatsApp%20Image%202024-03-14%20at%2014.45.59%20(3)%20Background%20Removed.png",
+        "https://s3-eu-north-1.amazonaws.com/depogro/brands/WToJGO_bu9cWS3OdmJULz",
     },
     {
       id: 4,
       name: "pringles",
       image:
-        "https://depogro.com/assets/WhatsApp%20Image%202024-03-14%20at%2014.45.59%20(4)%20Background%20Removed.png",
+        "https://s3-eu-north-1.amazonaws.com/depogro/brands/1_QGDbo6hwhwFibquKC87",
     },
     {
       id: 5,
       name: "precident",
       image:
-        "https://depogro.com/assets/WhatsApp%20Image%202024-03-14%20at%2014.45.59%20(2)%20Background%20Removed.png",
+        "https://s3-eu-north-1.amazonaws.com/depogro/brands/pazeheV6-KZqIsG58BuU5",
     },
     {
       id: 6,
@@ -132,7 +132,9 @@ export default function Home() {
       >
         <div className="container px-6 mx-auto relative z-10">
           <div
-            className={`grid lg:grid-cols-2 ${rtl ? "lg:grid-flow-col-dense" : ""} gap-12 items-center`}
+            className={`grid lg:grid-cols-2 ${
+              rtl ? "lg:grid-flow-col-dense" : ""
+            } gap-12 items-center`}
           >
             {/* Text Content */}
             <motion.div
@@ -142,17 +144,23 @@ export default function Home() {
               className={rtl ? "lg:order-1" : ""}
             >
               <h1
-                className={`text-4xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-wide ${rtl ? "text-right" : ""} `}
+                className={`text-4xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-wide ${
+                  rtl ? "text-right" : ""
+                } `}
               >
                 {t.hero.title}
               </h1>
               <p
-                className={`text-lg md:text-xl text-purple-100 mb-8 leading-relaxed ${rtl ? "text-right" : ""}`}
+                className={`text-lg md:text-xl text-purple-100 mb-8 leading-relaxed ${
+                  rtl ? "text-right" : ""
+                }`}
               >
                 {t.hero.download}
               </p>
               <div
-                className={`flex flex-col sm:flex-row ${rtl ? "sm:flex-row-reverse" : ""} gap-6`}
+                className={`flex flex-col sm:flex-row ${
+                  rtl ? "sm:flex-row-reverse" : ""
+                } gap-6`}
               >
                 <a
                   href="https://play.google.com/store/apps/details?id=com.amine_amdouni.DepoGroApp&hl=en"
@@ -180,7 +188,9 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className={`relative w-full h-[500px] lg:h-[700px] lg:col-span-1 flex justify-center items-center ${rtl ? "lg:order-0" : ""}`}
+              className={`relative w-full h-[500px] lg:h-[700px] lg:col-span-1 flex justify-center items-center ${
+                rtl ? "lg:order-0" : ""
+              }`}
             >
               <div className={`absolute inset-0 overflow-hidden rounded-lg`}>
                 <Image
@@ -213,7 +223,9 @@ export default function Home() {
 
           {/* Content Layout */}
           <div
-            className={`grid lg:grid-cols-2 ${rtl ? "lg:grid-flow-col-dense" : ""} gap-12 items-center`}
+            className={`grid lg:grid-cols-2 ${
+              rtl ? "lg:grid-flow-col-dense" : ""
+            } gap-12 items-center`}
           >
             {/* Left: Image */}
             <motion.div
@@ -223,7 +235,7 @@ export default function Home() {
               className="relative h-[400px] sm:h-[500px] lg:h-[600px] rounded-lg overflow-hidden"
             >
               <Image
-                src="https://depogro.com/assets/stafet.svg"
+                src={vanDepo}
                 alt="DEPOGRO Mission"
                 layout="fill"
                 className="object-cover"
@@ -235,7 +247,9 @@ export default function Home() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className={`text-center lg:text-left ${rtl ? "lg:text-right" : ""}`}
+              className={`text-center lg:text-left ${
+                rtl ? "lg:text-right" : ""
+              }`}
             >
               <h3 className="text-3xl md:text-4xl font-bold mb-6 font-jakarta text-[#46276B]">
                 {t.about.mission}
@@ -258,7 +272,9 @@ export default function Home() {
             {t.services.title}
           </h2>
           <div
-            className={`grid md:grid-cols-2 lg:grid-cols-4 ${rtl ? "md:grid-flow-row-dense lg:grid-flow-col-dense" : ""} gap-8`}
+            className={`grid md:grid-cols-2 lg:grid-cols-4 ${
+              rtl ? "md:grid-flow-row-dense lg:grid-flow-col-dense" : ""
+            } gap-8`}
           >
             {[
               {
@@ -312,7 +328,9 @@ export default function Home() {
       >
         <div className="container px-6 mx-auto">
           <div
-            className={`grid lg:grid-cols-3 ${rtl ? "lg:grid-flow-col-dense" : ""} gap-12 items-center`}
+            className={`grid lg:grid-cols-3 ${
+              rtl ? "lg:grid-flow-col-dense" : ""
+            } gap-12 items-center`}
           >
             {/* Description Text */}
             <motion.div
@@ -322,7 +340,9 @@ export default function Home() {
               className={`space-y-6 lg:col-span-1 ${rtl ? "lg:order-2" : ""}`}
             >
               <h2
-                className={`text-3xl md:text-4xl font-bold ${rtl ? "text-right" : ""}`}
+                className={`text-3xl md:text-4xl font-bold ${
+                  rtl ? "text-right" : ""
+                }`}
               >
                 {t.produit.title}
               </h2>
@@ -336,7 +356,9 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className={`relative w-full h-[500px] lg:h-[700px] lg:col-span-1 flex justify-center items-center ${rtl ? "lg:order-1" : ""}`}
+              className={`relative w-full h-[500px] lg:h-[700px] lg:col-span-1 flex justify-center items-center ${
+                rtl ? "lg:order-1" : ""
+              }`}
             >
               <div className={`absolute inset-0 overflow-hidden rounded-lg`}>
                 <Image
@@ -359,7 +381,9 @@ export default function Home() {
               {/* Phrase 1 */}
               <div className="p-6 bg-white bg-opacity-90 rounded-2xl shadow-lg relative">
                 <h3
-                  className={`text-xl font-semibold text-[#6B2FB3] ${rtl ? "text-right" : ""}`}
+                  className={`text-xl font-semibold text-[#6B2FB3] ${
+                    rtl ? "text-right" : ""
+                  }`}
                 >
                   {t.produit.stat1.title}
                 </h3>
@@ -373,7 +397,9 @@ export default function Home() {
               {/* Phrase 2 */}
               <div className="p-6 bg-white bg-opacity-90 rounded-2xl shadow-lg relative">
                 <h3
-                  className={`text-xl font-semibold text-[#6B2FB3] ${rtl ? "text-right" : ""}`}
+                  className={`text-xl font-semibold text-[#6B2FB3] ${
+                    rtl ? "text-right" : ""
+                  }`}
                 >
                   {t.produit.stat2.title}
                 </h3>
@@ -387,7 +413,9 @@ export default function Home() {
               {/* Phrase 3 */}
               <div className="p-6 bg-white bg-opacity-90 rounded-2xl shadow-lg relative">
                 <h3
-                  className={`text-xl font-semibold text-[#6B2FB3] ${rtl ? "text-right" : ""}`}
+                  className={`text-xl font-semibold text-[#6B2FB3] ${
+                    rtl ? "text-right" : ""
+                  }`}
                 >
                   {t.produit.stat3.title}
                 </h3>
@@ -428,19 +456,13 @@ export default function Home() {
             className="w-full rounded-2xl overflow-hidden shadow-xl bg-white/80 backdrop-blur-sm"
           >
             <div className="relative w-full aspect-video">
-              <video
-                className="w-full h-full object-cover"
-                autoPlay
-                muted
-                loop
-                playsInline
-              >
-                <source
-                  src="https://depogro.com/motion%20depogro%20eng%20&%20fr.mp4"
-                  type="video/mp4"
-                />
-                Your browser does not support the video tag.
-              </video>
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/9KpHxHqtiPE"
+                frameborder="0"
+                allow="autoplay; encrypted-media"
+                allowfullscreen
+              ></iframe>
             </div>
           </motion.div>
         </div>
@@ -451,7 +473,9 @@ export default function Home() {
       <section id="contact" className="py-24 bg-white">
         <div className="container px-6 mx-auto">
           <div
-            className={`grid lg:grid-cols-2 ${rtl ? "lg:grid-flow-col-dense" : ""} gap-12`}
+            className={`grid lg:grid-cols-2 ${
+              rtl ? "lg:grid-flow-col-dense" : ""
+            } gap-12`}
           >
             {/* Contact Information */}
             <motion.div
@@ -462,19 +486,25 @@ export default function Home() {
             >
               <div>
                 <h2
-                  className={`text-3xl md:text-4xl font-bold mb-4 text-[#46276B] font-jakarta ${rtl ? "text-right" : ""}`}
+                  className={`text-3xl md:text-4xl font-bold mb-4 text-[#46276B] font-jakarta ${
+                    rtl ? "text-right" : ""
+                  }`}
                 >
                   {t.contact.title}
                 </h2>
                 <p
-                  className={`text-lg md:text-xl text-gray-600 ${rtl ? "text-right" : ""}`}
+                  className={`text-lg md:text-xl text-gray-600 ${
+                    rtl ? "text-right" : ""
+                  }`}
                 >
                   {t.contact.subtitle}
                 </p>
               </div>
               <div>
                 <h3
-                  className={`text-lg md:text-xl font-semibold mb-2 text-[#46276B] ${rtl ? "text-right" : ""}`}
+                  className={`text-lg md:text-xl font-semibold mb-2 text-[#46276B] ${
+                    rtl ? "text-right" : ""
+                  }`}
                 >
                   {t.contact.address}
                 </h3>
@@ -484,7 +514,9 @@ export default function Home() {
               </div>
               <div>
                 <h3
-                  className={`text-lg md:text-xl font-semibold mb-2 text-[#46276B] ${rtl ? "text-right" : ""}`}
+                  className={`text-lg md:text-xl font-semibold mb-2 text-[#46276B] ${
+                    rtl ? "text-right" : ""
+                  }`}
                 >
                   {t.contact.telephone}{" "}
                 </h3>
@@ -494,7 +526,9 @@ export default function Home() {
               </div>
               <div>
                 <h3
-                  className={`text-lg md:text-xl font-semibold mb-2 text-[#46276B] ${rtl ? "text-right" : ""}`}
+                  className={`text-lg md:text-xl font-semibold mb-2 text-[#46276B] ${
+                    rtl ? "text-right" : ""
+                  }`}
                 >
                   {t.contact.email}
                 </h3>
@@ -509,14 +543,18 @@ export default function Home() {
               initial={{ opacity: 0, x: rtl ? -20 : 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className={`bg-white rounded-2xl p-8 shadow-lg border border-gray-100 backdrop-blur-sm ${rtl ? "lg:order-0" : ""}`}
+              className={`bg-white rounded-2xl p-8 shadow-lg border border-gray-100 backdrop-blur-sm ${
+                rtl ? "lg:order-0" : ""
+              }`}
             >
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className={`space-y-2 ${rtl ? "text-right" : ""}`}>
                     <label
                       htmlFor="firstName"
-                      className={`text-sm font-medium text-gray-700${rtl ? "text-right" : ""}`}
+                      className={`text-sm font-medium text-gray-700${
+                        rtl ? "text-right" : ""
+                      }`}
                     >
                       {t.contact.form.firstName}
                     </label>
@@ -532,7 +570,9 @@ export default function Home() {
                   <div className={`space-y-2 ${rtl ? "text-right" : ""}`}>
                     <label
                       htmlFor="lastName"
-                      className={`text-sm font-medium text-gray-700${rtl ? "text-right" : ""}`}
+                      className={`text-sm font-medium text-gray-700${
+                        rtl ? "text-right" : ""
+                      }`}
                     >
                       {t.contact.form.lastName}
                     </label>
@@ -549,7 +589,9 @@ export default function Home() {
                 <div className={`space-y-2 ${rtl ? "text-right" : ""}`}>
                   <label
                     htmlFor="email"
-                    className={`text-sm font-medium text-gray-700${rtl ? "text-right" : ""}`}
+                    className={`text-sm font-medium text-gray-700${
+                      rtl ? "text-right" : ""
+                    }`}
                   >
                     {t.contact.form.email}
                   </label>
@@ -566,7 +608,9 @@ export default function Home() {
                 <div className={`space-y-2 ${rtl ? "text-right" : ""}`}>
                   <label
                     htmlFor="message"
-                    className={`text-sm font-medium text-gray-700${rtl ? "text-right" : ""}`}
+                    className={`text-sm font-medium text-gray-700${
+                      rtl ? "text-right" : ""
+                    }`}
                   >
                     {t.contact.form.message}
                   </label>
@@ -576,7 +620,9 @@ export default function Home() {
                     placeholder={t.contact.form.message}
                     required
                     disabled={isSubmitting}
-                    className={` min-h-[150px] space-y-2 ${rtl ? "text-right" : ""}`}
+                    className={` min-h-[150px] space-y-2 ${
+                      rtl ? "text-right" : ""
+                    }`}
                   />
                 </div>
                 <Button

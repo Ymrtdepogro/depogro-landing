@@ -7,3 +7,4 @@ export function cn(...inputs: ClassValue[]) {
 export function isRTL(language: string): boolean {
   return language === "ar";
 }
+
