@@ -520,7 +520,7 @@ export default function Home() {
                   {t.contact.telephone}{" "}
                 </h3>
                 <p className={`text-gray-600  ${rtl ? "text-right" : ""}`}>
-                  +216 56 000 444
+                  +216 56 444 000
                 </p>
               </div>
               <div>
