@@ -16,6 +16,7 @@ import {
 } from "./ui/select";
 const navigation = [
   { name: "home", href: "#home" },
+  { name: "marketplace", href: "#marketplace" },
   { name: "about", href: "#about" },
   { name: "produit", href: "#produit" },
   { name: "news", href: "#news" },

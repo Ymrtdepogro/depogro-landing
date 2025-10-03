@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Store, Truck, ShoppingBag, Phone } from "lucide-react";
 import Image from "next/image";
 import { useLanguageStore } from "@/lib/store";
@@ -13,6 +13,7 @@ import { submitContact, type ContactFormData } from "@/lib/sanity";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import vanDepo from "@/assets/vandepo.png";
+import mark from "@/assets/mark.png";
 import web2 from "@/assets/web 1.png";
 import phonefr from "@/assets/phonefr.png";
 import phonear from "@/assets/phonear.png";
@@ -81,7 +82,7 @@ export default function Home() {
   const rtl = isRTL(language);
   const t = translations[language];
   const { toast } = useToast();
-
+ const [isOpen, setIsOpen] = useState(false);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -321,6 +322,168 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+  <section
+      id="marketplace"
+      className="py-28 bg-gradient-to-b from-white to-gray-50 text-gray-800"
+    >
+      <div className="container px-6 mx-auto">
+        {/* Section Title */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl mx-auto text-center mb-20"
+        >
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-6 font-jakarta text-[#46276B]">
+            {t.MARKETPLACE.title}
+          </h2>
+          <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+            {t.MARKETPLACE.desc2}
+          </p>
+          <div className="w-20 h-1 bg-[#46276B] mx-auto mt-6 rounded-full"></div>
+        </motion.div>
+
+        {/* Content Layout */}
+        <div
+          className={`grid lg:grid-cols-2 gap-16 items-center ${
+            rtl ? "lg:grid-flow-col-dense" : ""
+          }`}
+        >
+          {/* Left: Image */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="relative h-[100px] sm:h-[500px] lg:h-[500px] rounded-2xl overflow-hidden shadow-lg"
+          >
+            <Image
+              src={mark}
+             
+              alt="DEPOGRO Mission"
+              layout="fill"
+              className=" transform hover:scale-105 transition duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+          </motion.div>
+
+          {/* Right: Text Content */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className={`text-center lg:text-left ${rtl ? "lg:text-right" : ""}`}
+          >
+            <h3 className="text-3xl md:text-4xl font-bold mb-6 font-jakarta text-[#46276B]">
+              {t.MARKETPLACE.mission2}
+            </h3>
+            <p className="text-lg md:text-xl text-gray-700 mb-6 leading-relaxed">
+              {t.MARKETPLACE.missionDesc3}
+            </p>
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed border-l-4 border-[#46276B] pl-4 italic">
+              {t.MARKETPLACE.missionDesc4}
+            </p>
+
+            {/* CTA Button */}
+            <div className="mt-8">
+              <button
+                onClick={() => setIsOpen(true)}
+                className="px-8 py-3 bg-[#46276B] text-white font-semibold rounded-xl shadow-md hover:bg-[#5b3493] transition duration-300"
+              >
+                {t.MARKETPLACE.learnMore}
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Modal */}
+     <AnimatePresence>
+  {isOpen && (
+    <motion.div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      {/* Modal Box */}
+      <motion.div
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.9, opacity: 0 }}
+        transition={{ duration: 0.3 }}
+        className="bg-white rounded-2xl shadow-2xl w-full max-w-5xl h-[80vh] overflow-hidden flex flex-col relative"
+      >
+        {/* Cover Image */}
+        <div className="relative h-56 w-full">
+          <Image
+            src={mark} // 👉 remplace par ton image de couverture
+            alt="Marketplace Cover"
+            layout="fill"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-t-2xl"></div>
+          <h3 className="absolute bottom-4 left-6 text-3xl font-bold text-white drop-shadow-lg">
+            {t.MARKETPLACE.title}
+          </h3>
+        </div>
+
+        {/* Close Button */}
+        <button
+          onClick={() => setIsOpen(false)}
+          className="absolute top-4 right-4 bg-white/80 hover:bg-white text-gray-700 rounded-full w-10 h-10 flex items-center justify-center shadow-md"
+        >
+          ✕
+        </button>
+
+        {/* Scrollable Content */}
+        <div className="flex-1 overflow-y-auto px-8 py-6 space-y-8">
+          {/* Section 1: Description */}
+          <section>
+            <h4 className="text-2xl font-semibold text-[#46276B] mb-3">📖 {t.MARKETPLACE.mission2}</h4>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              {t.MARKETPLACE.missionDesc3}
+            </p>
+          </section>
+
+          {/* Section 2: Rôle du Marketplace */}
+          <section>
+            <h4 className="text-2xl font-semibold text-[#46276B] mb-3">🎯 Rôle du Marketplace</h4>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              {t.MARKETPLACE.role}
+            </p>
+          </section>
+
+          {/* Section 3: Avantages */}
+          <section>
+            <h4 className="text-2xl font-semibold text-[#46276B] mb-4">🚀 Avantages</h4>
+            <ul className="space-y-3 text-lg text-gray-700 list-disc pl-6">
+              <li> {t.MARKETPLACE.avantage1}</li>
+              <li>{t.MARKETPLACE.avantage2}</li>
+              <li>{t.MARKETPLACE.avantage3}</li>
+              <li>{t.MARKETPLACE.avantage4}</li>
+              <li>{t.MARKETPLACE.avantage5}</li>
+            </ul>
+          </section>
+        </div>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
+
+    </section>
+  
+
+
+
+
+
+
+
+
+
+
+
       {/* Produit Section */}
       <section
         id="produit"
