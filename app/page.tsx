@@ -19,6 +19,7 @@ import phonefr from "@/assets/phonefr.png";
 import phonear from "@/assets/phonear.png";
 import { isRTL } from "@/lib/utils";
 import { BrandsCarousel } from "../components/BrandsCarousel";
+import { link } from "node:fs";
 
 export default function Home() {
   const brands = [
@@ -385,14 +386,25 @@ export default function Home() {
             </p>
 
             {/* CTA Button */}
-            <div className="mt-8">
-              <button
-                onClick={() => setIsOpen(true)}
-                className="px-8 py-3 bg-[#46276B] text-white font-semibold rounded-xl shadow-md hover:bg-[#5b3493] transition duration-300"
-              >
-                {t.MARKETPLACE.learnMore}
-              </button>
-            </div>
+         <div className="mt-8 flex gap-4">
+  {/* Bouton violet */}
+  <button
+    onClick={() => setIsOpen(true)}
+    className="px-8 py-3 bg-[#46276B] text-white font-semibold rounded-xl shadow-md hover:bg-[#5b3493] transition duration-300"
+  >
+    {t.MARKETPLACE.learnMore}
+  </button>
+
+  {/* Bouton blanc avec bord violet */}
+  <button
+  onClick={() => window.open("http://markeplace.depogro.com/", "_blank")}
+  className="px-8 py-3 bg-white text-[#46276B] border border-[#46276B] font-semibold rounded-xl shadow-md hover:bg-[#46276B] hover:text-white transition duration-300"
+>
+  {t.MARKETPLACE.learnMoreSite}
+</button>
+
+</div>
+
           </motion.div>
         </div>
       </div>

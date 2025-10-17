@@ -28,6 +28,7 @@ export const translations = {
       avantage3:" Inventory, delivery, and payment management.",
       avantage4:" Intuitive interface and dedicated support.",
       avantage5:" Accelerated sales growth.",
+      learnMoreSite: "Visit our website",
       role:" The marketplace serves as a comprehensive platform that connects stores with a wide range of products and services, facilitating seamless transactions and enhancing the overall shopping experience.",
       desc2: "An innovative marketplace that redefines store management and growth in Tunisia.",
       mission2: "Our marketplace",
@@ -141,6 +142,7 @@ export const translations = {
     MARKETPLACE: {
       title: "À propos de la Marketplace",
       learnMore: "En savoir plus",
+      learnMoreSite:"Visitez notre site ",
       avantage1:" Centralisation des commandes et gestion simplifiée.",
       avantage2:" Suivi en temps réel avec des statistiques détaillées.",
       avantage3:" Gestion des stocks, livraisons et paiements.",
@@ -241,6 +243,7 @@ export const translations = {
       avantage1:" مركزية الطلبات وإدارة مبسطة.",
       avantage2:" متابعة في الوقت الحقيقي مع إحصائيات مفصلة.",
       avantage3:" إدارة المخزون، التوصيلات والمدفوعات.",
+      learnMoreSite:"قم بزيارة موقعنا",
       avantage4:" واجهة بديهية ودعم مخصص.",
       avantage5:" تسريع نمو المبيعات.",
       role:" تعمل المنصة كسوق شامل يربط المتاجر بمجموعة واسعة من المنتجات والخدمات، مما يسهل المعاملات السلسة ويعزز تجربة التسوق الشاملة.",
