@@ -398,7 +398,7 @@ export default function Home() {
   {/* Bouton blanc avec bord violet */}
   <button
   onClick={() => window.open("http://markeplace.depogro.com/", "_blank")}
-  className="px-8 py-3 bg-white text-[#46276B] border border-[#46276B] font-semibold rounded-xl shadow-md hover:bg-[#46276B] hover:text-white transition duration-300"
+  className="px-8 py-2 bg-white text-[12px] text-[#46276B] border border-[#46276B] font-semibold rounded-xl shadow-md hover:bg-[#46276B] hover:text-white transition duration-300"
 >
   {t.MARKETPLACE.learnMoreSite}
 </button>
