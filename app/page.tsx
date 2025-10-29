@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { AnimatePresence, motion } from "framer-motion";
-import { Store, Truck, ShoppingBag, Phone } from "lucide-react";
+
 import Image from "next/image";
 import { useLanguageStore } from "@/lib/store";
 import { translations } from "@/lib/translations";
@@ -15,9 +15,10 @@ import { Textarea } from "@/components/ui/textarea";
 import vanDepo from "@/assets/vandepo.png";
 import mark from "@/assets/mark.png";
 import web2 from "@/assets/web 1.png";
-import phonefr from "@/assets/phonefr.png";
-import phonear from "@/assets/phonear.png";
+import phonneFr from "@/assets/immg.png";
+import phonneAr from "@/assets/immmg.png";
 import { isRTL } from "@/lib/utils";
+import { Store, Truck, ShoppingBag, Phone, Zap, Target, BookOpen, X, Mail, MapPin } from "lucide-react";
 import { BrandsCarousel } from "../components/BrandsCarousel";
 import { link } from "node:fs";
 
@@ -130,272 +131,609 @@ export default function Home() {
       {/* Hero Section */}
       <section
         id="home"
-        className="relative min-h-screen flex items-center justify-center bg-gradient-to-r from-[#46276B] via-[#5D3C8C] to-[#D8C4B6] pt-32"
+        className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[#1a0f2e] via-[#2d1b4e] to-[#3d2b63] pt-32 overflow-hidden"
       >
+        {/* Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-1/2 -right-1/4 w-1/2 h-1/2 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-1/4 -left-1/4 w-1/2 h-1/2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-indigo-500/5 to-purple-500/5 rounded-full blur-2xl"></div>
+        </div>
+
+        {/* Grid Pattern Overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]"></div>
+
         <div className="container px-6 mx-auto relative z-10">
           <div
-            className={`grid lg:grid-cols-2 ${rtl ? "lg:grid-flow-col-dense" : ""
-              } gap-12 items-center`}
+            className={`grid lg:grid-cols-2 ${rtl ? "lg:grid-flow-col-dense" : ""} gap-16 items-center`}
           >
-            {/* Text Content */}
+            {/* Texte */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
               className={rtl ? "lg:order-1" : ""}
             >
-              <h1
-                className={`text-4xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-wide ${rtl ? "text-right" : ""
-                  } `}
-              >
-                {t.hero.title}
-              </h1>
-              <p
-                className={`text-lg md:text-xl text-purple-100 mb-8 leading-relaxed ${rtl ? "text-right" : ""
-                  }`}
-              >
-                {t.hero.download}
-              </p>
-              <div
-                className={`flex flex-col sm:flex-row ${rtl ? "sm:flex-row-reverse" : ""
-                  } gap-6`}
-              >
-                <a
-                  href="https://play.google.com/store/apps/details?id=com.amine_amdouni.DepoGroApp&hl=en"
-                  className="market-btn google-btn"
-                  role="button"
+              <div className="mb-5">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="inline-flex items-center gap-2 ml-20 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6"
                 >
-                  <span className="market-button-subtitle ">GET IT ON</span>
-                  <span className="market-button-title">Google Play</span>
-                </a>
-                <a
-                  href="https://apps.apple.com/us/app/depogro/id6480517238?uo=2"
-                  className="market-btn apple-btn"
-                  role="button"
-                >
-                  <span className="market-button-subtitle">
-                    Download on the
+                  <div className="w-2 h-2 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-pulse"></div>
+                  <span className="text-sm font-medium text-purple-200">
+                    {t.hero.download}
                   </span>
-                  <span className="market-button-title">App Store</span>
-                </a>
+                </motion.div>
               </div>
+
+              <h3
+                className={`text-5xl md:text-5xl font-bold mb-8 ml-20 leading-tight tracking-tight text-white ${rtl ? "text-right" : ""}`}
+              >
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-100 to-purple-200 block mb-4">
+                  {t.hero.title.split(' ').slice(0, -1).join(' ')}
+                </span>
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-300 to-pink-300">
+                  {t.hero.title.split(' ').pop()}
+                </span>
+              </h3>
+
+              <p
+                className={`text-xl md:text-2xl text-purple-100/90 mb-12 ml-20 leading-relaxed font-light max-w-2xl ${rtl ? "text-right ml-auto" : ""}`}
+              >
+                {t.hero.subtitle || "L'application de gestion qui révolutionne votre quotidien professionnel"}
+              </p>
+
+              <div className={`flex flex-col sm:flex-row ${rtl ? "sm:flex-row-reverse" : ""} gap-5 ml-20`}>
+                <motion.a
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  href="https://play.google.com/store/apps/details?id=com.amine_amdouni.DepoGroApp&hl=en"
+                  className="group relative overflow-hidden bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 rounded-2xl shadow-2xl shadow-purple-500/25 transition-all duration-300 flex items-center gap-4 min-w-[200px]"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+                  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 010 1.73l-2.808 1.626L12.866 12l4.832-4.491zM5.864 2.658l10.937 6.333-2.302 2.302-8.635-8.635z" />
+                  </svg>
+                  <div className="flex flex-col">
+                    <span className="text-xs font-medium opacity-90">GET IT ON</span>
+                    <span className="font-bold text-lg">Google Play</span>
+                  </div>
+                </motion.a>
+
+                <motion.a
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  href="https://apps.apple.com/us/app/depogro/id6480517238?uo=2"
+                  className="group relative overflow-hidden bg-gradient-to-r from-gray-900 to-black hover:from-gray-800 hover:to-gray-900 text-white px-8 py-4 rounded-2xl shadow-2xl shadow-black/25 transition-all duration-300 flex items-center gap-4 min-w-[200px] border border-gray-700/50"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+                  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                  </svg>
+                  <div className="flex flex-col">
+                    <span className="text-xs font-medium opacity-90">Download on the</span>
+                    <span className="font-bold text-lg">App Store</span>
+                  </div>
+                </motion.a>
+              </div>
+
+              {/* Stats */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className={`flex flex-wrap gap-8 ml-20 mt-16 ${rtl ? "justify-end" : ""}`}
+              >
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-white mb-1">4.8★</div>
+                  <div className="text-sm text-purple-200/80">App Rating</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-white mb-1">10K+</div>
+                  <div className="text-sm text-purple-200/80">Downloads</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-white mb-1">99%</div>
+                  <div className="text-sm text-purple-200/80">Satisfaction</div>
+                </div>
+              </motion.div>
             </motion.div>
 
             {/* Image */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className={`relative w-full h-[500px] lg:h-[700px] lg:col-span-1 flex justify-center items-center ${rtl ? "lg:order-0" : ""
-                }`}
+              initial={{ opacity: 0, x: rtl ? -40 : 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+              className={`relative w-full h-[300px] md:h-[500px] lg:h-[600px] flex justify-center items-center ${rtl ? "lg:order-0" : ""}`}
             >
-              <div className={`absolute inset-0 overflow-hidden rounded-lg`}>
-                <Image
-                  src={rtl ? phonear : phonefr}
-                  alt="Depogro App"
-                  layout="fill"
-                  className="object-cover rounded-lg"
-                />
+              {/* Floating Elements */}
+              <div className="absolute -top-10 -left-10 w-20 h-20 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-xl animate-float"></div>
+              <div className="absolute -bottom-5 -right-5 w-16 h-16 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-xl animate-float-delayed"></div>
+
+              {/* Phone Container */}
+              <div className="relative w-80 md:w-96 h-full">
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-[3rem] shadow-2xl shadow-purple-500/20 backdrop-blur-sm border border-white/10 transform rotate-3 scale-105"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/5 to-pink-600/5 rounded-[2.5rem] shadow-2xl overflow-hidden border border-white/10">
+                  <Image
+                    src={rtl ? phonneAr : phonneFr}
+                    alt="Depogro App"
+                    layout="fill"
+                    className="object-cover rounded-[2.5rem] transform hover:scale-105 transition-transform duration-700"
+                    priority
+                  />
+                </div>
+
+                {/* Reflection Effect */}
+                <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/5 to-transparent rounded-t-[2.5rem] pointer-events-none"></div>
               </div>
             </motion.div>
           </div>
         </div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 1 }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        >
+          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+            <motion.div
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="w-1 h-3 bg-white/50 rounded-full mt-2"
+            ></motion.div>
+          </div>
+        </motion.div>
       </section>
 
+
       {/* About Section */}
-      <section id="about" className="py-24 bg-white text-gray-800">
-        <div className="container px-6 mx-auto">
-          {/* Section Title */}
+      <section id="about" className="relative py-20 p-10 bg-gradient-to-br from-gray-50 via-white to-purple-50/30 overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-24 -right-24 w-96 h-96 bg-gradient-to-r from-purple-600/5 to-pink-600/5 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-32 -left-32 w-80 h-80 bg-gradient-to-r from-blue-600/5 to-purple-600/5 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-indigo-600/3 to-purple-600/3 rounded-full blur-2xl"></div>
+        </div>
+
+        <div className="container px-6 mx-auto relative z-10">
+          {/* Section Header */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-3xl mx-auto text-center mb-16"
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="max-w-4xl mx-auto text-center mb-20"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 font-jakarta text-[#46276B]">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-lg shadow-purple-500/5 mb-8"
+            >
+              <div className="w-2 h-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full animate-pulse"></div>
+              <span className="text-sm font-semibold text-transparent bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text">
+                {t.about?.subtitle || "À PROPOS DE NOUS"}
+              </span>
+            </motion.div>
+
+            <h2 className="text-5xl md:text-4xl font-bold mb-8 bg-gradient-to-r from-gray-900 to-purple-900 bg-clip-text text-transparent leading-tight">
               {t.about.title}
             </h2>
-            <p className="text-lg md:text-xl text-gray-600">{t.about.desc}</p>
+
+            <p className="text-xl md:text-2xl text-gray-600 leading-relaxed font-light max-w-3xl mx-auto">
+              {t.about.desc}
+            </p>
           </motion.div>
 
           {/* Content Layout */}
           <div
             className={`grid lg:grid-cols-2 ${rtl ? "lg:grid-flow-col-dense" : ""
-              } gap-12 items-center`}
+              } gap-20 items-center`}
           >
-            {/* Left: Image */}
+            {/* Image Section */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: rtl ? 20 : -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="relative h-[400px] sm:h-[500px] lg:h-[600px] rounded-lg overflow-hidden"
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="relative group"
             >
-              <Image
-                src={vanDepo}
-                alt="DEPOGRO Mission"
-                layout="fill"
-                className="object-cover"
-              />
+              {/* Main Image Container */}
+              <div className="relative h-[500px] sm:h-[600px] lg:h-[700px] rounded-3xl overflow-hidden">
+                {/* Background Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-pink-600/10 rounded-3xl"></div>
+
+                {/* Image with Overlay */}
+                <div className="absolute inset-6 rounded-2xl overflow-hidden">
+                  <Image
+                    src={vanDepo}
+                    alt="DEPOGRO Mission"
+                    layout="fill"
+                    className="object-cover transform group-hover:scale-105 transition-transform duration-700"
+                    priority
+                  />
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-60"></div>
+                </div>
+
+                {/* Floating Elements */}
+                <div className="absolute -top-6 -left-6 w-24 h-24 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl rotate-12 opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
+                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl -rotate-12 opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
+
+                {/* Stats Badge */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.6 }}
+                  className="absolute top-8 left-8 bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl shadow-black/10 border border-white/20"
+                >
+                  <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                    95%
+                  </div>
+                  <div className="text-sm font-medium text-gray-600 mt-1">Satisfaction</div>
+                </motion.div>
+
+                {/* Experience Badge */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.8 }}
+                  className="absolute bottom-8 right-8 bg-gradient-to-r from-[#D9CECE] to-[#8C8888]   text-white rounded-2xl p-6 shadow-2xl shadow-purple-500/25"
+                >
+                  <div className="text-3xl font-bold">5+</div>
+                  <div className="text-sm font-medium text-white/90 mt-1">Ans d'expérience</div>
+                </motion.div>
+              </div>
+
+              {/* Background Pattern */}
+              <div className="absolute -z-10 top-8 left-8 right-8 bottom-8 bg-gradient-to-br from-purple-600/5 to-pink-600/5 rounded-3xl transform rotate-2"></div>
             </motion.div>
 
-            {/* Right: Text Content */}
+            {/* Text Content */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: rtl ? -20 : 20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className={`text-center lg:text-left ${rtl ? "lg:text-right" : ""
-                }`}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className={`space-y-8 ${rtl ? "lg:text-right" : "lg:text-left"} text-center lg:text-left`}
             >
-              <h3 className="text-3xl md:text-4xl font-bold mb-6 font-jakarta text-[#46276B]">
-                {t.about.mission}
-              </h3>
-              <p className="text-lg md:text-xl text-gray-600 mb-6 leading-relaxed">
-                {t.about.missionDesc}
-              </p>
-              <p className="text-lg md:text-xl text-gray-600">
-                {t.about.missionDesc2}
-              </p>
+              {/* Mission Title */}
+              <div>
+                <motion.h3
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  className="text-4xl md:text-3xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-purple-900 bg-clip-text text-transparent leading-tight"
+                >
+                  {t.about.mission}
+                </motion.h3>
+
+                {/* Divider */}
+                <motion.div
+                  initial={{ opacity: 0, scaleX: 0 }}
+                  whileInView={{ opacity: 1, scaleX: 1 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  className={`w-24 h-1 bg-[#f37c50]  rounded-full mb-8 ${rtl ? "lg:ml-auto" : ""} ${rtl ? "lg:mr-0" : "lg:ml-0"} mx-auto lg:mx-0`}
+                ></motion.div>
+              </div>
+
+              {/* Mission Description */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="space-y-6"
+              >
+                <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-light">
+                  {t.about.missionDesc}
+                </p>
+
+                <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-light">
+                  {t.about.missionDesc2}
+                </p>
+              </motion.div>
+
+              {/* Features List */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-12"
+              >
+                {[
+                  { icon: "🚀", text: "Innovation Technologique" },
+                  { icon: "💎", text: "Qualité Premium" },
+                  { icon: "🤝", text: "Partnership Solide" },
+                  { icon: "🌍", text: "Impact Global" }
+                ].map((feature, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
+                    className="flex items-center gap-4 p-4 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-lg shadow-purple-500/5 hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-300 group"
+                  >
+                    <div className="text-2xl transform group-hover:scale-110 transition-transform duration-300">
+                      {feature.icon}
+                    </div>
+                    <span className="font-semibold text-gray-800">{feature.text}</span>
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              {/* CTA Button */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.9 }}
+                className={`pt-8 ${rtl ? "lg:text-right" : "lg:text-left"} text-center lg:text-left`}
+              >
+                <motion.button
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="px-8 py-4 bg-[#f37c50]  hover:from-purple-700 hover:to-pink-700 text-white rounded-2xl font-semibold shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/30 transition-all duration-300"
+                >
+                  Découvrir notre vision
+                </motion.button>
+              </motion.div>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-24 section-bg-2">
-        <div className="container px-4 mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 font-jakarta text-[#6B2FB3]">
-            {t.services.title}
-          </h2>
-          <div
-            className={`grid md:grid-cols-2 lg:grid-cols-4 ${rtl ? "md:grid-flow-row-dense lg:grid-flow-col-dense" : ""
-              } gap-8`}
+      <section id="services" className="relative py-20 p-10 bg-gradient-to-br from-gray-50 via-white to-purple-50/30 overflow-hidden">
+
+        {/* Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-r from-purple-600/5 to-pink-600/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-r from-blue-600/5 to-purple-600/5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container px-6 mx-auto relative z-10">
+          {/* Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="max-w-4xl mx-auto text-center mb-20"
           >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-lg shadow-purple-500/5 mb-8"
+            >
+              <div className="w-2 h-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full animate-pulse"></div>
+              <span className="text-sm font-semibold text-transparent bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text">
+                {t.services?.subtitle || "NOS SERVICES"}
+              </span>
+            </motion.div>
+
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 bg-gradient-to-r from-gray-900 to-purple-900 bg-clip-text text-transparent leading-tight">
+              {t.services.title}
+            </h2>
+          </motion.div>
+
+          {/* Services Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
                 icon: <Store className="h-8 w-8" />,
                 title: t.services.service1.title,
                 description: t.services.service1.dec,
+                gradient: "from-purple-600 to-pink-600",
+                color: "text-purple-600"
               },
               {
                 icon: <Truck className="h-8 w-8" />,
                 title: t.services.service2.title,
                 description: t.services.service2.dec,
+                gradient: "from-blue-600 to-purple-600",
+                color: "text-blue-600"
               },
               {
                 icon: <ShoppingBag className="h-8 w-8" />,
                 title: t.services.service3.title,
                 description: t.services.service3.dec,
+                gradient: "from-green-600 to-blue-600",
+                color: "text-green-600"
               },
               {
                 icon: <Phone className="h-8 w-8" />,
                 title: t.services.service4.title,
                 description: t.services.service4.dec,
+                gradient: "from-orange-600 to-pink-600",
+                color: "text-orange-600"
               },
-            ].map((feature, index) => (
-              <Card
+            ].map((service, index) => (
+              <motion.div
                 key={index}
-                className="p-6 hover:shadow-lg transition-shadow bg-white/80 backdrop-blur-sm"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -8 }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.1,
+                  whileHover: { duration: 0.3 }
+                }}
+                className="group relative"
               >
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="text-center"
-                >
-                  <div className="mb-4 inline-block p-3 bg-purple-100 rounded-lg text-[#6B2FB3]">
-                    {feature.icon}
+                {/* Service Card */}
+                <div className="relative h-full bg-white/80 backdrop-blur-sm rounded-3xl border border-gray-200/50 shadow-xl shadow-gray-200/20 group-hover:shadow-2xl group-hover:shadow-purple-200/30 transition-all duration-500 overflow-hidden">
+                  {/* Header with Gradient */}
+                  <div className={`relative h-2 bg-gradient-to-r ${service.gradient}`}></div>
+
+                  {/* Content */}
+                  <div className="p-8">
+                    {/* Icon Container */}
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.3 }}
+                      className="relative mb-6 inline-flex items-center justify-center p-4 rounded-2xl bg-white border border-gray-200/50 shadow-lg"
+                    >
+                      <div className={service.color}>
+                        {service.icon}
+                      </div>
+                    </motion.div>
+
+                    {/* Title */}
+                    <h3 className="text-xl font-bold mb-4 text-gray-900">
+                      {service.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-gray-600 leading-relaxed font-light">
+                      {service.description}
+                    </p>
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-600">{feature.description}</p>
-                </motion.div>
-              </Card>
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      <section
-        id="marketplace"
-        className="py-28 bg-gradient-to-b from-white to-gray-50 text-gray-800"
-      >
-        <div className="container px-6 mx-auto">
-          {/* Section Title */}
+      <section id="marketplace" className="relative py-32 bg-gradient-to-br from-white via-gray-50 to-purple-50/30 overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-0 left-0 w-72 h-72 bg-gradient-to-r from-purple-600/5 to-pink-600/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-r from-blue-600/5 to-purple-600/5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container px-6 mx-auto relative z-10">
+          {/* Section Header */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
             className="max-w-3xl mx-auto text-center mb-20"
           >
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-6 font-jakarta text-[#46276B]">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-lg shadow-purple-500/5 mb-8"
+            >
+              <div className="w-2 h-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full animate-pulse"></div>
+              <span className="text-sm font-semibold text-transparent bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text">
+                MARKETPLACE
+              </span>
+            </motion.div>
+
+            <h2 className="text-4xl md:text-4xl font-bold mb-8 bg-gradient-to-r from-gray-900 to-purple-900 bg-clip-text text-transparent leading-tight">
               {t.MARKETPLACE.title}
             </h2>
-            <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-600 leading-relaxed font-light max-w-3xl mx-auto">
               {t.MARKETPLACE.desc2}
             </p>
-            <div className="w-20 h-1 bg-[#46276B] mx-auto mt-6 rounded-full"></div>
           </motion.div>
 
           {/* Content Layout */}
-          <div
-            className={`grid lg:grid-cols-2 gap-16 items-center ${rtl ? "lg:grid-flow-col-dense" : ""
-              }`}
-          >
-            {/* Left: Image */}
+          <div className={`grid lg:grid-cols-2 gap-16 items-center ${rtl ? "lg:grid-flow-col-dense" : ""}`}>
+            {/* Image Section */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: rtl ? 20 : -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="relative h-[100px] sm:h-[500px] lg:h-[500px] rounded-2xl overflow-hidden shadow-lg"
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="relative group"
             >
-              <Image
-                src={mark}
+              {/* Main Image Container */}
+              <div className="relative h-[500px] rounded-3xl overflow-hidden">
+                {/* Background Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-pink-600/10 rounded-3xl"></div>
 
-                alt="DEPOGRO Mission"
-                layout="fill"
-                className=" transform hover:scale-105 transition duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                {/* Image with Overlay */}
+                <div className="absolute inset-6 rounded-2xl overflow-hidden">
+                  <Image
+                    src={mark}
+                    alt="DEPOGRO Marketplace"
+                    layout="fill"
+                    className="object-cover transform group-hover:scale-105 transition-transform duration-700"
+                    priority
+                  />
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-60"></div>
+                </div>
+
+                {/* Floating Elements */}
+                <div className="absolute -top-4 -left-4 w-20 h-20 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl rotate-12 opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
+                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl -rotate-12 opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
+              </div>
             </motion.div>
 
-            {/* Right: Text Content */}
+            {/* Text Content */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: rtl ? -20 : 20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className={`text-center lg:text-left ${rtl ? "lg:text-right" : ""}`}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className={`space-y-8 ${rtl ? "lg:text-right" : "lg:text-left"} text-center lg:text-left`}
             >
-              <h3 className="text-3xl md:text-4xl font-bold mb-6 font-jakarta text-[#46276B]">
-                {t.MARKETPLACE.mission2}
-              </h3>
-              <p className="text-lg md:text-xl text-gray-700 mb-6 leading-relaxed">
-                {t.MARKETPLACE.missionDesc3}
-              </p>
-              <p className="text-lg md:text-xl text-gray-600 leading-relaxed border-l-4 border-[#46276B] pl-4 italic">
-                {t.MARKETPLACE.missionDesc4}
-              </p>
-
-              {/* CTA Button */}
-              <div className="mt-8 flex gap-4">
-                {/* Bouton violet */}
-                <button
-                  onClick={() => setIsOpen(true)}
-                  className="px-8 py-3 bg-[#46276B] text-white font-semibold rounded-xl shadow-md hover:bg-[#5b3493] transition duration-300"
+              {/* Mission Title */}
+              <div>
+                <motion.h3
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  className="text-4xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-purple-900 bg-clip-text text-transparent leading-tight"
                 >
-                  {t.MARKETPLACE.learnMore}
-                </button>
+                  {t.MARKETPLACE.mission2}
+                </motion.h3>
 
-                {/* Bouton blanc avec bord violet */}
-                <button
-                  onClick={() => window.open("http://markeplace.depogro.com/", "_blank")}
-                  className="px-8 py-2 bg-white text-[12px] text-[#46276B] border border-[#46276B] font-semibold rounded-xl shadow-md hover:bg-[#46276B] hover:text-white transition duration-300"
-                >
-                  {t.MARKETPLACE.learnMoreSite}
-                </button>
-
+                {/* Divider */}
+                <motion.div
+                  initial={{ opacity: 0, scaleX: 0 }}
+                  whileInView={{ opacity: 1, scaleX: 1 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  className={`w-24 h-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full mb-8 ${rtl ? "lg:ml-auto" : ""} ${rtl ? "lg:mr-0" : "lg:ml-0"} mx-auto lg:mx-0`}
+                ></motion.div>
               </div>
 
+              {/* Mission Description */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="space-y-6"
+              >
+                <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-light">
+                  {t.MARKETPLACE.missionDesc3}
+                </p>
+
+                <div className="relative p-6 rounded-2xl bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200/50">
+                  <div className="absolute top-0 left-6 w-1 h-full bg-gradient-to-b from-purple-600 to-pink-600 rounded-full"></div>
+                  <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-light pl-4">
+                    {t.MARKETPLACE.missionDesc4}
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* CTA Buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.7 }}
+                className={`flex flex-col sm:flex-row gap-4 ${rtl ? "lg:justify-end" : ""} justify-center lg:justify-start`}
+              >
+                <motion.button
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => setIsOpen(true)}
+                  className="px-8 py-4 bg-[#f37c50]  hover:from-purple-700 hover:to-pink-700 text-white rounded-2xl font-semibold shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/30 transition-all duration-300"
+                >
+                  {t.MARKETPLACE.learnMore}
+                </motion.button>
+
+                <motion.button
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => window.open("http://markeplace.depogro.com/", "_blank")}
+                  className="px-8 py-4 bg-white text-gray-900 border border-gray-300 hover:border-purple-600 hover:bg-purple-50 rounded-2xl font-semibold shadow-lg shadow-gray-200/20 hover:shadow-xl hover:shadow-purple-200/30 transition-all duration-300"
+                >
+                  {t.MARKETPLACE.learnMoreSite}
+                </motion.button>
+              </motion.div>
             </motion.div>
           </div>
         </div>
@@ -404,78 +742,125 @@ export default function Home() {
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+              className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/60 backdrop-blur-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
               {/* Modal Box */}
               <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.9, opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                className="bg-white rounded-2xl shadow-2xl w-full max-w-5xl h-[80vh] overflow-hidden flex flex-col relative"
+                initial={{ scale: 0.9, opacity: 0, y: 20 }}
+                animate={{ scale: 1, opacity: 1, y: 0 }}
+                exit={{ scale: 0.9, opacity: 0, y: 20 }}
+                transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                className="bg-white rounded-3xl shadow-2xl w-full max-w-6xl h-[85vh] overflow-hidden flex flex-col relative border border-white/20"
               >
                 {/* Cover Image */}
-                <div className="relative h-56 w-full">
+                <div className="relative h-64 w-full">
                   <Image
-                    src={mark} // 👉 remplace par ton image de couverture
+                    src={mark}
                     alt="Marketplace Cover"
                     layout="fill"
                     className="object-cover"
+                    priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-t-2xl"></div>
-                  <h3 className="absolute bottom-4 left-6 text-3xl font-bold text-white drop-shadow-lg">
-                    {t.MARKETPLACE.title}
-                  </h3>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-t-3xl"></div>
+                  <div className="absolute bottom-6 left-8">
+                    <h3 className="text-4xl font-bold text-white mb-2 drop-shadow-lg">
+                      {t.MARKETPLACE.title}
+                    </h3>
+                    <div className="w-16 h-1 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"></div>
+                  </div>
                 </div>
 
                 {/* Close Button */}
-                <button
+                <motion.button
+                  whileHover={{ scale: 1.1, rotate: 90 }}
+                  whileTap={{ scale: 0.9 }}
                   onClick={() => setIsOpen(false)}
-                  className="absolute top-4 right-4 bg-white/80 hover:bg-white text-gray-700 rounded-full w-10 h-10 flex items-center justify-center shadow-md"
+                  className="absolute top-6 right-6 bg-white/90 hover:bg-white text-gray-700 rounded-xl w-12 h-12 flex items-center justify-center shadow-lg border border-white/20 backdrop-blur-sm transition-all duration-300"
                 >
-                  ✕
-                </button>
+                  <X className="w-5 h-5" />
+                </motion.button>
 
                 {/* Scrollable Content */}
-                <div className="flex-1 overflow-y-auto px-8 py-6 space-y-8">
+                <div className="flex-1 overflow-y-auto px-8 py-8 space-y-8">
                   {/* Section 1: Description */}
-                  <section>
-                    <h4 className="text-2xl font-semibold text-[#46276B] mb-3">📖 {t.MARKETPLACE.mission2}</h4>
-                    <p className="text-lg text-gray-700 leading-relaxed">
+                  <motion.section
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="space-y-4"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
+                        <BookOpen className="w-4 h-4 text-white" />
+                      </div>
+                      <h4 className="text-2xl font-semibold text-gray-900">{t.MARKETPLACE.mission2}</h4>
+                    </div>
+                    <p className="text-lg text-gray-700 leading-relaxed font-light pl-11">
                       {t.MARKETPLACE.missionDesc3}
                     </p>
-                  </section>
+                  </motion.section>
 
                   {/* Section 2: Rôle du Marketplace */}
-                  <section>
-                    <h4 className="text-2xl font-semibold text-[#46276B] mb-3">🎯 Rôle du Marketplace</h4>
-                    <p className="text-lg text-gray-700 leading-relaxed">
+                  <motion.section
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="space-y-4"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                        <Target className="w-4 h-4 text-white" />
+                      </div>
+                      <h4 className="text-2xl font-semibold text-gray-900">Rôle du Marketplace</h4>
+                    </div>
+                    <p className="text-lg text-gray-700 leading-relaxed font-light pl-11">
                       {t.MARKETPLACE.role}
                     </p>
-                  </section>
+                  </motion.section>
 
                   {/* Section 3: Avantages */}
-                  <section>
-                    <h4 className="text-2xl font-semibold text-[#46276B] mb-4">🚀 Avantages</h4>
-                    <ul className="space-y-3 text-lg text-gray-700 list-disc pl-6">
-                      <li> {t.MARKETPLACE.avantage1}</li>
-                      <li>{t.MARKETPLACE.avantage2}</li>
-                      <li>{t.MARKETPLACE.avantage3}</li>
-                      <li>{t.MARKETPLACE.avantage4}</li>
-                      <li>{t.MARKETPLACE.avantage5}</li>
+                  <motion.section
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                    className="space-y-4"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-gradient-to-r from-green-600 to-blue-600 rounded-lg flex items-center justify-center">
+                        <Zap className="w-4 h-4 text-white" />
+                      </div>
+                      <h4 className="text-2xl font-semibold text-gray-900">Avantages</h4>
+                    </div>
+                    <ul className="space-y-3 text-lg text-gray-700 pl-11">
+                      {[
+                        t.MARKETPLACE.avantage1,
+                        t.MARKETPLACE.avantage2,
+                        t.MARKETPLACE.avantage3,
+                        t.MARKETPLACE.avantage4,
+                        t.MARKETPLACE.avantage5
+                      ].map((avantage, index) => (
+                        <motion.li
+                          key={index}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.5 + index * 0.1 }}
+                          className="flex items-start gap-3"
+                        >
+                          <div className="w-2 h-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full mt-3 flex-shrink-0"></div>
+                          <span className="font-light">{avantage}</span>
+                        </motion.li>
+                      ))}
                     </ul>
-                  </section>
+                  </motion.section>
                 </div>
               </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
-
       </section>
-
 
 
 
@@ -488,302 +873,287 @@ export default function Home() {
 
 
       {/* Produit Section */}
-      <section
-        id="produit"
-        className="py-24 bg-gradient-to-r from-[#46276B] to-[#D8C4B6] text-white"
-      >
-        <div className="container px-6 mx-auto">
-          <div
-            className={`grid lg:grid-cols-3 ${rtl ? "lg:grid-flow-col-dense" : ""
-              } gap-12 items-center`}
-          >
+      <section id="produit" className="relative py-32 bg-gradient-to-br from-[#1a0f2e] via-[#2d1b4e] to-[#3d2b63] overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-24 -right-24 w-96 h-96 bg-gradient-to-r from-purple-600/10 to-pink-600/10 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-32 -left-32 w-80 h-80 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-indigo-600/5 to-purple-600/5 rounded-full blur-2xl"></div>
+        </div>
+
+        {/* Grid Pattern Overlay */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]"></div>
+
+        <div className="container px-6 mx-auto relative z-10">
+          <div className={`grid lg:grid-cols-3 ${rtl ? "lg:grid-flow-col-dense" : ""} gap-16 items-center`}>
             {/* Description Text */}
             <motion.div
               initial={{ opacity: 0, x: rtl ? 20 : -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className={`space-y-6 lg:col-span-1 ${rtl ? "lg:order-2" : ""}`}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className={`space-y-8 lg:col-span-1 ${rtl ? "lg:order-2" : ""}`}
             >
-              <h2
-                className={`text-3xl md:text-4xl font-bold ${rtl ? "text-right" : ""
-                  }`}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg mb-6"
               >
+                <div className="w-2 h-2 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-pulse"></div>
+                <span className="text-sm font-semibold text-white/90">
+                  NOTRE PRODUIT
+                </span>
+              </motion.div>
+
+              <h2 className={`text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent leading-tight ${rtl ? "text-right" : ""}`}>
                 {t.produit.title}
               </h2>
-              <p className={`text-lg md:text-xl ${rtl ? "text-right" : ""}`}>
+              <p className={`text-xl text-white/80 leading-relaxed font-light ${rtl ? "text-right" : ""}`}>
                 {t.produit.description}
               </p>
             </motion.div>
 
             {/* Product Image */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className={`relative w-full h-[500px] lg:h-[700px] lg:col-span-1 flex justify-center items-center ${rtl ? "lg:order-1" : ""
-                }`}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className={`relative w-full h-[500px] lg:h-[700px] lg:col-span-1 flex justify-center items-center ${rtl ? "lg:order-1" : ""}`}
             >
-              <div className={`absolute inset-0 overflow-hidden rounded-lg`}>
-                <Image
-                  src={web2 || "/placeholder.svg"}
-                  alt="Produit image"
-                  layout="fill"
-                  objectFit="cover"
-                  className="transform transition-transform duration-700 ease-in-out hover:scale-110"
-                />
+              {/* Floating Container */}
+              <div className="relative w-full h-full group">
+                {/* Background Glow */}
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-700"></div>
+
+                {/* Main Image Container */}
+                <div className="absolute inset-4 rounded-2xl overflow-hidden">
+                  <Image
+                    src={web2 || "/placeholder.svg"}
+                    alt="Produit Depogro"
+                    layout="fill"
+                    objectFit="cover"
+                    className="transform transition-transform duration-700 ease-out group-hover:scale-110"
+                    priority
+                  />
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-60"></div>
+                </div>
+
+                {/* Floating Elements */}
+                <div className="absolute -top-4 -left-4 w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl rotate-12 opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
+                <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl -rotate-12 opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
               </div>
             </motion.div>
 
-            {/* Stats/Phrases (Discussion Bubbles) */}
+            {/* Stats/Features */}
             <motion.div
               initial={{ opacity: 0, x: rtl ? -20 : 20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
               className={`space-y-6 lg:col-span-1 ${rtl ? "lg:order-0" : ""}`}
             >
-              {/* Phrase 1 */}
-              <div className="p-6 bg-white bg-opacity-90 rounded-2xl shadow-lg relative">
-                <h3
-                  className={`text-xl font-semibold text-[#6B2FB3] ${rtl ? "text-right" : ""
-                    }`}
-                >
-                  {t.produit.stat1.title}
-                </h3>
-                <p
-                  className={`text-lg text-gray-700 ${rtl ? "text-right" : ""}`}
-                >
-                  {t.produit.stat1.content}
-                </p>
-              </div>
-
-              {/* Phrase 2 */}
-              <div className="p-6 bg-white bg-opacity-90 rounded-2xl shadow-lg relative">
-                <h3
-                  className={`text-xl font-semibold text-[#6B2FB3] ${rtl ? "text-right" : ""
-                    }`}
-                >
-                  {t.produit.stat2.title}
-                </h3>
-                <p
-                  className={`text-lg text-gray-700 ${rtl ? "text-right" : ""}`}
-                >
-                  {t.produit.stat2.content}
-                </p>
-              </div>
-
-              {/* Phrase 3 */}
-              <div className="p-6 bg-white bg-opacity-90 rounded-2xl shadow-lg relative">
-                <h3
-                  className={`text-xl font-semibold text-[#6B2FB3] ${rtl ? "text-right" : ""
-                    }`}
-                >
-                  {t.produit.stat3.title}
-                </h3>
-                <p
-                  className={`text-lg text-gray-700 ${rtl ? "text-right" : ""}`}
-                >
-                  {t.produit.stat3.content}
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-      {/* News & Media Section */}
-      <section
-        id="news"
-        className="py-24 bg-gradient-to-r from-[#46276B] to-[#D8C4B6]"
-      >
-        <div className="container px-4 mx-auto">
-          {/* Section Title */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-3xl mx-auto text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 font-jakarta text-white">
-              {t.news.title}
-            </h2>
-            <p className="text-lg md:text-xl text-purple-100">{t.news.dec}</p>
-          </motion.div>
-
-          {/* Video Container */}
-
-        </div>
-      </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      {/* New Marketplace Section */}
-      <section
-        id="marketplaceVideo"
-        className="py-28 bg-gradient-to-b from-white to-gray-50 text-gray-800"
-      >
-        <div className="container px-6 mx-auto">
-          {/* Section Title */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-3xl mx-auto text-center mb-20"
-          >
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-6 font-jakarta text-[#46276B]">
-              {t.Video.title}
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-              {t.Video.desc}
-            </p>
-            <div className="w-20 h-1 bg-[#46276B] mx-auto mt-6 rounded-full"></div>
-          </motion.div>
-
-          {/* Content Layout */}
-          <div
-            className={`grid lg:grid-cols-2 gap-16 items-center ${rtl ? "lg:grid-flow-col-dense" : ""
-              }`}
-          >
-            {/* Left: Image */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="relative h-[100px] sm:h-[500px] lg:h-[500px] rounded-2xl overflow-hidden shadow-lg"
-            >
-              <div className="relative w-full aspect-video">
-                <iframe
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/9KpHxHqtiPE"
-                  title="depogo"
-                  allow="autoplay; encrypted-media"
-                ></iframe>
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-            </motion.div>
-
-            {/* Right: Text Content */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className={`text-center lg:text-left ${rtl ? "lg:text-right" : ""}`}
-            >
-              <h3 className="text-3xl md:text-4xl font-bold mb-6 font-jakarta text-[#46276B]">
-                {t.Video.mission2}
-              </h3>
-              <p className="text-lg md:text-xl text-gray-700 mb-6 leading-relaxed">
-                {t.Video.missionDesc3}
-              </p>
-              <p className="text-lg md:text-xl text-gray-600 leading-relaxed border-l-4 border-[#46276B] pl-4 italic">
-                {t.Video.missionDesc4}
-              </p>
-
-              {/* CTA Button */}
-            
-
-            </motion.div>
-          </div>
-        </div>
-
-        {/* Modal */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              {/* Modal Box */}
+              {/* Feature 1 */}
               <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.9, opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                className="bg-white rounded-2xl shadow-2xl w-full max-w-5xl h-[80vh] overflow-hidden flex flex-col relative"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="group relative"
               >
-                {/* Cover Image */}
-                <div className="relative h-56 w-full">
-                  <Image
-                    src={mark} // 👉 remplace par ton image de couverture
-                    alt="Marketplace Cover"
-                    layout="fill"
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-t-2xl"></div>
-                  <h3 className="absolute bottom-4 left-6 text-3xl font-bold text-white drop-shadow-lg">
-                    {t.MARKETPLACE.title}
-                  </h3>
+                <div className="relative p-8 bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl shadow-purple-500/10 border border-white/20 hover:shadow-3xl hover:shadow-purple-500/20 transition-all duration-500">
+                  {/* Accent Bar */}
+                  <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-purple-600 to-pink-600 rounded-l-3xl"></div>
+
+                  <div className="pl-6">
+                    <h3 className={`text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-4 ${rtl ? "text-right" : ""}`}>
+                      {t.produit.stat1.title}
+                    </h3>
+                    <p className={`text-lg text-gray-700 leading-relaxed font-light ${rtl ? "text-right" : ""}`}>
+                      {t.produit.stat1.content}
+                    </p>
+                  </div>
+
+                  {/* Hover Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600/5 to-pink-600/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
+              </motion.div>
 
-                {/* Close Button */}
-                <button
-                  onClick={() => setIsOpen(false)}
-                  className="absolute top-4 right-4 bg-white/80 hover:bg-white text-gray-700 rounded-full w-10 h-10 flex items-center justify-center shadow-md"
-                >
-                  ✕
-                </button>
+              {/* Feature 2 */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="group relative"
+              >
+                <div className="relative p-8 bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl shadow-blue-500/10 border border-white/20 hover:shadow-3xl hover:shadow-blue-500/20 transition-all duration-500">
+                  {/* Accent Bar */}
+                  <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-blue-600 to-purple-600 rounded-l-3xl"></div>
 
-                {/* Scrollable Content */}
-                <div className="flex-1 overflow-y-auto px-8 py-6 space-y-8">
-                  {/* Section 1: Description */}
-                  <section>
-                    <h4 className="text-2xl font-semibold text-[#46276B] mb-3">📖 {t.MARKETPLACE.mission2}</h4>
-                    <p className="text-lg text-gray-700 leading-relaxed">
-                      {t.MARKETPLACE.missionDesc3}
+                  <div className="pl-6">
+                    <h3 className={`text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4 ${rtl ? "text-right" : ""}`}>
+                      {t.produit.stat2.title}
+                    </h3>
+                    <p className={`text-lg text-gray-700 leading-relaxed font-light ${rtl ? "text-right" : ""}`}>
+                      {t.produit.stat2.content}
                     </p>
-                  </section>
+                  </div>
 
-                  {/* Section 2: Rôle du Marketplace */}
-                  <section>
-                    <h4 className="text-2xl font-semibold text-[#46276B] mb-3">🎯 Rôle du Marketplace</h4>
-                    <p className="text-lg text-gray-700 leading-relaxed">
-                      {t.MARKETPLACE.role}
+                  {/* Hover Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+              </motion.div>
+
+              {/* Feature 3 */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.7 }}
+                className="group relative"
+              >
+                <div className="relative p-8 bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl shadow-pink-500/10 border border-white/20 hover:shadow-3xl hover:shadow-pink-500/20 transition-all duration-500">
+                  {/* Accent Bar */}
+                  <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-pink-600 to-orange-600 rounded-l-3xl"></div>
+
+                  <div className="pl-6">
+                    <h3 className={`text-2xl font-bold bg-gradient-to-r from-pink-600 to-orange-600 bg-clip-text text-transparent mb-4 ${rtl ? "text-right" : ""}`}>
+                      {t.produit.stat3.title}
+                    </h3>
+                    <p className={`text-lg text-gray-700 leading-relaxed font-light ${rtl ? "text-right" : ""}`}>
+                      {t.produit.stat3.content}
                     </p>
-                  </section>
+                  </div>
 
-                  {/* Section 3: Avantages */}
-                  <section>
-                    <h4 className="text-2xl font-semibold text-[#46276B] mb-4">🚀 Avantages</h4>
-                    <ul className="space-y-3 text-lg text-gray-700 list-disc pl-6">
-                      <li> {t.MARKETPLACE.avantage1}</li>
-                      <li>{t.MARKETPLACE.avantage2}</li>
-                      <li>{t.MARKETPLACE.avantage3}</li>
-                      <li>{t.MARKETPLACE.avantage4}</li>
-                      <li>{t.MARKETPLACE.avantage5}</li>
-                    </ul>
-                  </section>
+                  {/* Hover Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-pink-600/5 to-orange-600/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
               </motion.div>
             </motion.div>
-          )}
-        </AnimatePresence>
-
+          </div>
+        </div>
       </section>
 
+
+      {/* News & Media Section */}
+
+
+      {/* New Marketplace Section */}
+      <section id="marketplaceVideo" className="relative py-20 bg-gradient-to-br from-white via-gray-50 to-purple-50/30 overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-r from-purple-600/5 to-pink-600/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-r from-blue-600/5 to-purple-600/5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container px-6 mx-auto relative z-10">
+          {/* Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="max-w-3xl mx-auto text-center mb-20"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-lg shadow-purple-500/5 mb-8"
+            >
+              <div className="w-2 h-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full animate-pulse"></div>
+              <span className="text-sm font-semibold text-transparent bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text">
+                VIDÉO PRÉSENTATION
+              </span>
+            </motion.div>
+
+            <h2 className="text-4xl md:text-4xl font-bold mb-8 bg-gradient-to-r from-gray-900 to-purple-900 bg-clip-text text-transparent leading-tight">
+              {t.Video.title}
+            </h2>
+            <p className="text-xl md:text-2xl text-gray-600 leading-relaxed font-light max-w-3xl mx-auto">
+              {t.Video.desc}
+            </p>
+          </motion.div>
+
+          {/* Content Layout */}
+          <div className={`grid lg:grid-cols-2 gap-16 items-center ${rtl ? "lg:grid-flow-col-dense" : ""}`}>
+            {/* Video Section */}
+            <motion.div
+              initial={{ opacity: 0, x: rtl ? 20 : -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="relative group"
+            >
+              {/* Video Container */}
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-gray-400/20">
+                {/* Background Glow */}
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 to-pink-600/10 rounded-3xl blur-lg group-hover:blur-xl transition-all duration-700"></div>
+
+                {/* Video Iframe */}
+                <div className="relative aspect-video rounded-2xl overflow-hidden">
+                  <iframe
+                    className="w-full h-full"
+                    src="https://www.youtube.com/embed/9KpHxHqtiPE"
+                    title="Dépogo - Présentation"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+
+                {/* Play Button Overlay (before play) */}
+                <div className="absolute inset-0 flex items-center justify-center bg-black/10 group-hover:bg-black/5 transition-all duration-300">
+                  <div className="w-20 h-20 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-2xl transform group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-0 h-0 border-l-[16px] border-l-purple-600 border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent ml-1"></div>
+                  </div>
+                </div>
+
+                {/* Floating Elements */}
+                <div className="absolute -top-4 -left-4 w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl rotate-12 opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
+                <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl -rotate-12 opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
+              </div>
+            </motion.div>
+
+            {/* Text Content */}
+            <motion.div
+              initial={{ opacity: 0, x: rtl ? -20 : 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className={`space-y-8 ${rtl ? "lg:text-right" : "lg:text-left"} text-center lg:text-left`}
+            >
+              {/* Mission Title */}
+              <div>
+                <motion.h3
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  className="text-4xl md:text-3xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-purple-900 bg-clip-text text-transparent leading-tight"
+                >
+                  {t.Video.mission2}
+                </motion.h3>
+
+
+              </div>
+
+              {/* Mission Description */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="space-y-6"
+              >
+
+
+                {/* Highlighted Quote */}
+                <div className="relative p-6 rounded-2xl bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200/50">
+                  <div className="absolute top-0 left-6 w-1 h-full bg-gradient-to-b from-purple-600 to-pink-600 rounded-full"></div>
+                  <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-light pl-4 italic">
+                    {t.Video.missionDesc4}
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Video Features */}
+
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
 
 
@@ -815,165 +1185,274 @@ export default function Home() {
       {/* Brands Section */}
       <BrandsCarousel brands={brands} t={t} />
       {/* Contact Section */}
-      <section id="contact" className="py-24 bg-white">
-        <div className="container px-6 mx-auto">
-          <div
-            className={`grid lg:grid-cols-2 ${rtl ? "lg:grid-flow-col-dense" : ""
-              } gap-12`}
+    <section id="contact" className="relative py-32 bg-gradient-to-br from-white via-gray-50 to-purple-50/30 overflow-hidden  p-10 ">
+  {/* Background Elements */}
+  <div className="absolute inset-0 overflow-hidden">
+    <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-r from-purple-600/5 to-pink-600/5 rounded-full blur-3xl"></div>
+    <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-r from-blue-600/5 to-purple-600/5 rounded-full blur-3xl"></div>
+  </div>
+
+  <div className="container px-6 mx-auto relative z-10">
+    <div className={`grid lg:grid-cols-2 ${rtl ? "lg:grid-flow-col-dense" : ""} gap-16 items-start`}>
+      {/* Contact Information */}
+      <motion.div
+        initial={{ opacity: 0, x: rtl ? 20 : -20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className={`space-y-8 ${rtl ? "lg:order-1" : ""}`}
+      >
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="space-y-4"
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-lg shadow-purple-500/5"
           >
-            {/* Contact Information */}
-            <motion.div
-              initial={{ opacity: 0, x: rtl ? 20 : -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className={`space-y-8 ${rtl ? "lg:order-1" : ""}`}
-            >
-              <div>
-                <h2
-                  className={`text-3xl md:text-4xl font-bold mb-4 text-[#46276B] font-jakarta ${rtl ? "text-right" : ""
-                    }`}
-                >
-                  {t.contact.title}
-                </h2>
-                <p
-                  className={`text-lg md:text-xl text-gray-600 ${rtl ? "text-right" : ""
-                    }`}
-                >
-                  {t.contact.subtitle}
-                </p>
-              </div>
-              <div>
-                <h3
-                  className={`text-lg md:text-xl font-semibold mb-2 text-[#46276B] ${rtl ? "text-right" : ""
-                    }`}
-                >
+            <div className="w-2 h-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full animate-pulse"></div>
+            <span className="text-sm font-semibold text-transparent bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text">
+              CONTACTEZ-NOUS
+            </span>
+          </motion.div>
+
+          <h2 className={`text-3xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 to-purple-900 bg-clip-text text-transparent leading-tight ${rtl ? "text-right" : ""}`}>
+            {t.contact.title}
+          </h2>
+          <p className={`text-xl text-gray-600 leading-relaxed font-light ${rtl ? "text-right" : ""}`}>
+            {t.contact.subtitle}
+          </p>
+        </motion.div>
+
+        {/* Contact Details */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="space-y-6"
+        >
+          {/* Address */}
+          <motion.div
+            whileHover={{ x: rtl ? -5 : 5 }}
+            className={`group p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-lg shadow-purple-500/5 hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-300 ${rtl ? "text-right" : ""}`}
+          >
+            <div className="flex items-start gap-4">
+              {!rtl && (
+                <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-6 h-6 text-white" />
+                </div>
+              )}
+              <div className="flex-1">
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
                   {t.contact.address}
                 </h3>
-                <p className={`text-gray-600 ${rtl ? "text-right" : ""}`}>
+                <p className="text-gray-600 leading-relaxed">
                   Rue du Parc, Ariana 2036, Tunisie
                 </p>
               </div>
-              <div>
-                <h3
-                  className={`text-lg md:text-xl font-semibold mb-2 text-[#46276B] ${rtl ? "text-right" : ""
-                    }`}
-                >
-                  {t.contact.telephone}{" "}
+              {rtl && (
+                <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-6 h-6 text-white" />
+                </div>
+              )}
+            </div>
+          </motion.div>
+
+          {/* Phone */}
+          <motion.div
+            whileHover={{ x: rtl ? -5 : 5 }}
+            className={`group p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-lg shadow-purple-500/5 hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-300 ${rtl ? "text-right" : ""}`}
+          >
+            <div className="flex items-start gap-4">
+              {!rtl && (
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-6 h-6 text-white" />
+                </div>
+              )}
+              <div className="flex-1">
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  {t.contact.telephone}
                 </h3>
-                <p className={`text-gray-600  ${rtl ? "text-right" : ""}`}>
+                <p className="text-gray-600 leading-relaxed">
                   +216 56 444 000
                 </p>
               </div>
-              <div>
-                <h3
-                  className={`text-lg md:text-xl font-semibold mb-2 text-[#46276B] ${rtl ? "text-right" : ""
-                    }`}
-                >
+              {rtl && (
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-6 h-6 text-white" />
+                </div>
+              )}
+            </div>
+          </motion.div>
+
+          {/* Email */}
+          <motion.div
+            whileHover={{ x: rtl ? -5 : 5 }}
+            className={`group p-6 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-lg shadow-purple-500/5 hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-300 ${rtl ? "text-right" : ""}`}
+          >
+            <div className="flex items-start gap-4">
+              {!rtl && (
+                <div className="w-12 h-12 bg-gradient-to-r from-green-600 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-6 h-6 text-white" />
+                </div>
+              )}
+              <div className="flex-1">
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
                   {t.contact.email}
                 </h3>
-                <p className={`text-gray-600 ${rtl ? "text-right" : ""}`}>
+                <p className="text-gray-600 leading-relaxed">
                   contact@depogro.com
                 </p>
               </div>
+              {rtl && (
+                <div className="w-12 h-12 bg-gradient-to-r from-green-600 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-6 h-6 text-white" />
+                </div>
+              )}
+            </div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
+
+      {/* Contact Form */}
+      <motion.div
+        initial={{ opacity: 0, x: rtl ? -20 : 20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className={`relative ${rtl ? "lg:order-0" : ""}`}
+      >
+        {/* Form Container */}
+        <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl shadow-purple-500/10 border border-gray-200/50">
+          {/* Form Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-center mb-8"
+          >
+            <h3 className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-purple-900 bg-clip-text text-transparent mb-2">
+              Envoyez-nous un message
+            </h3>
+            <p className="text-gray-600">Nous vous répondrons dans les plus brefs délais</p>
+          </motion.div>
+
+          <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Name Fields */}
+            <div className="grid md:grid-cols-2 gap-4">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="space-y-2"
+              >
+                <label htmlFor="firstName" className="text-sm font-medium text-gray-700">
+                  {t.contact.form.firstName}
+                </label>
+                <Input
+                  id="firstName"
+                  name="firstName"
+                  placeholder={t.contact.form.firstName}
+                  required
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all duration-300 bg-white/50 backdrop-blur-sm"
+                />
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                className="space-y-2"
+              >
+                <label htmlFor="lastName" className="text-sm font-medium text-gray-700">
+                  {t.contact.form.lastName}
+                </label>
+                <Input
+                  id="lastName"
+                  name="lastName"
+                  placeholder={t.contact.form.lastName}
+                  required
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all duration-300 bg-white/50 backdrop-blur-sm"
+                />
+              </motion.div>
+            </div>
+
+            {/* Email Field */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="space-y-2"
+            >
+              <label htmlFor="email" className="text-sm font-medium text-gray-700">
+                {t.contact.form.email}
+              </label>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                placeholder={t.contact.form.email}
+                required
+                disabled={isSubmitting}
+                className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all duration-300 bg-white/50 backdrop-blur-sm"
+              />
             </motion.div>
 
-            {/* Contact Form */}
+            {/* Message Field */}
             <motion.div
-              initial={{ opacity: 0, x: rtl ? -20 : 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className={`bg-white rounded-2xl p-8 shadow-lg border border-gray-100 backdrop-blur-sm ${rtl ? "lg:order-0" : ""
-                }`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.7 }}
+              className="space-y-2"
             >
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className={`space-y-2 ${rtl ? "text-right" : ""}`}>
-                    <label
-                      htmlFor="firstName"
-                      className={`text-sm font-medium text-gray-700${rtl ? "text-right" : ""
-                        }`}
-                    >
-                      {t.contact.form.firstName}
-                    </label>
-                    <Input
-                      id="firstName"
-                      name="firstName"
-                      placeholder={t.contact.form.firstName}
-                      required
-                      disabled={isSubmitting}
-                      className={`space-y-2 ${rtl ? "text-right" : ""}`}
-                    />
-                  </div>
-                  <div className={`space-y-2 ${rtl ? "text-right" : ""}`}>
-                    <label
-                      htmlFor="lastName"
-                      className={`text-sm font-medium text-gray-700${rtl ? "text-right" : ""
-                        }`}
-                    >
-                      {t.contact.form.lastName}
-                    </label>
-                    <Input
-                      id="lastName"
-                      name="lastName"
-                      placeholder={t.contact.form.lastName}
-                      required
-                      disabled={isSubmitting}
-                      className={`space-y-2 ${rtl ? "text-right" : ""}`}
-                    />
-                  </div>
-                </div>
-                <div className={`space-y-2 ${rtl ? "text-right" : ""}`}>
-                  <label
-                    htmlFor="email"
-                    className={`text-sm font-medium text-gray-700${rtl ? "text-right" : ""
-                      }`}
-                  >
-                    {t.contact.form.email}
-                  </label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder={t.contact.form.email}
-                    required
-                    disabled={isSubmitting}
-                    className={`space-y-2 ${rtl ? "text-right" : ""}`}
-                  />
-                </div>
-                <div className={`space-y-2 ${rtl ? "text-right" : ""}`}>
-                  <label
-                    htmlFor="message"
-                    className={`text-sm font-medium text-gray-700${rtl ? "text-right" : ""
-                      }`}
-                  >
-                    {t.contact.form.message}
-                  </label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    placeholder={t.contact.form.message}
-                    required
-                    disabled={isSubmitting}
-                    className={` min-h-[150px] space-y-2 ${rtl ? "text-right" : ""
-                      }`}
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  className="w-full bg-[#46276B] hover:bg-[#5a279a] text-white"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting
-                    ? language === "fr"
-                      ? "Envoi en cours..."
-                      : "جاري الإرسال..."
-                    : t.contact.form.submit}
-                </Button>
-              </form>
+              <label htmlFor="message" className="text-sm font-medium text-gray-700">
+                {t.contact.form.message}
+              </label>
+              <Textarea
+                id="message"
+                name="message"
+                placeholder={t.contact.form.message}
+                required
+                disabled={isSubmitting}
+                className="w-full min-h-[150px] px-4 py-3 rounded-xl border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all duration-300 bg-white/50 backdrop-blur-sm resize-none"
+              />
             </motion.div>
-          </div>
+
+            {/* Submit Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+            >
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full py-4 bg-[#f37c50]  hover:from-purple-700 hover:to-pink-700 text-white rounded-xl font-semibold shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/30 transition-all duration-300 transform hover:scale-105"
+              >
+                {isSubmitting ? (
+                  <div className="flex items-center gap-2">
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    {language === "fr" ? "Envoi en cours..." : "جاري الإرسال..."}
+                  </div>
+                ) : (
+                  t.contact.form.submit
+                )}
+              </Button>
+            </motion.div>
+          </form>
         </div>
-      </section>
+
+        {/* Floating Elements */}
+        <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full opacity-20"></div>
+        <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full opacity-20"></div>
+      </motion.div>
+    </div>
+  </div>
+</section>
 
       {/* Map Section */}
       <section className="py-12">

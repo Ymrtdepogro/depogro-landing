@@ -1,6 +1,8 @@
 "use client";
-import { Store, Menu, X } from "lucide-react";
+import { Store, Menu, X, ChevronDown, Globe } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import depoo from "@/assets/depoo.png";
 
 import { cn, isRTL } from "@/lib/utils";
 import { useState, useEffect } from "react";
@@ -14,6 +16,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
+
 const navigation = [
   { name: "home", href: "#home" },
   { name: "marketplace", href: "#marketplace" },
@@ -26,6 +29,7 @@ const navigation = [
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const { language, setLanguage } = useLanguageStore();
   const [activeSection, setActiveSection] = useState("home");
   const j = translations[language];
@@ -33,6 +37,9 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 50);
+
       const sections = navigation.map((nav) => nav.href.replace("#", ""));
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -47,87 +54,168 @@ export function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   const rtl = isRTL(language);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#46276B] via-[#5D3C8C] to-[#BEBEBE] backdrop-blur-lg shadow-lg">
-      <div className="container mx-auto px-6 py-4">
+    <nav
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+        isScrolled
+          ? "bg-white/90 backdrop-blur-xl shadow-2xl shadow-purple-500/10 border-b border-gray-100/20"
+          : "bg-transparent"
+      )}
+    >
+      {/* Background Gradient Effect */}
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-600/5 via-blue-600/5 to-pink-600/5 pointer-events-none" />
+
+      <div className="container mx-auto px-6 py-3 relative">
         <div className="flex items-center justify-between">
           {/* Branding */}
-          <div className="flex items-center space-x-2">
-            <Link href="#home" className="flex items-center space-x-2">
-              <Store className="h-8 w-8 text-white" />
-              <span className="text-2xl font-semibold text-white tracking-wider">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="flex items-center space-x-3"
+          >
+            <Link
+              href="#home"
+              className="flex items-center space-x-3 group"
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector('#home')?.scrollIntoView({ behavior: "smooth" });
+                setActiveSection("home");
+              }}
+            >
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur-md opacity-75 group-hover:opacity-100 transition-opacity duration-300" />
+               
+<Image
+  src={depoo}
+  alt="Store Icon"
+  width={32}
+  height={32}
+  className="relative z-10 object-contain"
+/>
+
+              </div>
+              <span className={cn(
+                "text-2xl font-bold tracking-tight bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent",
+                isScrolled ? "text-gray-900" : "text-gray-700 hover:text-purple-600"
+              )}>
                 DEPOGRO
               </span>
             </Link>
-          </div>
+          </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-4">
-            {navigation.map((item) => (
-              <Link
+          <div className="hidden lg:flex items-center space-x-1 ">
+            {navigation.map((item, index) => (
+              <motion.div
                 key={item.name}
-                href={item.href}
-                className={cn(
-                  "text-lg font-medium text-white transition-all duration-300 hover:text-[#EF7953] relative",
-                  activeSection === item.href.replace("#", "")
-                    ? "text-[#EF7953] font-semibold"
-                    : "text-opacity-75"
-                )}
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.querySelector(item.href)?.scrollIntoView({
-                    behavior: "smooth",
-                  });
-                  setActiveSection(item.href.replace("#", ""));
-                }}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
               >
-                {t[item.name]}
-              </Link>
+                <Link
+                  href={item.href}
+                  className={cn(
+                    "relative px-4 py-2 text-sm font-semibold transition-all duration-300 rounded-lg group",
+                    isScrolled
+                      ? activeSection === item.href.replace("#", "")
+                        ? "text-purple-600"
+                        : "text-gray-700 hover:text-purple-600"
+                      : activeSection === item.href.replace("#", "")
+                        ? "text-purple-600"
+                        : "text-gray-700 hover:text-purple-600"
+                  )}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.querySelector(item.href)?.scrollIntoView({
+                      behavior: "smooth",
+                    });
+                    setActiveSection(item.href.replace("#", ""));
+                  }}
+                >
+                  {t[item.name]}
+                  {/* Active Indicator */}
+                  {activeSection === item.href.replace("#", "") && (
+                    <motion.div
+                      layoutId="activeSection"
+                      className="absolute inset-0 bg-gradient-to-r from-purple-600/10 to-pink-600/10 rounded-lg border border-purple-500/20"
+                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    />
+                  )}
+                  {/* Hover Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600/5 to-pink-600/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </Link>
+              </motion.div>
             ))}
           </div>
-<div className="hidden md:flex items-center space-x-4"   onClick={() => window.open("http://markeplace.depogro.com/", "_blank")}>
-  <button className="px-4 py-2 bg-[#ef7953] text-white rounded-lg hover:bg-purple-700 transition">
-    {j.MARKETPLACE.learnMoreSite}
-  </button>
-</div>
 
-          {/* Language Selection and Hamburger */}
-          <div className="flex items-center space-x-4">
-            {/* Language Switcher */}
-           
-            <div className="hidden md:flex items-center space-x-4">
+          {/* Desktop Actions */}
+          <div className="hidden lg:flex items-center space-x-3">
+            {/* Marketplace Button */}
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="px-6 py-2.5 bg-[#f37c50] text-white rounded-xl font-semibold shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/30 transition-all duration-300 hover:from-purple-700 hover:to-pink-700"
+              onClick={() => window.open("http://markeplace.depogro.com/", "_blank")}
+            >
+              {j.MARKETPLACE.learnMoreSite}
+            </motion.button>
+
+            {/* Language Selector */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="relative"
+            >
               <Select
                 value={language}
                 onValueChange={(value) => setLanguage(value as Language)}
               >
-                <SelectTrigger className="w-[180px] bg-transparent text-white border-white">
-                  <SelectValue placeholder="Select Language" />
+                <SelectTrigger className={cn(
+                  "w-32 bg-transparent border-none shadow-none focus:ring-0",
+                  isScrolled ? "text-gray-700" : "text-gray-700 hover:text-purple-600"
+                )}>
+                  <div className="flex items-center space-x-2">
+                    <Globe className="h-4 w-4" />
+                    <SelectValue placeholder="Language" />
+                    <ChevronDown className="h-4 w-4 opacity-50" />
+                  </div>
                 </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="en">English</SelectItem>
-                  <SelectItem value="fr">Français</SelectItem>
-                  <SelectItem value="ar">العربية</SelectItem>
+                <SelectContent className="bg-white/95 backdrop-blur-xl border border-gray-200/50 shadow-2xl">
+                  <SelectItem value="en" className="flex items-center space-x-2">
+                    <span>🇺🇸 English</span>
+                  </SelectItem>
+                  <SelectItem value="fr" className="flex items-center space-x-2">
+                    <span>🇫🇷 Français</span>
+                  </SelectItem>
+                  <SelectItem value="ar" className="flex items-center space-x-2">
+                    <span>🇸🇦 العربية</span>
+                  </SelectItem>
                 </SelectContent>
               </Select>
-            </div>
-            {/* Hamburger Menu for Mobile */}
-            <button
-              className="md:hidden p-3 bg-transparent border-2 border-white rounded-full hover:bg-[#46276B] hover:text-white transition-all duration-300"
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              {isOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </button>
+            </motion.div>
           </div>
+
+          {/* Mobile Menu Button */}
+          <motion.button
+          
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className={cn(
+              "lg:hidden p-3 rounded-xl border transition-all duration-300",
+              isScrolled
+                ? "bg-white/80 backdrop-blur-sm border-gray-200 text-gray-700 hover:bg-white"
+                : "bg-white/10 backdrop-blur-sm border-white/20 text-gray-700 hover:text-purple-600 hover:bg-white/20"
+            )}
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </motion.button>
         </div>
       </div>
 
@@ -135,51 +223,76 @@ export function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -50 }}
-            className="md:hidden bg-gradient-to-r from-[#46276B] via-[#5D3C8C] to-[#EF7953] border-t"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-gray-200/50 shadow-2xl overflow-hidden"
           >
-            <div className="container mx-auto px-6 py-4">
-              {/* Language Switcher Inside Mobile Menu */}
-              <div className="flex items-center justify-center mb-4">
+            <div className="container mx-auto px-6 py-6">
+              {/* Language Switcher */}
+              <div className="flex justify-center mb-6">
                 <Select
                   value={language}
                   onValueChange={(value) => setLanguage(value as Language)}
                 >
-                  <SelectTrigger className="w-[180px] bg-transparent text-white border-white">
-                    <SelectValue placeholder="Select Language" />
+                  <SelectTrigger className="w-full max-w-xs bg-white border-gray-300">
+                    <div className="flex items-center space-x-2">
+                      <Globe className="h-4 w-4" />
+                      <SelectValue placeholder="Language" />
+                    </div>
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="en">English</SelectItem>
-                    <SelectItem value="fr">Français</SelectItem>
-                    <SelectItem value="ar">العربية</SelectItem>
+                    <SelectItem value="en">🇺🇸 English</SelectItem>
+                    <SelectItem value="fr">🇫🇷 Français</SelectItem>
+                    <SelectItem value="ar">🇸🇦 العربية</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
-              {/* Navigation Links in Mobile Menu */}
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document.querySelector(item.href)?.scrollIntoView({
-                      behavior: "smooth",
-                    });
-                    setIsOpen(false);
-                    setActiveSection(item.href.replace("#", ""));
-                  }}
-                  className={cn(
-                    "block py-3 text-lg font-medium text-white transition-all duration-300 hover:text-[#EF7953]",
-                    activeSection === item.href.replace("#", "")
-                      ? "text-[#EF7953]"
-                      : "text-opacity-75"
-                  )}
-                >
-                  {t[item.name]}
-                </Link>
-              ))}
+
+              {/* Navigation Links */}
+              <div className="space-y-2">
+                {navigation.map((item) => (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                  >
+                    <Link
+                      href={item.href}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        document.querySelector(item.href)?.scrollIntoView({
+                          behavior: "smooth",
+                        });
+                        setIsOpen(false);
+                        setActiveSection(item.href.replace("#", ""));
+                      }}
+                      className={cn(
+                        "block px-4 py-3 rounded-xl font-medium transition-all duration-300",
+                        activeSection === item.href.replace("#", "")
+                          ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-500/25"
+                          : "text-gray-700 hover:bg-gray-100/50"
+                      )}
+                    >
+                      {t[item.name]}
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Mobile Marketplace Button */}
+              <motion.button
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="w-full mt-6 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl font-semibold shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/30 transition-all duration-300"
+                onClick={() => {
+                  window.open("http://markeplace.depogro.com/", "_blank");
+                  setIsOpen(false);
+                }}
+              >
+                {j.MARKETPLACE.learnMoreSite}
+              </motion.button>
             </div>
           </motion.div>
         )}

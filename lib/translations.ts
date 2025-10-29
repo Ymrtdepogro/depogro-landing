@@ -24,26 +24,25 @@ export const translations = {
     MARKETPLACE: {
       title: "About the Marketplace",
       learnMore: " Learn More",
-      avantage1:" Centralized order management and simplified operations.",
-      avantage2:" Real-time tracking with detailed statistics.",
-      avantage3:" Inventory, delivery, and payment management.",
-      avantage4:" Intuitive interface and dedicated support.",
-      avantage5:" Accelerated sales growth.",
+      avantage1: " Centralized order management and simplified operations.",
+      avantage2: " Real-time tracking with detailed statistics.",
+      avantage3: " Inventory, delivery, and payment management.",
+      avantage4: " Intuitive interface and dedicated support.",
+      avantage5: " Accelerated sales growth.",
       learnMoreSite: "Connexion marketplace",
-      role:" The marketplace serves as a comprehensive platform that connects stores with a wide range of products and services, facilitating seamless transactions and enhancing the overall shopping experience.",
+      role: " The marketplace serves as a comprehensive platform that connects stores with a wide range of products and services, facilitating seamless transactions and enhancing the overall shopping experience.",
       desc2: "An innovative marketplace that redefines store management and growth in Tunisia.",
       mission2: "Our marketplace",
       missionDesc3: "Our marketplace is specially designed for stores. It allows you to centralize all orders placed through the application and provides complete management, including treasury, invoicing, as well as a statistics dashboard to easily track your revenues, the number of orders, and much more.",
       missionDesc4: "Our marketplace enables each store to add and sync products, manage stock, orders, and deliveries, track sales with detailed statistics, and customize brands and categories. Everything is centralized in one interface with dedicated support, making store management easier and sales growth faster."
     },
-    Video: {
-  title: "Vidéo de la plateforme",
-  desc: "Découvrez comment Depogro révolutionne la gestion des magasins et le commerce électronique grâce à notre plateforme complète."
-,mission2: "Our Marketplace and Application",
-missionDesc3: "Our platform is specially designed for stores. It allows you to gather all orders made through the app and provides full management, including treasury and invoicing, along with a statistics dashboard to easily view revenue, number of orders, and more.",
-missionDesc4: "Our platform enables each store to add and synchronize its products, manage inventory, orders, and deliveries, track sales through accurate statistics, and customize brands and categories. All of this within a single centralized interface with dedicated support, making store management easier and sales growth faster."
-
-},
+   Video: {
+  title: "Platform Video",
+  desc: "Discover how Depogro is transforming store management and e-commerce with our all-in-one platform.",
+  mission2: "Our Marketplace and App",
+  missionDesc4: "Explore DepoGro Marketplace — the new B2B platform that’s revolutionizing distribution! We connect warehouses and depots with merchants and retailers all across Tunisia. Compare FMCG (Fast-Moving Consumer Goods) prices in real time, place your orders in just a few clicks, and let our delivery team collect your products directly from the depots and bring them to you quickly and safely. DepoGro simplifies your purchasing process, optimizes your costs, and gives you access to a wide network of trusted suppliers — all from a single app. Buy smarter, save time, and grow your business with DepoGro!"
+}
+,
     about: {
       title: "About DEPOGRO",
       missionDesc2: "Our platform is designed for retailers, restaurants, and cafes, offering a smooth and intuitive mobile experience.",
@@ -152,32 +151,26 @@ missionDesc4: "Our platform enables each store to add and synchronize its produc
       title: "À propos de la Marketplace",
       learnMore: "En savoir plus",
       learnMoreSite: "Connexion au marketplace",
-      avantage1:" Centralisation des commandes et gestion simplifiée.",
-      avantage2:" Suivi en temps réel avec des statistiques détaillées.",
-      avantage3:" Gestion des stocks, livraisons et paiements.",
-      avantage4:" Interface intuitive et support dédié.",
-      avantage5:" Accélération de la croissance des ventes.",
-      role:" La marketplace sert de plateforme complète qui connecte les magasins à une large gamme de produits et services, facilitant les transactions fluides et améliorant l'expérience d'achat globale.",
+      avantage1: " Centralisation des commandes et gestion simplifiée.",
+      avantage2: " Suivi en temps réel avec des statistiques détaillées.",
+      avantage3: " Gestion des stocks, livraisons et paiements.",
+      avantage4: " Interface intuitive et support dédié.",
+      avantage5: " Accélération de la croissance des ventes.",
+      role: " La marketplace sert de plateforme complète qui connecte les magasins à une large gamme de produits et services, facilitant les transactions fluides et améliorant l'expérience d'achat globale.",
       desc2: "Une marketplace innovante qui redéfinit la gestion et la croissance des stores en Tunisie.",
       mission2: "Notre marketplace",
       missionDesc3: "Notre marketplace est spécialement conçue pour les stores. Elle permet de centraliser toutes les commandes passées via l’application et offre une gestion complète incluant la trésorerie, la facturation ainsi qu’un tableau de bord statistique pour suivre facilement vos revenus, le nombre de commandes et bien plus encore.",
       missionDesc4: "Notre marketplace permet à chaque store d’ajouter et de synchroniser ses produits, de gérer ses stocks, commandes et livraisons, de suivre ses ventes grâce à des statistiques détaillées et de personnaliser ses marques et catégories. Tout est centralisé dans une seule interface avec un support dédié, ce qui rend la gestion plus simple et la croissance des ventes plus rapide."
     }
     ,
-    Video: {
-  title: "Platform Video",
-  desc: "Discover how Depogro is revolutionizing store management and e-commerce through our all-in-one platform.",
-mission2: "Notre Marketplace et Application",
-missionDesc3: "Notre plateforme, conçue spécialement pour les magasins, centralise toutes les commandes effectuées via l’application, qu’elles proviennent de clients en ligne ou en magasin. Elle propose une gestion complète de la trésorerie et de la facturation, permettant aux commerçants de suivre les paiements, de générer des factures et d’assurer un contrôle précis de leurs finances. Grâce à un tableau de bord intuitif et riche en informations, il est facile de visualiser les revenus, le nombre de commandes, l’évolution des ventes et bien d’autres indicateurs essentiels, offrant ainsi une vision globale et en temps réel de l’activité du magasin pour prendre des décisions éclairées et optimiser la performance."
-,
-//missionDesc3: "Notre plateforme centralise toutes les commandes et offre une gestion complète de la trésorerie, de la facturation et des statistiques de ventes pour faciliter le suivi des performances.",
-missionDesc4: "Grâce à notre application, chaque magasin peut facilement gérer ses produits, son stock, ses commandes et ses livraisons, tout en personnalisant ses marques et catégories. L’interface centralisée et le support dédié rendent la gestion plus simple et favorisent une croissance rapide."
-
-
-
-    
+   Video: {
+  title: "Vidéo de la Plateforme",
+  desc: "Découvrez comment Depogro révolutionne la gestion des magasins et le e-commerce grâce à notre plateforme tout-en-un.",
+  mission2: "Notre Marketplace et Application",
+  missionDesc4: "Découvrez DepoGro Marketplace, la nouvelle plateforme B2B qui révolutionne la distribution ! Nous connectons les dépôts et entrepôts aux commerçants et détaillants à travers toute la Tunisie. Comparez les prix des produits FMCG (grande consommation) en temps réel, passez vos commandes en quelques clics, et laissez notre équipe de livraison récupérer vos produits directement auprès des dépôts pour vous les livrer rapidement et en toute sécurité. DepoGro simplifie vos achats, optimise vos coûts et vous donne accès à un vaste réseau de fournisseurs fiables — le tout depuis une seule application. Achetez, gagnez du temps et développez votre commerce avec DepoGro !"
 }
-,
+
+    ,
     about: {
       title: "À Propos de DEPOGRO",
       learnMore: "En savoir plus",
@@ -263,13 +256,13 @@ missionDesc4: "Grâce à notre application, chaque magasin peut facilement gére
     },
     MARKETPLACE: {
       title: "حول المنصة",
-      avantage1:" مركزية الطلبات وإدارة مبسطة.",
-      avantage2:" متابعة في الوقت الحقيقي مع إحصائيات مفصلة.",
-      avantage3:" إدارة المخزون، التوصيلات والمدفوعات.",
-      learnMoreSite:"الدخول إلى السوق",
-      avantage4:" واجهة بديهية ودعم مخصص.",
-      avantage5:" تسريع نمو المبيعات.",
-      role:" تعمل المنصة كسوق شامل يربط المتاجر بمجموعة واسعة من المنتجات والخدمات، مما يسهل المعاملات السلسة ويعزز تجربة التسوق الشاملة.",
+      avantage1: " مركزية الطلبات وإدارة مبسطة.",
+      avantage2: " متابعة في الوقت الحقيقي مع إحصائيات مفصلة.",
+      avantage3: " إدارة المخزون، التوصيلات والمدفوعات.",
+      learnMoreSite: "الدخول إلى السوق",
+      avantage4: " واجهة بديهية ودعم مخصص.",
+      avantage5: " تسريع نمو المبيعات.",
+      role: " تعمل المنصة كسوق شامل يربط المتاجر بمجموعة واسعة من المنتجات والخدمات، مما يسهل المعاملات السلسة ويعزز تجربة التسوق الشاملة.",
       learnMore: "اكتشف المزيد",
       desc2: "سوق مبتكر يعيد تعريف إدارة المتاجر ونموها في تونس.",
       mission2: "منصتنا",
@@ -277,16 +270,13 @@ missionDesc4: "Grâce à notre application, chaque magasin peut facilement gére
       missionDesc4: "تمكّن منصتنا كل متجر من إضافة ومزامنة منتجاته، وإدارة المخزون والطلبات والتسليمات، وتتبع المبيعات من خلال إحصائيات دقيقة، وتخصيص العلامات التجارية والفئات. كل ذلك في واجهة واحدة مركزية مع دعم مخصص، مما يجعل إدارة المتاجر أسهل ونمو المبيعات أسرع."
     },
 
-    Video :{
-      title: "فيديو المنصة",
-      desc: "اكتشف كيف تُحدث ديبوغرو ثورة في إدارة المتاجر والتجارة الإلكترونية من خلال منصتنا الشاملة.",
-      mission2: "سوقنا وتطبيقنا",
-      missionDesc3: "منصتنا مصممة خصيصًا للمتاجر. فهي تتيح لك تجميع جميع الطلبات التي تتم عبر التطبيق وتوفر إدارة متكاملة تشمل الخزينة والفوترة، بالإضافة إلى لوحة إحصائيات لعرض الإيرادات وعدد الطلبات والمزيد بسهولة.",
-      missionDesc4: "تمكّن منصتنا كل متجر من إضافة ومزامنة منتجاته، وإدارة المخزون والطلبات والتسليمات، وتتبع المبيعات من خلال إحصائيات دقيقة، وتخصيص العلامات التجارية والفئات. كل ذلك في واجهة واحدة مركزية مع دعم مخصص، مما يجعل إدارة المتاجر أسهل ونمو المبيعات أسرع."
-      //: "منصتنا مصممة خصيصًا للمتاجر. فهي تتيح لك تجميع جميع الطلبات التي تتم عبر التطبيق وتوفر إدارة متكاملة تشمل الخزينة والفوترة، بالإضافة إلى لوحة إحصائيات لعرض الإيرادات وعدد الطلبات والمزيد بسهولة.",
-      //missionDesc4: "تمكّن منصتنا كل متجر من إضافة ومزامنة منتجاته، وإدارة المخزون والطلبات والتسليمات، وتتبع المبيعات من خلال إحصائيات دقيقة، وتخصيص العلامات التجارية والفئات. كل ذلك في واجهة واحدة مركزية مع دعم مخصص، مما يجعل إدارة المتاجر أسهل ونمو المبيعات أسرع."
-    }
-    ,
+Video: {
+  title: "فيديو المنصة",
+  desc: "اكتشف كيف تُحدث Depogro ثورة في إدارة المتاجر والتجارة الإلكترونية من خلال منصتنا الشاملة.",
+  mission2: "سوقنا وتطبيقنا",
+  missionDesc4: "اكتشف DepoGro Marketplace، المنصة الجديدة بين الشركات (B2B) التي تُحدث ثورة في عالم التوزيع! نربط المستودعات والمخازن بالتجار وبائعي التجزئة في جميع أنحاء تونس. قارن أسعار منتجات الاستهلاك السريع (FMCG) في الوقت الحقيقي، وقم بإجراء طلباتك ببضع نقرات فقط، ودع فريق التوصيل لدينا يستلم المنتجات مباشرة من المستودعات ويوصلها إليك بسرعة وأمان. DepoGro تُبسط عملية الشراء، وتُخفض التكاليف، وتمنحك وصولاً إلى شبكة واسعة من الموردين الموثوقين — كل ذلك من خلال تطبيق واحد فقط. اشترِ بذكاء، وفّر الوقت، ونمِّ تجارتك مع DepoGro!"
+}
+,
     about: {
       title: "عن ديبوغرو",
       titleMarcketPlace: "منصة للتسوق",
