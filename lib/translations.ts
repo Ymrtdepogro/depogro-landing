@@ -1,4 +1,5 @@
 import marketplace from "@/app/marketplace";
+import { Video } from "lucide-react";
 import { title } from "node:process";
 
 export const translations = {
@@ -35,6 +36,14 @@ export const translations = {
       missionDesc3: "Our marketplace is specially designed for stores. It allows you to centralize all orders placed through the application and provides complete management, including treasury, invoicing, as well as a statistics dashboard to easily track your revenues, the number of orders, and much more.",
       missionDesc4: "Our marketplace enables each store to add and sync products, manage stock, orders, and deliveries, track sales with detailed statistics, and customize brands and categories. Everything is centralized in one interface with dedicated support, making store management easier and sales growth faster."
     },
+    Video: {
+  title: "Vidéo de la plateforme",
+  desc: "Découvrez comment Depogro révolutionne la gestion des magasins et le commerce électronique grâce à notre plateforme complète."
+,mission2: "Our Marketplace and Application",
+missionDesc3: "Our platform is specially designed for stores. It allows you to gather all orders made through the app and provides full management, including treasury and invoicing, along with a statistics dashboard to easily view revenue, number of orders, and more.",
+missionDesc4: "Our platform enables each store to add and synchronize its products, manage inventory, orders, and deliveries, track sales through accurate statistics, and customize brands and categories. All of this within a single centralized interface with dedicated support, making store management easier and sales growth faster."
+
+},
     about: {
       title: "About DEPOGRO",
       missionDesc2: "Our platform is designed for retailers, restaurants, and cafes, offering a smooth and intuitive mobile experience.",
@@ -155,6 +164,20 @@ export const translations = {
       missionDesc4: "Notre marketplace permet à chaque store d’ajouter et de synchroniser ses produits, de gérer ses stocks, commandes et livraisons, de suivre ses ventes grâce à des statistiques détaillées et de personnaliser ses marques et catégories. Tout est centralisé dans une seule interface avec un support dédié, ce qui rend la gestion plus simple et la croissance des ventes plus rapide."
     }
     ,
+    Video: {
+  title: "Platform Video",
+  desc: "Discover how Depogro is revolutionizing store management and e-commerce through our all-in-one platform.",
+mission2: "Notre Marketplace et Application",
+missionDesc3: "Notre plateforme, conçue spécialement pour les magasins, centralise toutes les commandes effectuées via l’application, qu’elles proviennent de clients en ligne ou en magasin. Elle propose une gestion complète de la trésorerie et de la facturation, permettant aux commerçants de suivre les paiements, de générer des factures et d’assurer un contrôle précis de leurs finances. Grâce à un tableau de bord intuitif et riche en informations, il est facile de visualiser les revenus, le nombre de commandes, l’évolution des ventes et bien d’autres indicateurs essentiels, offrant ainsi une vision globale et en temps réel de l’activité du magasin pour prendre des décisions éclairées et optimiser la performance."
+,
+//missionDesc3: "Notre plateforme centralise toutes les commandes et offre une gestion complète de la trésorerie, de la facturation et des statistiques de ventes pour faciliter le suivi des performances.",
+missionDesc4: "Grâce à notre application, chaque magasin peut facilement gérer ses produits, son stock, ses commandes et ses livraisons, tout en personnalisant ses marques et catégories. L’interface centralisée et le support dédié rendent la gestion plus simple et favorisent une croissance rapide."
+
+
+
+    
+}
+,
     about: {
       title: "À Propos de DEPOGRO",
       learnMore: "En savoir plus",
@@ -252,6 +275,16 @@ export const translations = {
       mission2: "منصتنا",
       missionDesc3: "منصتنا مصممة خصيصًا للمتاجر. فهي تتيح لك تجميع جميع الطلبات التي تتم عبر التطبيق وتوفر إدارة متكاملة تشمل الخزينة والفوترة، بالإضافة إلى لوحة إحصائيات لعرض الإيرادات وعدد الطلبات والمزيد بسهولة.",
       missionDesc4: "تمكّن منصتنا كل متجر من إضافة ومزامنة منتجاته، وإدارة المخزون والطلبات والتسليمات، وتتبع المبيعات من خلال إحصائيات دقيقة، وتخصيص العلامات التجارية والفئات. كل ذلك في واجهة واحدة مركزية مع دعم مخصص، مما يجعل إدارة المتاجر أسهل ونمو المبيعات أسرع."
+    },
+
+    Video :{
+      title: "فيديو المنصة",
+      desc: "اكتشف كيف تُحدث ديبوغرو ثورة في إدارة المتاجر والتجارة الإلكترونية من خلال منصتنا الشاملة.",
+      mission2: "سوقنا وتطبيقنا",
+      missionDesc3: "منصتنا مصممة خصيصًا للمتاجر. فهي تتيح لك تجميع جميع الطلبات التي تتم عبر التطبيق وتوفر إدارة متكاملة تشمل الخزينة والفوترة، بالإضافة إلى لوحة إحصائيات لعرض الإيرادات وعدد الطلبات والمزيد بسهولة.",
+      missionDesc4: "تمكّن منصتنا كل متجر من إضافة ومزامنة منتجاته، وإدارة المخزون والطلبات والتسليمات، وتتبع المبيعات من خلال إحصائيات دقيقة، وتخصيص العلامات التجارية والفئات. كل ذلك في واجهة واحدة مركزية مع دعم مخصص، مما يجعل إدارة المتاجر أسهل ونمو المبيعات أسرع."
+      //: "منصتنا مصممة خصيصًا للمتاجر. فهي تتيح لك تجميع جميع الطلبات التي تتم عبر التطبيق وتوفر إدارة متكاملة تشمل الخزينة والفوترة، بالإضافة إلى لوحة إحصائيات لعرض الإيرادات وعدد الطلبات والمزيد بسهولة.",
+      //missionDesc4: "تمكّن منصتنا كل متجر من إضافة ومزامنة منتجاته، وإدارة المخزون والطلبات والتسليمات، وتتبع المبيعات من خلال إحصائيات دقيقة، وتخصيص العلامات التجارية والفئات. كل ذلك في واجهة واحدة مركزية مع دعم مخصص، مما يجعل إدارة المتاجر أسهل ونمو المبيعات أسرع."
     }
     ,
     about: {
