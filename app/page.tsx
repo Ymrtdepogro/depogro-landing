@@ -1423,11 +1423,11 @@ export default function Home() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.8 }}
                   >
-                    <Button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full py-4 bg-[#f37c50]  hover:from-purple-700 hover:to-pink-700 text-white rounded-xl font-semibold shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/30 transition-all duration-300 transform hover:scale-105"
-                    >
+<Button
+  type="submit"
+  disabled={isSubmitting}
+  className="w-full py-4 bg-[#f37c50] text-white hover:bg-gray-200 hover:text-white rounded-xl font-semibold shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/30 transition-all duration-300 transform hover:scale-105"
+>
                       {isSubmitting ? (
                         <div className="flex items-center gap-2">
                           <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
