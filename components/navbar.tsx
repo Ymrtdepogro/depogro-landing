@@ -161,7 +161,7 @@ export function Navbar() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className="px-6 py-2.5 bg-[#f37c50] text-white rounded-xl font-semibold shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/30 transition-all duration-300 hover:from-purple-700 hover:to-pink-700"
-              onClick={() => window.open("http://markeplace.depogro.com/", "_blank")}
+              onClick={() => window.open("https://markeplace.depogro.com/", "_blank")}
             >
               {j.MARKETPLACE.learnMoreSite}
             </motion.button>

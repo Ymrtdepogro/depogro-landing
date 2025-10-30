@@ -182,7 +182,7 @@ export default function Home() {
               <p
                 className={`text-xl md:text-2xl text-purple-100/90 mb-12 ml-20 leading-relaxed font-light max-w-2xl ${rtl ? "text-right ml-auto" : ""}`}
               >
-                {t.hero.subtitle || "L'application de gestion qui révolutionne votre quotidien professionnel"}
+                {t.hero.subtitle || t.header.description}
               </p>
 
               <div className={`flex flex-col sm:flex-row ${rtl ? "sm:flex-row-reverse" : ""} gap-5 ml-20`}>
@@ -197,8 +197,8 @@ export default function Home() {
                     <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 010 1.73l-2.808 1.626L12.866 12l4.832-4.491zM5.864 2.658l10.937 6.333-2.302 2.302-8.635-8.635z" />
                   </svg>
                   <div className="flex flex-col">
-                    <span className="text-xs font-medium opacity-90">GET IT ON</span>
-                    <span className="font-bold text-lg">Google Play</span>
+                    <span className="text-xs font-medium opacity-90">{t.header.GooglePlay1}</span>
+                    <span className="font-bold text-lg">{t.header.GooglePlay2}</span>
                   </div>
                 </motion.a>
 
@@ -213,8 +213,8 @@ export default function Home() {
                     <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
                   </svg>
                   <div className="flex flex-col">
-                    <span className="text-xs font-medium opacity-90">Download on the</span>
-                    <span className="font-bold text-lg">App Store</span>
+                    <span className="text-xs font-medium opacity-90">{t.header.AppStore1}</span>
+                    <span className="font-bold text-lg">{t.header.AppStore2}</span>
                   </div>
                 </motion.a>
               </div>
@@ -228,15 +228,15 @@ export default function Home() {
               >
                 <div className="text-center">
                   <div className="text-2xl font-bold text-white mb-1">4.8★</div>
-                  <div className="text-sm text-purple-200/80">App Rating</div>
+                  <div className="text-sm text-purple-200/80">{t.header.AppRating}</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-white mb-1">10K+</div>
-                  <div className="text-sm text-purple-200/80">Downloads</div>
+                  <div className="text-sm text-purple-200/80">{t.header.Downloads}</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-white mb-1">99%</div>
-                  <div className="text-sm text-purple-200/80">Satisfaction</div>
+                  <div className="text-sm text-purple-200/80">{t.header.Satisfaction}</div>
                 </div>
               </motion.div>
             </motion.div>
@@ -315,7 +315,7 @@ export default function Home() {
             >
               <div className="w-2 h-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full animate-pulse"></div>
               <span className="text-sm font-semibold text-transparent bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text">
-                {t.about?.subtitle || "À PROPOS DE NOUS"}
+                {t.about?.subtitle || t.about?.subtitle }
               </span>
             </motion.div>
 
@@ -372,7 +372,7 @@ export default function Home() {
                   <div className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                     95%
                   </div>
-                  <div className="text-sm font-medium text-gray-600 mt-1">Satisfaction</div>
+                  <div className="text-sm font-medium text-gray-600 mt-1">{t.header.Satisfaction}</div>
                 </motion.div>
 
                 {/* Experience Badge */}
@@ -383,7 +383,7 @@ export default function Home() {
                   className="absolute bottom-8 right-8 bg-gradient-to-r from-[#D9CECE] to-[#8C8888]   text-white rounded-2xl p-6 shadow-2xl shadow-purple-500/25"
                 >
                   <div className="text-3xl font-bold">5+</div>
-                  <div className="text-sm font-medium text-white/90 mt-1">Ans d'expérience</div>
+                  <div className="text-sm font-medium text-white/90 mt-1">{t.header.ans}</div>
                 </motion.div>
               </div>
 
@@ -435,32 +435,32 @@ export default function Home() {
               </motion.div>
 
               {/* Features List */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-12"
-              >
-                {[
-                  { icon: "🚀", text: "Innovation Technologique" },
-                  { icon: "💎", text: "Qualité Premium" },
-                  { icon: "🤝", text: "Partnership Solide" },
-                  { icon: "🌍", text: "Impact Global" }
-                ].map((feature, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
-                    className="flex items-center gap-4 p-4 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-lg shadow-purple-500/5 hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-300 group"
-                  >
-                    <div className="text-2xl transform group-hover:scale-110 transition-transform duration-300">
-                      {feature.icon}
-                    </div>
-                    <span className="font-semibold text-gray-800">{feature.text}</span>
-                  </motion.div>
-                ))}
-              </motion.div>
+         <motion.div
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, delay: 0.6 }}
+  className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-12"
+>
+  {[
+    { icon: "🚀", text: t.header.InnovationTechnologique },
+    { icon: "💎", text: t.header.PartnershipSolide },
+    { icon: "🤝", text: t.header.QualitéPremium },
+    { icon: "🌍", text: t.header.ImpactGlobal }
+  ].map((feature, index) => (
+    <motion.div
+      key={index}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
+      className="flex items-center gap-4 p-4 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-lg shadow-purple-500/5 hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-300 group"
+    >
+      <div className="text-2xl transform group-hover:scale-110 transition-transform duration-300">
+        {feature.icon}
+      </div>
+      <span className="font-semibold text-gray-800">{feature.text}</span>
+    </motion.div>
+  ))}
+</motion.div>
 
               {/* CTA Button */}
               <motion.div
@@ -469,13 +469,7 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.9 }}
                 className={`pt-8 ${rtl ? "lg:text-right" : "lg:text-left"} text-center lg:text-left`}
               >
-                <motion.button
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="px-8 py-4 bg-[#f37c50]  hover:from-purple-700 hover:to-pink-700 text-white rounded-2xl font-semibold shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/30 transition-all duration-300"
-                >
-                  Découvrir notre vision
-                </motion.button>
+                
               </motion.div>
             </motion.div>
           </div>
@@ -507,7 +501,7 @@ export default function Home() {
             >
               <div className="w-2 h-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full animate-pulse"></div>
               <span className="text-sm font-semibold text-transparent bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text">
-                {t.services?.subtitle || "NOS SERVICES"}
+                {t.services?.subtitle || t.services?.subtitle }
               </span>
             </motion.div>
 
@@ -618,7 +612,7 @@ export default function Home() {
             >
               <div className="w-2 h-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full animate-pulse"></div>
               <span className="text-sm font-semibold text-transparent bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text">
-                MARKETPLACE
+              {t.MARKETPLACE.title}
               </span>
             </motion.div>
 
@@ -900,9 +894,7 @@ export default function Home() {
                 className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg mb-6"
               >
                 <div className="w-2 h-2 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-pulse"></div>
-                <span className="text-sm font-semibold text-white/90">
-                  NOTRE PRODUIT
-                </span>
+               
               </motion.div>
 
               <h2 className={`text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent leading-tight ${rtl ? "text-right" : ""}`}>
@@ -1059,7 +1051,7 @@ export default function Home() {
             >
               <div className="w-2 h-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full animate-pulse"></div>
               <span className="text-sm font-semibold text-transparent bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text">
-                VIDÉO PRÉSENTATION
+              {t.Video.title}
               </span>
             </motion.div>
 
@@ -1215,9 +1207,7 @@ export default function Home() {
             className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-lg shadow-purple-500/5"
           >
             <div className="w-2 h-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full animate-pulse"></div>
-            <span className="text-sm font-semibold text-transparent bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text">
-              CONTACTEZ-NOUS
-            </span>
+           
           </motion.div>
 
           <h2 className={`text-3xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 to-purple-900 bg-clip-text text-transparent leading-tight ${rtl ? "text-right" : ""}`}>
@@ -1335,9 +1325,9 @@ export default function Home() {
             className="text-center mb-8"
           >
             <h3 className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-purple-900 bg-clip-text text-transparent mb-2">
-              Envoyez-nous un message
+              {t.header.msg}
             </h3>
-            <p className="text-gray-600">Nous vous répondrons dans les plus brefs délais</p>
+            <p className="text-gray-600">{t.header.reponse}</p>
           </motion.div>
 
           <form onSubmit={handleSubmit} className="space-y-6">

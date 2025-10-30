@@ -36,13 +36,33 @@ export const translations = {
       missionDesc3: "Our marketplace is specially designed for stores. It allows you to centralize all orders placed through the application and provides complete management, including treasury, invoicing, as well as a statistics dashboard to easily track your revenues, the number of orders, and much more.",
       missionDesc4: "Our marketplace enables each store to add and sync products, manage stock, orders, and deliveries, track sales with detailed statistics, and customize brands and categories. Everything is centralized in one interface with dedicated support, making store management easier and sales growth faster."
     },
-   Video: {
-  title: "Platform Video",
-  desc: "Discover how Depogro is transforming store management and e-commerce with our all-in-one platform.",
-  mission2: "Our Marketplace and App",
-  missionDesc4: "Explore DepoGro Marketplace — the new B2B platform that’s revolutionizing distribution! We connect warehouses and depots with merchants and retailers all across Tunisia. Compare FMCG (Fast-Moving Consumer Goods) prices in real time, place your orders in just a few clicks, and let our delivery team collect your products directly from the depots and bring them to you quickly and safely. DepoGro simplifies your purchasing process, optimizes your costs, and gives you access to a wide network of trusted suppliers — all from a single app. Buy smarter, save time, and grow your business with DepoGro!"
-}
-,
+    Video: {
+      title: "Platform Video",
+      desc: "Discover how Depogro is transforming store management and e-commerce with our all-in-one platform.",
+      mission2: "Our Marketplace and App",
+      missionDesc4: "Explore DepoGro Marketplace — the new B2B platform that’s revolutionizing distribution! We connect warehouses and depots with merchants and retailers all across Tunisia. Compare FMCG (Fast-Moving Consumer Goods) prices in real time, place your orders in just a few clicks, and let our delivery team collect your products directly from the depots and bring them to you quickly and safely. DepoGro simplifies your purchasing process, optimizes your costs, and gives you access to a wide network of trusted suppliers — all from a single app. Buy smarter, save time, and grow your business with DepoGro!"
+    },
+    header: {
+      description: "The management app that revolutionizes your professional daily life",
+      AppStore1: "Download on the",
+      AppStore2: "App Store",
+      GooglePlay1: "Get it on ",
+      GooglePlay2: "Google Play",
+      AppRating: "App Rating",
+      Downloads: "Downloads",
+      Satisfaction: "Satisfaction",
+      msg: "Send us a message",
+     reponse: "We will get back to you as soon as possible",
+     ans: "Years of Experience",
+InnovationTechnologique: "Technological Innovation",
+PartnershipSolide: "Strong Partnership",
+QualitéPremium: "Premium Quality",
+ImpactGlobal: "Global Impact",
+descouvrirVesion: "Discover our version"
+
+    }
+
+    ,
     about: {
       title: "About DEPOGRO",
       missionDesc2: "Our platform is designed for retailers, restaurants, and cafes, offering a smooth and intuitive mobile experience.",
@@ -150,7 +170,7 @@ export const translations = {
     MARKETPLACE: {
       title: "À propos de la Marketplace",
       learnMore: "En savoir plus",
-      learnMoreSite: "Connexion au marketplace",
+      learnMoreSite: "Connexion marketplace",
       avantage1: " Centralisation des commandes et gestion simplifiée.",
       avantage2: " Suivi en temps réel avec des statistiques détaillées.",
       avantage3: " Gestion des stocks, livraisons et paiements.",
@@ -163,12 +183,32 @@ export const translations = {
       missionDesc4: "Notre marketplace permet à chaque store d’ajouter et de synchroniser ses produits, de gérer ses stocks, commandes et livraisons, de suivre ses ventes grâce à des statistiques détaillées et de personnaliser ses marques et catégories. Tout est centralisé dans une seule interface avec un support dédié, ce qui rend la gestion plus simple et la croissance des ventes plus rapide."
     }
     ,
-   Video: {
-  title: "Vidéo de la Plateforme",
-  desc: "Découvrez comment Depogro révolutionne la gestion des magasins et le e-commerce grâce à notre plateforme tout-en-un.",
-  mission2: "Notre Marketplace et Application",
-  missionDesc4: "Découvrez DepoGro Marketplace, la nouvelle plateforme B2B qui révolutionne la distribution ! Nous connectons les dépôts et entrepôts aux commerçants et détaillants à travers toute la Tunisie. Comparez les prix des produits FMCG (grande consommation) en temps réel, passez vos commandes en quelques clics, et laissez notre équipe de livraison récupérer vos produits directement auprès des dépôts pour vous les livrer rapidement et en toute sécurité. DepoGro simplifie vos achats, optimise vos coûts et vous donne accès à un vaste réseau de fournisseurs fiables — le tout depuis une seule application. Achetez, gagnez du temps et développez votre commerce avec DepoGro !"
+    Video: {
+      title: "Vidéo de la Plateforme",
+      desc: "Découvrez comment Depogro révolutionne la gestion des magasins et le e-commerce grâce à notre plateforme tout-en-un.",
+      mission2: "Notre Marketplace et Application",
+      missionDesc4: "Découvrez DepoGro Marketplace, la nouvelle plateforme B2B qui révolutionne la distribution ! Nous connectons les dépôts et entrepôts aux commerçants et détaillants à travers toute la Tunisie. Comparez les prix des produits FMCG (grande consommation) en temps réel, passez vos commandes en quelques clics, et laissez notre équipe de livraison récupérer vos produits directement auprès des dépôts pour vous les livrer rapidement et en toute sécurité. DepoGro simplifie vos achats, optimise vos coûts et vous donne accès à un vaste réseau de fournisseurs fiables — le tout depuis une seule application. Achetez, gagnez du temps et développez votre commerce avec DepoGro !"
+    }
+    ,
+  header: {
+  description: "L'application de gestion qui révolutionne votre quotidien professionnel",
+  AppStore1: "Téléchargez sur",
+  AppStore2: "l'App Store",
+  GooglePlay1: "Obtenez-le sur",
+  GooglePlay2: "Google Play",
+  AppRating: "Évaluation de l'application",
+  Downloads: "Téléchargements",
+  Satisfaction: "Satisfaction",
+  msg:"Envoyez-nous un message",
+  reponse: "Nous vous répondrons dans les plus brefs délais",
+  ans : "Ans d'expérience",
+  InnovationTechnologique : "Innovation Technologique",
+  PartnershipSolide: "Partenariat Solide",
+  QualitéPremium: "Qualité Premium" ,
+  ImpactGlobal: "Impact Global",
+  descouvrirVesion:"Découvrir notre version"
 }
+
 
     ,
     about: {
@@ -270,13 +310,34 @@ export const translations = {
       missionDesc4: "تمكّن منصتنا كل متجر من إضافة ومزامنة منتجاته، وإدارة المخزون والطلبات والتسليمات، وتتبع المبيعات من خلال إحصائيات دقيقة، وتخصيص العلامات التجارية والفئات. كل ذلك في واجهة واحدة مركزية مع دعم مخصص، مما يجعل إدارة المتاجر أسهل ونمو المبيعات أسرع."
     },
 
-Video: {
-  title: "فيديو المنصة",
-  desc: "اكتشف كيف تُحدث Depogro ثورة في إدارة المتاجر والتجارة الإلكترونية من خلال منصتنا الشاملة.",
-  mission2: "سوقنا وتطبيقنا",
-  missionDesc4: "اكتشف DepoGro Marketplace، المنصة الجديدة بين الشركات (B2B) التي تُحدث ثورة في عالم التوزيع! نربط المستودعات والمخازن بالتجار وبائعي التجزئة في جميع أنحاء تونس. قارن أسعار منتجات الاستهلاك السريع (FMCG) في الوقت الحقيقي، وقم بإجراء طلباتك ببضع نقرات فقط، ودع فريق التوصيل لدينا يستلم المنتجات مباشرة من المستودعات ويوصلها إليك بسرعة وأمان. DepoGro تُبسط عملية الشراء، وتُخفض التكاليف، وتمنحك وصولاً إلى شبكة واسعة من الموردين الموثوقين — كل ذلك من خلال تطبيق واحد فقط. اشترِ بذكاء، وفّر الوقت، ونمِّ تجارتك مع DepoGro!"
+    Video: {
+      title: "فيديو المنصة",
+      desc: "اكتشف كيف تُحدث Depogro ثورة في إدارة المتاجر والتجارة الإلكترونية من خلال منصتنا الشاملة.",
+      mission2: "سوقنا وتطبيقنا",
+
+      missionDesc4: "اكتشف DepoGro Marketplace، المنصة الجديدة بين الشركات (B2B) التي تُحدث ثورة في عالم التوزيع! نربط المستودعات والمخازن بالتجار وبائعي التجزئة في جميع أنحاء تونس. قارن أسعار منتجات الاستهلاك السريع (FMCG) في الوقت الحقيقي، وقم بإجراء طلباتك ببضع نقرات فقط، ودع فريق التوصيل لدينا يستلم المنتجات مباشرة من المستودعات ويوصلها إليك بسرعة وأمان. DepoGro تُبسط عملية الشراء، وتُخفض التكاليف، وتمنحك وصولاً إلى شبكة واسعة من الموردين الموثوقين — كل ذلك من خلال تطبيق واحد فقط. اشترِ بذكاء، وفّر الوقت، ونمِّ تجارتك مع DepoGro!"
+    },
+
+   header: {
+  description: "تطبيق الإدارة الذي يُحدث ثورة في حياتك المهنية اليومية",
+  AppStore1: "حمّله من",
+AppStore2: "آب ستور",
+  GooglePlay1: "احصل عليه من",
+  GooglePlay2: "متجر جوجل بلاي",
+  AppRating: "تقييم التطبيق",
+  Downloads: "عدد التنزيلات",
+  Satisfaction: "الرضا",
+  msg: "أرسل لنا رسالة",
+  reponse: "سوف نرد عليك في أقرب وقت ممكن",
+  ans: "سنوات الخبرة",
+InnovationTechnologique: "الابتكار التكنولوجي",
+PartnershipSolide: "شراكة قوية",
+QualitéPremium: "جودة ممتازة",
+ImpactGlobal: "تأثير عالمي",
+descouvrirVesion: "اكتشف نسختنا"
+
 }
-,
+    ,
     about: {
       title: "عن ديبوغرو",
       titleMarcketPlace: "منصة للتسوق",
