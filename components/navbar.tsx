@@ -1,6 +1,6 @@
 "use client";
+
 import { Store, Menu, X, ChevronDown, Globe } from "lucide-react";
-import Link from "next/link";
 import Image from "next/image";
 import depoo from "@/assets/depoo.png";
 
@@ -19,8 +19,8 @@ import {
 
 const navigation = [
   { name: "home", href: "#home" },
-  { name: "marketplace", href: "#marketplace" },
   { name: "about", href: "#about" },
+  { name: "marketplace", href: "#marketplace" },
   { name: "produit", href: "#produit" },
   { name: "news", href: "#news" },
   { name: "partners", href: "#partners" },
@@ -32,16 +32,18 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const { language, setLanguage } = useLanguageStore();
   const [activeSection, setActiveSection] = useState("home");
+
   const j = translations[language];
   const t = translations[language].nav as Record<string, string>;
+  const rtl = isRTL(language);
 
+  // Scroll detection
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 50);
+      setIsScrolled(window.scrollY > 50);
 
-      const sections = navigation.map((nav) => nav.href.replace("#", ""));
-      for (const section of sections) {
+      for (const item of navigation) {
+        const section = item.href.replace("#", "");
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
@@ -57,7 +59,15 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const rtl = isRTL(language);
+  const handleNavClick = (href: string) => {
+    const id = href.replace("#", "");
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+      setActiveSection(id);
+      setIsOpen(false);
+    }
+  };
 
   return (
     <nav
@@ -68,60 +78,45 @@ export function Navbar() {
           : "bg-transparent"
       )}
     >
-      {/* Background Gradient Effect */}
       <div className="absolute inset-0 bg-gradient-to-r from-purple-600/5 via-blue-600/5 to-pink-600/5 pointer-events-none" />
 
       <div className="container mx-auto px-6 py-3 relative">
         <div className="flex items-center justify-between">
           {/* Branding */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="flex items-center space-x-3"
-          >
-            <Link
-              href="#home"
+          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="flex items-center space-x-3">
+            <button
+              onClick={() => handleNavClick("#home")}
               className="flex items-center space-x-3 group"
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector('#home')?.scrollIntoView({ behavior: "smooth" });
-                setActiveSection("home");
-              }}
             >
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur-md opacity-75 group-hover:opacity-100 transition-opacity duration-300" />
-               
-<Image
-  src={depoo}
-  alt="Store Icon"
-  width={32}
-  height={32}
-  className="relative z-10 object-contain"
-/>
-
+                <Image
+                  src={depoo}
+                  alt="Store Icon"
+                  width={32}
+                  height={32}
+                  className="relative z-10 object-contain"
+                />
               </div>
-              <span className={cn(
-                "text-2xl font-bold tracking-tight bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent",
-                isScrolled ? "text-gray-900" : "text-gray-700 hover:text-purple-600"
-              )}>
+              <span
+                className={cn(
+                  "text-2xl font-bold tracking-tight bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent",
+                  isScrolled ? "text-gray-900" : "text-gray-700 hover:text-purple-600"
+                )}
+              >
                 DEPOGRO
               </span>
-            </Link>
+            </button>
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-1 ">
+          <div className="hidden lg:flex items-center space-x-1">
             {navigation.map((item, index) => (
-              <motion.div
-                key={item.name}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <Link
-                  href={item.href}
+              <motion.div key={item.name} initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }}>
+                <button
+                  onClick={() => handleNavClick(item.href)}
                   className={cn(
-                    "relative px-4 py-2 text-sm font-semibold transition-all duration-300 rounded-lg group",
+                    "relative px-4 py-2 text-sm font-semibold transition-all duration-300 rounded-lg",
                     isScrolled
                       ? activeSection === item.href.replace("#", "")
                         ? "text-purple-600"
@@ -130,16 +125,8 @@ export function Navbar() {
                         ? "text-purple-600"
                         : "text-gray-700 hover:text-purple-600"
                   )}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document.querySelector(item.href)?.scrollIntoView({
-                      behavior: "smooth",
-                    });
-                    setActiveSection(item.href.replace("#", ""));
-                  }}
                 >
                   {t[item.name]}
-                  {/* Active Indicator */}
                   {activeSection === item.href.replace("#", "") && (
                     <motion.div
                       layoutId="activeSection"
@@ -147,39 +134,26 @@ export function Navbar() {
                       transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     />
                   )}
-                  {/* Hover Effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-purple-600/5 to-pink-600/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </Link>
+                </button>
               </motion.div>
             ))}
           </div>
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center space-x-3">
-            {/* Marketplace Button */}
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className="px-6 py-2.5 bg-[#f37c50] text-white rounded-xl font-semibold shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/30 transition-all duration-300 hover:from-purple-700 hover:to-pink-700"
-              onClick={() => window.open("https://markeplace.depogro.com/", "_blank")}
+              onClick={() => window.open("https://marketplace.depogro.com/", "_blank")}
             >
               {j.MARKETPLACE.learnMoreSite}
             </motion.button>
 
-            {/* Language Selector */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="relative"
-            >
-              <Select
-                value={language}
-                onValueChange={(value) => setLanguage(value as Language)}
-              >
-                <SelectTrigger className={cn(
-                  "w-32 bg-transparent border-none shadow-none focus:ring-0",
-                  isScrolled ? "text-gray-700" : "text-gray-700 hover:text-purple-600"
-                )}>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="relative">
+              <Select value={language} onValueChange={(value) => setLanguage(value as Language)}>
+                <SelectTrigger className={cn("w-32 bg-transparent border-none shadow-none focus:ring-0", isScrolled ? "text-gray-700" : "text-gray-700 hover:text-purple-600")}>
                   <div className="flex items-center space-x-2">
                     <Globe className="h-4 w-4" />
                     <SelectValue placeholder="Language" />
@@ -187,15 +161,9 @@ export function Navbar() {
                   </div>
                 </SelectTrigger>
                 <SelectContent className="bg-white/95 backdrop-blur-xl border border-gray-200/50 shadow-2xl">
-                  <SelectItem value="en" className="flex items-center space-x-2">
-                    <span>🇺🇸 English</span>
-                  </SelectItem>
-                  <SelectItem value="fr" className="flex items-center space-x-2">
-                    <span>🇫🇷 Français</span>
-                  </SelectItem>
-                  <SelectItem value="ar" className="flex items-center space-x-2">
-                    <span>🇸🇦 العربية</span>
-                  </SelectItem>
+                  <SelectItem value="en">🇺🇸 English</SelectItem>
+                  <SelectItem value="fr">🇫🇷 Français</SelectItem>
+                  <SelectItem value="ar">🇸🇦 العربية</SelectItem>
                 </SelectContent>
               </Select>
             </motion.div>
@@ -203,7 +171,6 @@ export function Navbar() {
 
           {/* Mobile Menu Button */}
           <motion.button
-          
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className={cn(
@@ -229,12 +196,8 @@ export function Navbar() {
             className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-gray-200/50 shadow-2xl overflow-hidden"
           >
             <div className="container mx-auto px-6 py-6">
-              {/* Language Switcher */}
               <div className="flex justify-center mb-6">
-                <Select
-                  value={language}
-                  onValueChange={(value) => setLanguage(value as Language)}
-                >
+                <Select value={language} onValueChange={(value) => setLanguage(value as Language)}>
                   <SelectTrigger className="w-full max-w-xs bg-white border-gray-300">
                     <div className="flex items-center space-x-2">
                       <Globe className="h-4 w-4" />
@@ -249,45 +212,31 @@ export function Navbar() {
                 </Select>
               </div>
 
-              {/* Navigation Links */}
               <div className="space-y-2">
                 {navigation.map((item) => (
-                  <motion.div
-                    key={item.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                  >
-                    <Link
-                      href={item.href}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        document.querySelector(item.href)?.scrollIntoView({
-                          behavior: "smooth",
-                        });
-                        setIsOpen(false);
-                        setActiveSection(item.href.replace("#", ""));
-                      }}
+                  <motion.div key={item.name} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
+                    <button
+                      onClick={() => handleNavClick(item.href)}
                       className={cn(
-                        "block px-4 py-3 rounded-xl font-medium transition-all duration-300",
+                        "block w-full text-left px-4 py-3 rounded-xl font-medium transition-all duration-300",
                         activeSection === item.href.replace("#", "")
                           ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-500/25"
                           : "text-gray-700 hover:bg-gray-100/50"
                       )}
                     >
                       {t[item.name]}
-                    </Link>
+                    </button>
                   </motion.div>
                 ))}
               </div>
 
-              {/* Mobile Marketplace Button */}
               <motion.button
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
                 className="w-full mt-6 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl font-semibold shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/30 transition-all duration-300"
                 onClick={() => {
-                  window.open("http://markeplace.depogro.com/", "_blank");
+                  window.open("https://marketplace.depogro.com/", "_blank");
                   setIsOpen(false);
                 }}
               >

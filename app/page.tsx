@@ -83,7 +83,7 @@ export default function Home() {
   const { language } = useLanguageStore();
   const rtl = isRTL(language);
   const t = translations[language];
-  const [play, setPlay] = useState(false); 
+  const [play, setPlay] = useState(false);
   const { toast } = useToast();
   const [isOpen, setIsOpen] = useState(false);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -315,7 +315,7 @@ export default function Home() {
               className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-lg shadow-purple-500/5 mb-8"
             >
               <div className="w-2 h-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full animate-pulse"></div>
-             
+
             </motion.div>
 
             <h2 className="text-5xl md:text-4xl font-bold mb-8 bg-gradient-to-r from-gray-900 to-purple-900 bg-clip-text text-transparent leading-tight">
@@ -499,7 +499,7 @@ export default function Home() {
               className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-lg shadow-purple-500/5 mb-8"
             >
               <div className="w-2 h-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full animate-pulse"></div>
-             
+
             </motion.div>
 
             <h2 className="text-3xl md:text-4xl font-bold mb-8 bg-gradient-to-r from-gray-900 to-purple-900 bg-clip-text text-transparent leading-tight">
@@ -719,7 +719,7 @@ export default function Home() {
                 <motion.button
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.98 }}
-                  onClick={() => window.open("http://markeplace.depogro.com/", "_blank")}
+                  onClick={() => window.open("https://marketplace.depogro.com/", "_blank")}
                   className="px-8 py-4 bg-white text-gray-900 border border-gray-300 hover:border-purple-600 hover:bg-purple-50 rounded-2xl font-semibold shadow-lg shadow-gray-200/20 hover:shadow-xl hover:shadow-purple-200/30 transition-all duration-300"
                 >
                   {t.MARKETPLACE.learnMoreSite}
@@ -1025,7 +1025,7 @@ export default function Home() {
 
 
       {/* New Marketplace Section */}
-      <section id="marketplaceVideo" className="relative py-20 bg-gradient-to-br from-white via-gray-50 to-purple-50/30 overflow-hidden">
+      <section id="news" className="relative py-20 bg-gradient-to-br from-white via-gray-50 to-purple-50/30 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-r from-purple-600/5 to-pink-600/5 rounded-full blur-3xl"></div>
@@ -1062,89 +1062,89 @@ export default function Home() {
 
           {/* Content Layout */}
 
-        
-           <div className={`grid lg:grid-cols-2 gap-16 items-center ${rtl ? "lg:grid-flow-col-dense" : ""}`}>
-      {/* Video Section */}
-    <motion.div
-  initial={{ opacity: 0, x: rtl ? 20 : -20 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  transition={{ duration: 0.8, ease: "easeOut" }}
-  className="relative group"
->
-  {/* Video Container */}
-  <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-gray-400/20">
 
-    {/* Background Glow */}
-    <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 to-pink-600/10 rounded-3xl blur-lg transition-all duration-700"></div>
+          <div className={`grid lg:grid-cols-2 gap-16 items-center ${rtl ? "lg:grid-flow-col-dense" : ""}`}>
+            {/* Video Section */}
+            <motion.div
+              initial={{ opacity: 0, x: rtl ? 20 : -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="relative group"
+            >
+              {/* Video Container */}
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-gray-400/20">
 
-    {/* Video Iframe */}
-    <div className="relative aspect-video rounded-2xl overflow-hidden">
-      {play ? (
-        <iframe
-          className="w-full h-full"
-          src="https://www.youtube.com/embed/nlfqlxvtk-Y?rel=0&modestbranding=1&autoplay=1"
-          title="Dépogo - Présentation"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
-      ) : (
-        <motion.div
-          className="w-full h-full cursor-pointer flex items-center justify-center bg-black/40"
-          onClick={() => setPlay(true)}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.3 }}
-        >
-          <motion.div
-            className="w-20 h-20 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-2xl transform"
-            whileHover={{ scale: 1.15 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="w-0 h-0 border-l-[16px] border-l-purple-600 border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent ml-1"></div>
-          </motion.div>
-        </motion.div>
-      )}
-    </div>
+                {/* Background Glow */}
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 to-pink-600/10 rounded-3xl blur-lg transition-all duration-700"></div>
 
-    {/* Floating Elements */}
-    <div className="absolute -top-4 -left-4 w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl rotate-12 opacity-20 transition-opacity duration-500 group-hover:opacity-30"></div>
-    <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl -rotate-12 opacity-20 transition-opacity duration-500 group-hover:opacity-30"></div>
-  </div>
-</motion.div>
+                {/* Video Iframe */}
+                <div className="relative aspect-video rounded-2xl overflow-hidden">
+                  {play ? (
+                    <iframe
+                      className="w-full h-full"
+                      src="https://www.youtube.com/embed/nlfqlxvtk-Y?rel=0&modestbranding=1&autoplay=1"
+                      title="Dépogo - Présentation"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  ) : (
+                    <motion.div
+                      className="w-full h-full cursor-pointer flex items-center justify-center bg-black/40"
+                      onClick={() => setPlay(true)}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <motion.div
+                        className="w-20 h-20 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-2xl transform"
+                        whileHover={{ scale: 1.15 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <div className="w-0 h-0 border-l-[16px] border-l-purple-600 border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent ml-1"></div>
+                      </motion.div>
+                    </motion.div>
+                  )}
+                </div>
+
+                {/* Floating Elements */}
+                <div className="absolute -top-4 -left-4 w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl rotate-12 opacity-20 transition-opacity duration-500 group-hover:opacity-30"></div>
+                <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl -rotate-12 opacity-20 transition-opacity duration-500 group-hover:opacity-30"></div>
+              </div>
+            </motion.div>
 
 
-      {/* Text Content */}
-      <motion.div
-        initial={{ opacity: 0, x: rtl ? -20 : 20 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className={`space-y-8 ${rtl ? "lg:text-right" : "lg:text-left"} text-center lg:text-left`}
-      >
-        <motion.h3
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-4xl md:text-3xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-purple-900 bg-clip-text text-transparent leading-tight"
-        >
-          {t.Video.mission2}
-        </motion.h3>
+            {/* Text Content */}
+            <motion.div
+              initial={{ opacity: 0, x: rtl ? -20 : 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className={`space-y-8 ${rtl ? "lg:text-right" : "lg:text-left"} text-center lg:text-left`}
+            >
+              <motion.h3
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="text-4xl md:text-3xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-purple-900 bg-clip-text text-transparent leading-tight"
+              >
+                {t.Video.mission2}
+              </motion.h3>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="space-y-6"
-        >
-          <div className="relative p-6 rounded-2xl bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200/50">
-            <div className="absolute top-0 left-6 w-1 h-full bg-gradient-to-b from-purple-600 to-pink-600 rounded-full"></div>
-            <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-light pl-4 italic">
-              {t.Video.missionDesc4}
-            </p>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="space-y-6"
+              >
+                <div className="relative p-6 rounded-2xl bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200/50">
+                  <div className="absolute top-0 left-6 w-1 h-full bg-gradient-to-b from-purple-600 to-pink-600 rounded-full"></div>
+                  <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-light pl-4 italic">
+                    {t.Video.missionDesc4}
+                  </p>
+                </div>
+              </motion.div>
+            </motion.div>
           </div>
-        </motion.div>
-      </motion.div>
-    </div>
         </div>
       </section>
 
@@ -1419,11 +1419,11 @@ export default function Home() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.8 }}
                   >
-<Button
-  type="submit"
-  disabled={isSubmitting}
-  className="w-full py-4 bg-[#f37c50] text-white hover:bg-gray-200 hover:text-white rounded-xl font-semibold shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/30 transition-all duration-300 transform hover:scale-105"
->
+                    <Button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full py-4 bg-[#f37c50] text-white hover:bg-gray-200 hover:text-white rounded-xl font-semibold shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/30 transition-all duration-300 transform hover:scale-105"
+                    >
                       {isSubmitting ? (
                         <div className="flex items-center gap-2">
                           <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
