@@ -68,7 +68,7 @@ export const BrandsCarousel: React.FC<BrandsCarouselProps> = ({
   };
 
   return (
-    <section id="partners" className="relative py-32 bg-gradient-to-br from-gray-50 via-white to-purple-50/30 overflow-hidden">
+    <section id="partners" className="relative  bg-gradient-to-br from-gray-50 via-white to-purple-50/30 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-0 w-72 h-72 bg-gradient-to-r from-purple-600/5 to-pink-600/5 rounded-full blur-3xl"></div>

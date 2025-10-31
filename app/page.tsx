@@ -132,35 +132,35 @@ export default function Home() {
       {/* Hero Section */}
       <section
         id="home"
-        className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[#1a0f2e] via-[#2d1b4e] to-[#3d2b63] pt-32 overflow-hidden"
+        className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[#1a0f2e] via-[#2d1b4e] to-[#3d2b63] pt-20 lg:pt-32 overflow-hidden"
       >
         {/* Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-1/2 -right-1/4 w-1/2 h-1/2 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl"></div>
           <div className="absolute -bottom-1/4 -left-1/4 w-1/2 h-1/2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-indigo-500/5 to-purple-500/5 rounded-full blur-2xl"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 lg:w-96 h-64 lg:h-96 bg-gradient-to-r from-indigo-500/5 to-purple-500/5 rounded-full blur-2xl"></div>
         </div>
 
         {/* Grid Pattern Overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] lg:bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]"></div>
 
-        <div className="container px-6 mx-auto relative z-10">
+        <div className="container px-4 sm:px-6 mx-auto relative z-10">
           <div
-            className={`grid lg:grid-cols-2 ${rtl ? "lg:grid-flow-col-dense" : ""} gap-16 items-center`}
+            className={`grid lg:grid-cols-2 ${rtl ? "lg:grid-flow-col-dense" : ""} gap-8 lg:gap-16 items-center`}
           >
             {/* Texte */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-              className={rtl ? "lg:order-1" : ""}
+              className={`${rtl ? "lg:order-1" : ""} text-center lg:text-left`}
             >
-              <div className="mb-5">
+              <div className="mb-5 flex justify-center lg:justify-start">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  className="inline-flex items-center gap-2 ml-20 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6 lg:ml-20"
                 >
                   <div className="w-2 h-2 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-pulse"></div>
                   <span className="text-sm font-medium text-purple-200">
@@ -170,9 +170,9 @@ export default function Home() {
               </div>
 
               <h3
-                className={`text-5xl md:text-5xl font-bold mb-8 ml-20 leading-tight tracking-tight text-white ${rtl ? "text-right" : ""}`}
+                className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-6 lg:mb-8 lg:ml-20 leading-tight tracking-tight text-white ${rtl ? "lg:text-right" : ""}`}
               >
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-100 to-purple-200 block mb-4">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-100 to-purple-200 block mb-3 lg:mb-4">
                   {t.hero.title.split(' ').slice(0, -1).join(' ')}
                 </span>
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-300 to-pink-300">
@@ -181,25 +181,25 @@ export default function Home() {
               </h3>
 
               <p
-                className={`text-xl md:text-2xl text-purple-100/90 mb-12 ml-20 leading-relaxed font-light max-w-2xl ${rtl ? "text-right ml-auto" : ""}`}
+                className={`text-lg sm:text-xl md:text-2xl text-purple-100/90 mb-8 lg:mb-12 lg:ml-20 leading-relaxed font-light max-w-2xl mx-auto lg:mx-0 ${rtl ? "lg:text-right lg:ml-auto" : ""}`}
               >
                 {t.header.description}
               </p>
 
-              <div className={`flex flex-col sm:flex-row ${rtl ? "sm:flex-row-reverse" : ""} gap-5 ml-20`}>
+              <div className={`flex flex-col sm:flex-row ${rtl ? "sm:flex-row-reverse lg:justify-end" : "justify-center lg:justify-start"} gap-4 lg:gap-5 lg:ml-20`}>
                 <motion.a
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   href="https://play.google.com/store/apps/details?id=com.amine_amdouni.DepoGroApp&hl=en"
-                  className="group relative overflow-hidden bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 rounded-2xl shadow-2xl shadow-purple-500/25 transition-all duration-300 flex items-center gap-4 min-w-[200px]"
+                  className="group relative overflow-hidden bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-xl sm:rounded-2xl shadow-lg sm:shadow-2xl shadow-purple-500/25 transition-all duration-300 flex items-center gap-3 sm:gap-4 w-full sm:w-auto justify-center"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
-                  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                  <svg className="w-6 h-6 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 010 1.73l-2.808 1.626L12.866 12l4.832-4.491zM5.864 2.658l10.937 6.333-2.302 2.302-8.635-8.635z" />
                   </svg>
-                  <div className="flex flex-col">
+                  <div className="flex flex-col text-left">
                     <span className="text-xs font-medium opacity-90">{t.header.GooglePlay1}</span>
-                    <span className="font-bold text-lg">{t.header.GooglePlay2}</span>
+                    <span className="font-bold text-sm sm:text-lg">{t.header.GooglePlay2}</span>
                   </div>
                 </motion.a>
 
@@ -207,15 +207,15 @@ export default function Home() {
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   href="https://apps.apple.com/us/app/depogro/id6480517238?uo=2"
-                  className="group relative overflow-hidden bg-gradient-to-r from-gray-900 to-black hover:from-gray-800 hover:to-gray-900 text-white px-8 py-4 rounded-2xl shadow-2xl shadow-black/25 transition-all duration-300 flex items-center gap-4 min-w-[200px] border border-gray-700/50"
+                  className="group relative overflow-hidden bg-gradient-to-r from-gray-900 to-black hover:from-gray-800 hover:to-gray-900 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-xl sm:rounded-2xl shadow-lg sm:shadow-2xl shadow-black/25 transition-all duration-300 flex items-center gap-3 sm:gap-4 w-full sm:w-auto justify-center border border-gray-700/50"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
-                  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                  <svg className="w-6 h-6 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
                   </svg>
-                  <div className="flex flex-col">
+                  <div className="flex flex-col text-left">
                     <span className="text-xs font-medium opacity-90">{t.header.AppStore1}</span>
-                    <span className="font-bold text-lg">{t.header.AppStore2}</span>
+                    <span className="font-bold text-sm sm:text-lg">{t.header.AppStore2}</span>
                   </div>
                 </motion.a>
               </div>
@@ -225,19 +225,19 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className={`flex flex-wrap gap-8 ml-20 mt-16 ${rtl ? "justify-end" : ""}`}
+                className={`flex flex-wrap justify-center lg:justify-start gap-6 lg:gap-8 mt-12 lg:mt-16 lg:ml-20 ${rtl ? "lg:justify-end" : ""}`}
               >
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-white mb-1">4.8★</div>
-                  <div className="text-sm text-purple-200/80">{t.header.AppRating}</div>
+                  <div className="text-xl sm:text-2xl font-bold text-white mb-1">4.8★</div>
+                  <div className="text-xs sm:text-sm text-purple-200/80">{t.header.AppRating}</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-white mb-1">10K+</div>
-                  <div className="text-sm text-purple-200/80">{t.header.Downloads}</div>
+                  <div className="text-xl sm:text-2xl font-bold text-white mb-1">10K+</div>
+                  <div className="text-xs sm:text-sm text-purple-200/80">{t.header.Downloads}</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-white mb-1">99%</div>
-                  <div className="text-sm text-purple-200/80">{t.header.Satisfaction}</div>
+                  <div className="text-xl sm:text-2xl font-bold text-white mb-1">99%</div>
+                  <div className="text-xs sm:text-sm text-purple-200/80">{t.header.Satisfaction}</div>
                 </div>
               </motion.div>
             </motion.div>
@@ -247,27 +247,27 @@ export default function Home() {
               initial={{ opacity: 0, x: rtl ? -40 : 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-              className={`relative w-full h-[300px] md:h-[500px] lg:h-[600px] flex justify-center items-center ${rtl ? "lg:order-0" : ""}`}
+              className={`relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] flex justify-center items-center mt-8 lg:mt-0 ${rtl ? "lg:order-0" : ""}`}
             >
               {/* Floating Elements */}
-              <div className="absolute -top-10 -left-10 w-20 h-20 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-xl animate-float"></div>
-              <div className="absolute -bottom-5 -right-5 w-16 h-16 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-xl animate-float-delayed"></div>
+              <div className="absolute -top-5 -left-5 sm:-top-10 sm:-left-10 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-xl animate-float"></div>
+              <div className="absolute -bottom-5 -right-5 sm:-bottom-5 sm:-right-5 w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-xl animate-float-delayed"></div>
 
               {/* Phone Container */}
-              <div className="relative w-80 md:w-96 h-full">
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-[3rem] shadow-2xl shadow-purple-500/20 backdrop-blur-sm border border-white/10 transform rotate-3 scale-105"></div>
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/5 to-pink-600/5 rounded-[2.5rem] shadow-2xl overflow-hidden border border-white/10">
+              <div className="relative w-64 sm:w-80 md:w-96 h-full">
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-[2rem] sm:rounded-[3rem] shadow-xl sm:shadow-2xl shadow-purple-500/20 backdrop-blur-sm border border-white/10 transform rotate-3 scale-105"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/5 to-pink-600/5 rounded-[1.8rem] sm:rounded-[2.5rem] shadow-xl sm:shadow-2xl overflow-hidden border border-white/10">
                   <Image
                     src={rtl ? phonneAr : phonneFr}
                     alt="Depogro App"
                     layout="fill"
-                    className="object-cover rounded-[2.5rem] transform hover:scale-105 transition-transform duration-700"
+                    className="object-cover rounded-[1.8rem] sm:rounded-[2.5rem] transform hover:scale-105 transition-transform duration-700"
                     priority
                   />
                 </div>
 
                 {/* Reflection Effect */}
-                <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/5 to-transparent rounded-t-[2.5rem] pointer-events-none"></div>
+                <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/5 to-transparent rounded-t-[1.8rem] sm:rounded-t-[2.5rem] pointer-events-none"></div>
               </div>
             </motion.div>
           </div>
@@ -278,7 +278,7 @@ export default function Home() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 1 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden sm:block"
         >
           <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
             <motion.div
@@ -292,7 +292,7 @@ export default function Home() {
 
 
       {/* About Section */}
-      <section id="about" className="relative py-20 p-10 bg-gradient-to-br from-gray-50 via-white to-purple-50/30 overflow-hidden">
+      <section id="about" className="relative py-20  bg-gradient-to-br from-gray-50 via-white to-purple-50/30 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-24 -right-24 w-96 h-96 bg-gradient-to-r from-purple-600/5 to-pink-600/5 rounded-full blur-3xl"></div>
@@ -476,7 +476,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="relative py-20 p-10 bg-gradient-to-br from-gray-50 via-white to-purple-50/30 overflow-hidden">
+      <section id="services" className="relative  bg-gradient-to-br from-white via-gray-50 to-purple-50/30 overflow-hidden">
 
         {/* Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
@@ -586,7 +586,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="marketplace" className="relative py-32 bg-gradient-to-br from-white via-gray-50 to-purple-50/30 overflow-hidden">
+      <section id="marketplace" className="relative py-20 bg-gradient-to-br from-white via-gray-50 to-purple-50/30 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-0 left-0 w-72 h-72 bg-gradient-to-r from-purple-600/5 to-pink-600/5 rounded-full blur-3xl"></div>
@@ -805,7 +805,7 @@ export default function Home() {
                       <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
                         <Target className="w-4 h-4 text-white" />
                       </div>
-                      <h4 className="text-2xl font-semibold text-gray-900">Rôle du Marketplace</h4>
+                      <h4 className="text-2xl font-semibold text-gray-900">{t.MARKETPLACE.mission3}</h4>
                     </div>
                     <p className="text-lg text-gray-700 leading-relaxed font-light pl-11">
                       {t.MARKETPLACE.role}
@@ -823,7 +823,7 @@ export default function Home() {
                       <div className="w-8 h-8 bg-gradient-to-r from-green-600 to-blue-600 rounded-lg flex items-center justify-center">
                         <Zap className="w-4 h-4 text-white" />
                       </div>
-                      <h4 className="text-2xl font-semibold text-gray-900">Avantages</h4>
+                      <h4 className="text-2xl font-semibold text-gray-900">{t.MARKETPLACE.mission3}</h4>
                     </div>
                     <ul className="space-y-3 text-lg text-gray-700 pl-11">
                       {[
@@ -855,16 +855,8 @@ export default function Home() {
 
 
 
-
-
-
-
-
-
-
-
       {/* Produit Section */}
-      <section id="produit" className="relative py-32 bg-gradient-to-br from-[#1a0f2e] via-[#2d1b4e] to-[#3d2b63] overflow-hidden">
+      <section id="produit" className="relative py-20 bg-gradient-to-br from-[#1a0f2e] via-[#2d1b4e] to-[#3d2b63] overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-24 -right-24 w-96 h-96 bg-gradient-to-r from-purple-600/10 to-pink-600/10 rounded-full blur-3xl"></div>
@@ -1151,34 +1143,10 @@ export default function Home() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       {/* Brands Section */}
       <BrandsCarousel brands={brands} t={t} />
       {/* Contact Section */}
-      <section id="contact" className="relative py-32 bg-gradient-to-br from-white via-gray-50 to-purple-50/30 overflow-hidden  p-10 ">
+      <section id="contact" className="relative py-20 bg-gradient-to-br from-white via-gray-50 to-purple-50/30 overflow-hidden  p-10 ">
         {/* Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-r from-purple-600/5 to-pink-600/5 rounded-full blur-3xl"></div>

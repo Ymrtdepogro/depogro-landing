@@ -72,36 +72,36 @@ export function Navbar() {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-        isScrolled
-          ? "bg-white/90 backdrop-blur-xl shadow-2xl shadow-purple-500/10 border-b border-gray-100/20"
-          : "bg-transparent"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white shadow-lg shadow-gray-200/50 border-b border-gray-100"
       )}
     >
       <div className="absolute inset-0 bg-gradient-to-r from-purple-600/5 via-blue-600/5 to-pink-600/5 pointer-events-none" />
 
-      <div className="container mx-auto px-6 py-3 relative">
+      <div className="container mx-auto px-4 sm:px-6 py-3 relative">
         <div className="flex items-center justify-between">
           {/* Branding */}
-          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="flex items-center space-x-3">
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }} 
+            animate={{ opacity: 1, x: 0 }} 
+            className="flex items-center space-x-2 sm:space-x-3"
+          >
             <button
               onClick={() => handleNavClick("#home")}
-              className="flex items-center space-x-3 group"
+              className="flex items-center space-x-2 sm:space-x-3 group"
             >
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur-md opacity-75 group-hover:opacity-100 transition-opacity duration-300" />
                 <Image
                   src={depoo}
                   alt="Store Icon"
-                  width={32}
-                  height={32}
-                  className="relative z-10 object-contain"
+                  width={28}
+                  height={28}
+                  className="relative z-10 object-contain w-7 h-7 sm:w-8 sm:h-8"
                 />
               </div>
               <span
                 className={cn(
-                  "text-2xl font-bold tracking-tight bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent",
-                  isScrolled ? "text-gray-900" : "text-gray-700 hover:text-purple-600"
+                  "text-xl sm:text-2xl font-bold tracking-tight bg-gradient-to-r from-purple-600 to-[#f37c50] bg-clip-text text-transparent"
                 )}
               >
                 DEPOGRO
@@ -112,18 +112,19 @@ export function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">
             {navigation.map((item, index) => (
-              <motion.div key={item.name} initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }}>
+              <motion.div 
+                key={item.name} 
+                initial={{ opacity: 0, y: -10 }} 
+                animate={{ opacity: 1, y: 0 }} 
+                transition={{ delay: index * 0.1 }}
+              >
                 <button
                   onClick={() => handleNavClick(item.href)}
                   className={cn(
-                    "relative px-4 py-2 text-sm font-semibold transition-all duration-300 rounded-lg",
-                    isScrolled
-                      ? activeSection === item.href.replace("#", "")
-                        ? "text-purple-600"
-                        : "text-gray-700 hover:text-purple-600"
-                      : activeSection === item.href.replace("#", "")
-                        ? "text-purple-600"
-                        : "text-gray-700 hover:text-purple-600"
+                    "relative px-3 py-2 text-sm font-semibold transition-all duration-300 rounded-lg",
+                    activeSection === item.href.replace("#", "")
+                      ? "text-purple-600"
+                      : "text-gray-700 hover:text-purple-600"
                   )}
                 >
                   {t[item.name]}
@@ -145,19 +146,25 @@ export function Navbar() {
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="px-6 py-2.5 bg-[#f37c50] text-white rounded-xl font-semibold shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/30 transition-all duration-300 hover:from-purple-700 hover:to-pink-700"
+              className="px-4 py-2 sm:px-6 sm:py-2.5 bg-[#f37c50] text-white rounded-lg sm:rounded-xl font-semibold shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/30 transition-all duration-300 hover:from-purple-700 hover:to-pink-700 text-sm sm:text-base"
               onClick={() => window.open("https://marketplace.depogro.com/", "_blank")}
             >
               {j.MARKETPLACE.learnMoreSite}
             </motion.button>
 
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="relative">
+            <motion.div 
+              initial={{ opacity: 0 }} 
+              animate={{ opacity: 1 }} 
+              className="relative"
+            >
               <Select value={language} onValueChange={(value) => setLanguage(value as Language)}>
-                <SelectTrigger className={cn("w-32 bg-transparent border-none shadow-none focus:ring-0", isScrolled ? "text-gray-700" : "text-gray-700 hover:text-purple-600")}>
+                <SelectTrigger className={cn(
+                  "w-28 sm:w-32 bg-transparent border-none shadow-none focus:ring-0 text-gray-700 hover:text-purple-600"
+                )}>
                   <div className="flex items-center space-x-2">
-                    <Globe className="h-4 w-4" />
+                    <Globe className="h-3 w-3 sm:h-4 sm:w-4" />
                     <SelectValue placeholder="Language" />
-                    <ChevronDown className="h-4 w-4 opacity-50" />
+                    <ChevronDown className="h-3 w-3 sm:h-4 sm:w-4 opacity-50" />
                   </div>
                 </SelectTrigger>
                 <SelectContent className="bg-white/95 backdrop-blur-xl border border-gray-200/50 shadow-2xl">
@@ -169,20 +176,57 @@ export function Navbar() {
             </motion.div>
           </div>
 
-          {/* Mobile Menu Button */}
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className={cn(
-              "lg:hidden p-3 rounded-xl border transition-all duration-300",
-              isScrolled
-                ? "bg-white/80 backdrop-blur-sm border-gray-200 text-gray-700 hover:bg-white"
-                : "bg-white/10 backdrop-blur-sm border-white/20 text-gray-700 hover:text-purple-600 hover:bg-white/20"
-            )}
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </motion.button>
+          {/* Mobile Actions */}
+          <div className="flex lg:hidden items-center space-x-2">
+            {/* Language Selector - Mobile */}
+            <motion.div 
+              initial={{ opacity: 0 }} 
+              animate={{ opacity: 1 }}
+              className="sm:hidden"
+            >
+              <Select value={language} onValueChange={(value) => setLanguage(value as Language)}>
+                <SelectTrigger className={cn(
+                  "w-20 bg-transparent border-none shadow-none focus:ring-0 p-2 text-gray-700 hover:text-purple-600"
+                )}>
+                  <div className="flex items-center space-x-1">
+                    <Globe className="h-3 w-3" />
+                    <SelectValue placeholder="Lang" />
+                  </div>
+                </SelectTrigger>
+                <SelectContent className="bg-white/95 backdrop-blur-xl border border-gray-200/50 shadow-2xl">
+                  <SelectItem value="en">🇺🇸 EN</SelectItem>
+                  <SelectItem value="fr">🇫🇷 FR</SelectItem>
+                  <SelectItem value="ar">🇸🇦 AR</SelectItem>
+                </SelectContent>
+              </Select>
+            </motion.div>
+
+            {/* Marketplace Button - Tablet */}
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="hidden sm:flex px-4 py-2 bg-[#f37c50] text-white rounded-lg font-semibold shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/30 transition-all duration-300 text-sm"
+              onClick={() => window.open("https://marketplace.depogro.com/", "_blank")}
+            >
+              {j.MARKETPLACE.learnMoreSite}
+            </motion.button>
+
+            {/* Mobile Menu Button */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className={cn(
+                "p-2 sm:p-3 rounded-lg sm:rounded-xl border transition-all duration-300 bg-white/80 backdrop-blur-sm border-gray-200 text-gray-700 hover:bg-white"
+              )}
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? (
+                <X className="h-5 w-5 sm:h-6 sm:w-6" />
+              ) : (
+                <Menu className="h-5 w-5 sm:h-6 sm:w-6" />
+              )}
+            </motion.button>
+          </div>
         </div>
       </div>
 
@@ -193,10 +237,11 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-gray-200/50 shadow-2xl overflow-hidden"
+            className="lg:hidden bg-white border-t border-gray-200 shadow-2xl overflow-hidden"
           >
-            <div className="container mx-auto px-6 py-6">
-              <div className="flex justify-center mb-6">
+            <div className="container mx-auto px-4 sm:px-6 py-4 sm:py-6">
+              {/* Language Selector - Mobile Menu */}
+              <div className="flex justify-center mb-4 sm:mb-6">
                 <Select value={language} onValueChange={(value) => setLanguage(value as Language)}>
                   <SelectTrigger className="w-full max-w-xs bg-white border-gray-300">
                     <div className="flex items-center space-x-2">
@@ -212,13 +257,18 @@ export function Navbar() {
                 </Select>
               </div>
 
+              {/* Navigation Links */}
               <div className="space-y-2">
                 {navigation.map((item) => (
-                  <motion.div key={item.name} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
+                  <motion.div 
+                    key={item.name} 
+                    initial={{ opacity: 0, x: -20 }} 
+                    animate={{ opacity: 1, x: 0 }}
+                  >
                     <button
                       onClick={() => handleNavClick(item.href)}
                       className={cn(
-                        "block w-full text-left px-4 py-3 rounded-xl font-medium transition-all duration-300",
+                        "block w-full text-left px-4 py-3 rounded-xl font-medium transition-all duration-300 text-sm sm:text-base",
                         activeSection === item.href.replace("#", "")
                           ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-500/25"
                           : "text-gray-700 hover:bg-gray-100/50"
@@ -230,11 +280,12 @@ export function Navbar() {
                 ))}
               </div>
 
+              {/* Marketplace Button - Mobile Menu */}
               <motion.button
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="w-full mt-6 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl font-semibold shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/30 transition-all duration-300"
+                className="w-full mt-4 sm:mt-6 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl font-semibold shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/30 transition-all duration-300 text-sm sm:text-base"
                 onClick={() => {
                   window.open("https://marketplace.depogro.com/", "_blank");
                   setIsOpen(false);
