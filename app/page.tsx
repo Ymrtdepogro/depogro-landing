@@ -183,7 +183,7 @@ export default function Home() {
               <p
                 className={`text-xl md:text-2xl text-purple-100/90 mb-12 ml-20 leading-relaxed font-light max-w-2xl ${rtl ? "text-right ml-auto" : ""}`}
               >
-                {t.hero.subtitle || t.header.description}
+                {t.header.description}
               </p>
 
               <div className={`flex flex-col sm:flex-row ${rtl ? "sm:flex-row-reverse" : ""} gap-5 ml-20`}>
@@ -315,9 +315,7 @@ export default function Home() {
               className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-lg shadow-purple-500/5 mb-8"
             >
               <div className="w-2 h-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full animate-pulse"></div>
-              <span className="text-sm font-semibold text-transparent bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text">
-                {t.about?.subtitle || t.about?.subtitle}
-              </span>
+             
             </motion.div>
 
             <h2 className="text-5xl md:text-4xl font-bold mb-8 bg-gradient-to-r from-gray-900 to-purple-900 bg-clip-text text-transparent leading-tight">
@@ -501,9 +499,7 @@ export default function Home() {
               className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-lg shadow-purple-500/5 mb-8"
             >
               <div className="w-2 h-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full animate-pulse"></div>
-              <span className="text-sm font-semibold text-transparent bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text">
-                {t.services?.subtitle || t.services?.subtitle}
-              </span>
+             
             </motion.div>
 
             <h2 className="text-3xl md:text-4xl font-bold mb-8 bg-gradient-to-r from-gray-900 to-purple-900 bg-clip-text text-transparent leading-tight">

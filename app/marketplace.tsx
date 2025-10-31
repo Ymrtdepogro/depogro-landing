@@ -19,7 +19,7 @@ import phonear from "@/assets/phonear.png";
 import { isRTL } from "@/lib/utils";
 import { BrandsCarousel } from "../components/BrandsCarousel";
 
-export default function market() {
+export default function Market() {
   const brands = [
     {
       id: 0,
